@@ -59,19 +59,77 @@ NODE_PATH="C:/Users/q2764/.workbuddy/binaries/node/workspace/node_modules" node 
 
 ---
 
-## 路线二：Mac 上编译原生 App（Capacitor + Xcode）
+## 路线二：真正的 iOS App（装在本地运行）
 
-> 本机为 Windows，跑不了 Xcode，此路线需要一台 Mac（或云 Mac）。
+这条路产出的**不是网页，是真正的 iOS App** —— 桌面有自己的图标、完全离线、
+数据存在 App 自己的沙盒里，体验跟安卓那边一致。
+
+**先说三个事实，免得白折腾：**
+
+| 事实 | 说明 |
+|---|---|
+| **编译不需要 Mac** | 用 GitHub 的免费 macOS 机器（`.github/workflows/ios.yml`），push 后自动出**未签名 IPA** |
+| **装进手机必须自己签名** | 用你自己的 Apple ID 签，Windows 上就能做（Sideloadly）。凭证不经过第三方 |
+| **免费账号签的 App 7 天失效** | 到期点图标会闪退，要用同一台电脑重签一次（约 1 分钟，数据不丢） |
+
+> 想彻底免掉「7 天重签」，只有 Apple 开发者账号（$99/年，走 TestFlight 分发，1 年有效）。
+> iOS 不像安卓能随便装 APK —— 这是苹果的规则，绕不过去。
+
+### 第一步：拿到未签名 IPA
+
+已经自动构建好了，直接下载：
+
+- **Release 页面**：<https://github.com/tianyoufeng/zuocai-app/releases> → 最新的 `chishenme-ios-unsigned.ipa`
+- **Actions 页面**：workflow `Build iOS App (unsigned IPA)` → Artifacts
+
+想自己重编：改了 `src/` 后 push 到 main 就会自动跑（约 8 分钟）。
+
+### 第二步：Windows 上准备两样东西
+
+1. **iTunes**（或 Microsoft Store 里的「Apple 设备」App）—— 装它是为了拿到 iPhone 驱动
+2. **Sideloadly** —— <https://sideloadly.io/> 下载安装
+
+然后 iPhone 用数据线连电脑，手机上点「信任此电脑」。
+
+### 第三步：签名并安装
+
+1. 打开 Sideloadly，顶部设备选到你的 iPhone
+2. 把 `chishenme-ios-unsigned.ipa` 拖进中间的 IPA 框
+3. **Apple ID** 填你自己的（普通账号就行，不需要开发者账号）
+4. 点 **Start**，按提示输入 Apple ID 密码（这一步是向 Apple 换取签名证书）
+5. 手机上：**设置 → 通用 → VPN 与设备管理 → 开发者 App → 信任**
+6. 回到桌面，就有「今天吃什么」了
+
+### 第四步：7 天后重签
+
+免费签名的有效期是 **7 天**，到期后点图标会闪退。重签只要用 Sideloadly
+重新拖一次同一个 IPA、再 Start 一遍。
+
+**不要先删 App**，直接覆盖安装 —— 收藏和历史记录都会保留。
+
+> 懒人方案：用 **AltStore + AltServer**。AltServer 常驻你的电脑，
+> 手机和电脑在同一 Wi-Fi 下会自动后台续签，不用手动操作。代价是电脑得常开着。
+
+### 和 PWA 那条路有什么不一样？
+
+- 图标、启动画面、竖屏锁定，与安卓版一致
+- Bundle ID `com.tianyoufeng.chishenme`，版本 3.1.0（31）
+- 数据存在 App 自己的沙盒里，清理 Safari 不会影响它
+- 完全离线：没有任何网络权限
+
+---
+
+### 附：有 Mac 的话，也可以手动编
+
 > 前端代码（src/）与 Android 完全同一份，无需改动。
-> ⚠️ 用免费 Apple ID 签名的话，App **每 7 天过期**，要重新连 Mac 装一次；
-> 想长期用要么买开发者账号（$99/年），要么走上面的 PWA。
+> 有 Mac 就能直接在 Xcode 里跑真机 / Archive，比 Sideloadly 省事。
 
-## 前提
+#### 前提
 
 - Mac 一台（macOS 13+），App Store 安装 **Xcode 15+**
 - Apple ID（免费账号可真机调试；上架 App Store 需 $99/年 开发者账号）
 
-## 一、生成 Capacitor iOS 工程
+#### 一、生成 Capacitor iOS 工程
 
 ```bash
 # 1. 把仓库 clone 或复制到 Mac（含 src/、package.json、capacitor.config.json）

@@ -14,7 +14,7 @@
 | 菜谱数量 | **680 道**（家常菜 200 / 主食 80 / 汤羹 70 / 早餐 50 / 凉菜 50 / 夜宵 50 / **粤菜 60 / 川菜 60 / 湘菜 60**） |
 | 选购数据 | **680 条** —— 每道菜的主要食材都有「怎么挑」，另配 2~4 条新手提示 |
 | 图片 | **680 张，覆盖率 100%**（无占位块）。WebP，长边 800 / 单张 30~50KB，共 28.7MB |
-| 安装包 | **Android**：[Releases](https://github.com/tianyoufeng/zuocai-app/releases) 下载 APK（33MB）<br>**iPhone / iPad**：Safari 打开 <https://tianyoufeng.github.io/zuocai-app/> → 分享 → 添加到主屏幕 |
+| 安装包 | **Android**：下载 `chishenme-v3.1.0.apk`（32MB）<br>**iPhone / iPad**：下载 `chishenme-ios-unsigned.ipa`（33MB），用 Sideloadly 拿自己的 Apple ID 自签安装<br>**不想折腾签名**：Safari 打开 <https://tianyoufeng.github.io/zuocai-app/> → 添加到主屏幕（PWA） |
 | 权限 | **零权限**（Manifest 不含 INTERNET 等任何权限） |
 | 存储 | 菜谱数据打包内置；收藏 / 历史 / 偏好 / 份量用 IndexedDB，仅存本机 |
 | 最低系统 | Android 8.0 (API 26) / iOS 14 |
@@ -26,11 +26,17 @@
 - **Android 安装**：从 [Releases](https://github.com/tianyoufeng/zuocai-app/releases) 下载
   `chishenme-v3.0.0.apk`（或直接用本机 `dist/chishenme-v3.0.0.apk`）传到手机安装
   （需允许「安装未知应用」，Play Protect 提示点「仍然安装」）。
-- **iPhone / iPad 安装**：用 **Safari** 打开上面的在线地址 → 点「分享」→
-  「添加到主屏幕」。全屏无地址栏、观感与原生一致；首次联网缓存后即可离线使用。
-  详见 `docs/ios-build-guide.md` 路线一（含已知限制）。
+- **iPhone / iPad 安装（真 App，装在本地）**：从
+  [Releases](https://github.com/tianyoufeng/zuocai-app/releases) 下载 `chishenme-ios-unsigned.ipa`，
+  在 Windows 上用 **Sideloadly** 拿自己的 Apple ID 签名安装 ——
+  桌面独立图标、完全离线、数据存在 App 沙盒里（清理 Safari 不影响）。
+  注意：免费 Apple ID 签名 **7 天后失效**，到期用同一台电脑重签一次即可（数据不丢）。
+  完整步骤见 `docs/ios-build-guide.md` 路线二。
+- **不想折腾签名**：Safari 打开 <https://tianyoufeng.github.io/zuocai-app/> →「分享」→
+  「添加到主屏幕」（PWA；见 ios 指南路线一，含已知限制）。
 - **重新打包 APK**：见 `docs/apk-build-guide.md`（可复制即用）。
-- **编 iOS 原生 App**：见 `docs/ios-build-guide.md` 路线二（需 Mac；免费 Apple ID 签名 7 天过期）。
+- **自己重编 iOS 包**：改了 `src/` 后 push 到 main，GitHub 会自动在**免费 macOS 机器**上重编
+  （`.github/workflows/ios.yml`）—— 不需要 Mac。
 
 ## 三、能帮上忙的地方
 
@@ -95,7 +101,10 @@ zuocai-app/                        （本目录，GitHub 仓库根）
 ├── dist/                          chishenme-v3.0.0.apk + 中文名副本
 │                                  （*.apk 不入库 —— 安装包走 GitHub Releases）
 ├── docs/                          APK / iOS 打包文档
-├── .github/workflows/pages.yml    push 到 main 时自动把 src/ 发布到 GitHub Pages
+├── .github/workflows/
+│   ├── pages.yml                  push 到 main 时自动把 src/ 发布到 GitHub Pages
+│   └── ios.yml                    push 到 main 时在免费 macOS 机器上编出未签名 IPA
+├── resources/                     iOS 图标（1024）与启动图（2732）源图
 ├── package.json · capacitor.config.json
 ├── _raw/                          ImageGen 原图 435 张（本轮新增图，构建时压缩入库）
 └── archive/v2.0/                  v2.0 完整快照（含当时的 65 张原图）

@@ -35,6 +35,18 @@
 - `validate-data.js` 新增**选购数据覆盖校验**：每个分类的 pick 文件必须覆盖该分类全部菜谱
 - Service Worker 预缓存清单补上 3 个新分类与 9 个 pick 文件
 
+### iOS 支持（真正的 App，装在本地运行）
+- 新增 `.github/workflows/ios.yml`：push 到 main 后在 GitHub 的**免费 macOS 机器**上
+  自动生成 Capacitor iOS 工程并编出**未签名 IPA** —— 不需要 Mac，也不需要开发者账号
+- 新增 `resources/`（1024 图标 + 2732 启动图）与 `tools/make_ios_assets.py`
+- IPA 规格与 Android 对齐：版本 **3.1.0（31）**、显示名「今天吃什么」、
+  **锁竖屏**（iPhone / iPad 都只留 Portrait）、680 张配图全打包、Bundle ID 一致
+- 安装：Windows 上用 **Sideloadly** 拿自己的 Apple ID 签名安装。
+  免费账号签的 App **7 天后失效**，到期用同一台电脑重签一次（数据不丢）；
+  想免掉重签只能买 Apple 开发者账号（$99/年，走 TestFlight）。
+  完整步骤见 `docs/ios-build-guide.md` 路线二
+- 原来的 PWA（路线一）保留，作为「不想折腾签名」时的备选
+
 ### 校验
 - 数据：**680 道 · 有图 680 道 · 选购数据 680 条 · 0 错误**
 - 静态一致性 6/6 · 端到端浏览器自检（新增选购要点与小技巧的断言）
