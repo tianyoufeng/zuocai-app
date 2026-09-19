@@ -80,7 +80,7 @@ if (!dupVb) ok('SVG viewBox 无重复');
 
 /* ---------- 5. 状态字段核对 ---------- */
 const stateFields = new Set(['prefs', 'avoid', 'history', 'favs', 'filter', 'cat', 'query',
-  'serve', 'serveOf', 'goal', 'current', 'step', 'recipeSteps', 'recipeIngs']);
+  'serve', 'serveOf', 'goal', 'current', 'step', 'recipeSteps', 'recipeIngs', 'recipePicks']);
 const stRefs = new Set();
 for (const m of allText.matchAll(/st(?:ate)?\.([a-zA-Z_]\w*)/g)) {
   if (stateFields.has(m[1]) || ['favs'].includes(m[1])) stRefs.add(m[1]);

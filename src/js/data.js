@@ -41,6 +41,27 @@
     return pending[cat];
   }
 
+  /* 选购与新手提示（v3.1）：data/pick-{cat}.js → window.PICKS[cat] = { 菜谱id: {pick, tips} } */
+  const PICKS = window.PICKS = window.PICKS || {};
+  const pendingPick = {};
+
+  function ensurePicks(cat) {
+    if (PICKS[cat]) return Promise.resolve(PICKS[cat]);
+    if (!pendingPick[cat]) {
+      pendingPick[cat] = loadScript('data/pick-' + cat + '.js')
+        .then(() => { if (!PICKS[cat]) PICKS[cat] = {}; return PICKS[cat]; })
+        .catch(() => { PICKS[cat] = PICKS[cat] || {}; return PICKS[cat]; });
+    }
+    return pendingPick[cat];
+  }
+
+  /* 取某道菜的选购要点与新手提示（懒加载对应分类） */
+  function picksOf(id) {
+    const s = INDEX[id];
+    if (!s) return Promise.resolve(null);
+    return ensurePicks(s.cat).then(m => m[id] || null);
+  }
+
   /* 从摘要定位分类 */
   const INDEX = {};
   (window.MANIFEST.items || []).forEach(it => { INDEX[it.id] = it; });
@@ -64,5 +85,5 @@
   function allItems() { return window.MANIFEST.items || []; }
   function categories() { return window.MANIFEST.categories || []; }
 
-  window.DATA = { ensureCat, get, summary, imgOf, catLabel, allItems, categories };
+  window.DATA = { ensureCat, get, summary, imgOf, catLabel, allItems, categories, ensurePicks, picksOf };
 })();

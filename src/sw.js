@@ -10,7 +10,7 @@
    ============================================================ */
 'use strict';
 
-const VERSION = '3.0.0';
+const VERSION = '3.1.0';
 const CACHE = 'chishenme-' + VERSION;
 const IMG_CACHE = CACHE + '-img';
 
@@ -41,6 +41,18 @@ const CORE = [
   './data/liangcai.js',
   './data/zaocan.js',
   './data/yexiao.js',
+  './data/yuecai.js',
+  './data/chuancai.js',
+  './data/xiangcai.js',
+  './data/pick-jiachangcai.js',
+  './data/pick-tanggeng.js',
+  './data/pick-zhushi.js',
+  './data/pick-liangcai.js',
+  './data/pick-zaocan.js',
+  './data/pick-yexiao.js',
+  './data/pick-yuecai.js',
+  './data/pick-chuancai.js',
+  './data/pick-xiangcai.js',
   './assets/icons/icon-180.png',
   './assets/icons/icon-192.png',
   './assets/icons/icon-512.png'

@@ -1,6 +1,6 @@
 {
   "name": "zuocai-app",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "今天吃什么 · 本地离线菜谱 App（Capacitor 打包）",
   "private": true,
   "scripts": {

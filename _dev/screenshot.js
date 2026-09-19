@@ -48,6 +48,7 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
   });
   const page = await browser.newPage();
   await page.setViewport({ width: 390, height: 844, isMobile: true, hasTouch: true });
+  await page.emulateMediaFeatures([{ name: 'prefers-color-scheme', value: 'light' }]);
   await page.goto(`http://127.0.0.1:${PORT}/`, { waitUntil: 'networkidle0' });
   await sleep(700);
 
@@ -70,6 +71,14 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
   await page.waitForFunction(() => document.querySelectorAll('#ing-card .ing-row').length > 1, { timeout: 8000 });
   await sleep(600);
   await shot('3-detail.png');
+
+  /* 滚到底看「新手小技巧」卡片 */
+  await page.evaluate(() => {
+    const c = document.querySelector('.screen.is-active .content');
+    if (c) c.scrollTop = c.scrollHeight;
+  });
+  await sleep(500);
+  await shot('3b-detail-tips.png');
 
   /* 份量 4 人份的样子 */
   await page.click('[data-dserve="1"]');

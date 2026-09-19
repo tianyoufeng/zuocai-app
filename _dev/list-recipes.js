@@ -10,7 +10,7 @@ const vm = require('vm');
 
 const ROOT = path.resolve(__dirname, '..');
 const DATA_DIR = path.join(ROOT, 'src', 'data');
-const CATS = ['jiachangcai', 'tanggeng', 'zhushi', 'liangcai', 'zaocan', 'yexiao'];
+const CATS = ['jiachangcai', 'tanggeng', 'zhushi', 'liangcai', 'zaocan', 'yexiao', 'yuecai', 'chuancai', 'xiangcai'];
 
 const onlyIds = process.argv.includes('--ids');
 const showTags = process.argv.includes('--tags');

@@ -16,7 +16,7 @@ const DATA_DIR = path.join(ROOT, 'src', 'data');
 const IMG_DIR = path.join(ROOT, 'src', 'assets', 'images');
 const allowMissing = process.argv.includes('--allow-missing-images');
 
-const CATS = ['jiachangcai', 'tanggeng', 'zhushi', 'liangcai', 'zaocan', 'yexiao'];
+const CATS = ['jiachangcai', 'tanggeng', 'zhushi', 'liangcai', 'zaocan', 'yexiao', 'yuecai', 'chuancai', 'xiangcai'];
 const DIFFS = ['简单', '中等', '进阶'];
 
 function loadCat(key) {
@@ -75,5 +75,27 @@ else {
   for (const id of seenId) if (!mids.has(id)) err(`manifest 缺少: ${id}`);
 }
 
-console.log(`\n合计 ${total} 道 · 有图 ${withImg} 道 · ${errors ? `发现 ${errors} 个问题` : '校验通过'}`);
+/* ---------- 选购数据校验（v3.1）：data/pick-{cat}.js 必须覆盖该分类全部菜谱 ---------- */
+let pickTotal = 0, pickMiss = 0;
+for (const cat of CATS) {
+  const pfp = path.join(DATA_DIR, 'pick-' + cat + '.js');
+  if (!fs.existsSync(pfp)) { err(`缺少选购数据 data/pick-${cat}.js`); pickMiss++; continue; }
+  const psb = { window: {} };
+  vm.createContext(psb);
+  vm.runInContext(fs.readFileSync(pfp, 'utf8'), psb);
+  const map = ((psb.window || {}).PICKS || {})[cat] || {};
+  const ids = loadCat(cat).map(r => r.id);
+  const miss = ids.filter(id => !map[id]);
+  if (miss.length) {
+    pickMiss += miss.length;
+    err(`pick-${cat}: 缺 ${miss.length} 道（${miss.slice(0, 5).join(', ')}）`);
+  }
+  const bad = Object.entries(map).filter(([, v]) =>
+    !v || !Array.isArray(v.pick) || !v.pick.length || !Array.isArray(v.tips) || !v.tips.length);
+  if (bad.length) err(`pick-${cat}: ${bad.length} 条缺 pick 或 tips`);
+  pickTotal += Object.keys(map).length;
+}
+if (!pickMiss) ok(`选购数据覆盖 ${pickTotal} 道`);
+
+console.log(`\n合计 ${total} 道 · 有图 ${withImg} 道 · 选购数据 ${pickTotal} 条 · ${errors ? `发现 ${errors} 个问题` : '校验通过'}`);
 process.exit(errors ? 1 : 0);

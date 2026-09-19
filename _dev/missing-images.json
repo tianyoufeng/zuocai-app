@@ -1,410 +1,119 @@
 [
  {
-  "id": "laziji",
-  "name": "辣子鸡",
-  "cat": "jiachangcai",
-  "main": "鸡腿肉、干辣椒、花椒、姜、大蒜",
+  "id": "shaoe",
+  "name": "烧鹅",
+  "cat": "yuecai",
+  "main": "光鹅、五香粉、盐、白糖、生抽",
   "tags": [
-   "辣",
-   "下饭",
-   "硬菜"
-  ]
- },
- {
-  "id": "banli-shaoji",
-  "name": "板栗烧鸡",
-  "cat": "jiachangcai",
-  "main": "鸡腿肉、去壳板栗、姜、大葱、生抽",
-  "tags": [
-   "下饭",
-   "家常",
-   "硬菜"
-  ]
- },
- {
-  "id": "yanjuji",
-  "name": "盐焗鸡",
-  "cat": "jiachangcai",
-  "main": "三黄鸡、盐焗粉、姜、大葱、料酒",
-  "tags": [
-   "家常",
    "硬菜",
-   "暖胃"
-  ]
- },
- {
-  "id": "chizhi-zhengjichi",
-  "name": "豉汁蒸鸡翅",
-  "cat": "jiachangcai",
-  "main": "鸡中翅、豆豉、蒜、姜、生抽",
-  "tags": [
-   "快手",
-   "清淡",
-   "家常"
-  ]
- },
- {
-  "id": "jiaoyan-jichi",
-  "name": "椒盐鸡翅",
-  "cat": "jiachangcai",
-  "main": "鸡中翅、椒盐粉、料酒、生抽、鸡蛋",
-  "tags": [
-   "快手",
-   "下饭"
-  ]
- },
- {
-  "id": "zuozongtang-ji",
-  "name": "左宗棠鸡",
-  "cat": "jiachangcai",
-  "main": "鸡腿肉、鸡蛋、干辣椒、蒜、番茄酱",
-  "tags": [
-   "下饭",
-   "甜",
-   "硬菜"
-  ]
- },
- {
-  "id": "zhaoshao-jitui",
-  "name": "照烧鸡腿",
-  "cat": "jiachangcai",
-  "main": "鸡腿、生抽、味淋、白糖、料酒",
-  "tags": [
-   "下饭",
-   "甜",
-   "家常"
-  ]
- },
- {
-  "id": "chonghuahua-zhengji",
-  "name": "虫草花蒸鸡",
-  "cat": "jiachangcai",
-  "main": "鸡腿肉、虫草花、红枣、姜、生抽",
-  "tags": [
-   "清淡",
-   "养生",
-   "家常"
-  ]
- },
- {
-  "id": "ganguo-ji",
-  "name": "干锅鸡",
-  "cat": "jiachangcai",
-  "main": "鸡腿肉、土豆、干辣椒、花椒、大蒜",
-  "tags": [
-   "下饭",
-   "辣",
-   "硬菜"
-  ]
- },
- {
-  "id": "chashugu-chaoji",
-  "name": "茶树菇炒鸡",
-  "cat": "jiachangcai",
-  "main": "鸡腿肉、干茶树菇、青红椒、姜蒜、生抽",
-  "tags": [
-   "下饭",
-   "家常"
-  ]
- },
- {
-  "id": "pijiu-jichi",
-  "name": "啤酒鸡翅",
-  "cat": "jiachangcai",
-  "main": "鸡中翅、啤酒、生抽、姜、冰糖",
-  "tags": [
-   "下饭",
-   "家常"
-  ]
- },
- {
-  "id": "hongshao-jichi",
-  "name": "红烧鸡翅",
-  "cat": "jiachangcai",
-  "main": "鸡中翅、冰糖、生抽、老抽、姜",
-  "tags": [
-   "下饭",
-   "甜",
-   "家常"
-  ]
- },
- {
-  "id": "guaiwei-ji",
-  "name": "怪味鸡",
-  "cat": "jiachangcai",
-  "main": "鸡腿、花椒粉、芝麻酱、生抽、香醋",
-  "tags": [
-   "下饭",
-   "硬菜",
+   "家常",
    "重口"
   ]
  },
  {
-  "id": "ningmeng-ji",
-  "name": "柠檬鸡",
-  "cat": "jiachangcai",
-  "main": "鸡腿肉、柠檬、鸡蛋、淀粉、白糖",
+  "id": "mizhi-chashao",
+  "name": "蜜汁叉烧",
+  "cat": "yuecai",
+  "main": "梅花肉、叉烧酱、生抽、蜂蜜、蒜",
   "tags": [
-   "下饭",
-   "家常"
-  ]
- },
- {
-  "id": "jiangbao-jiding",
-  "name": "酱爆鸡丁",
-  "cat": "jiachangcai",
-  "main": "鸡胸肉、甜面酱、黄瓜、大葱、白糖",
-  "tags": [
-   "下饭",
-   "家常"
-  ]
- },
- {
-  "id": "yaoguo-jiding",
-  "name": "腰果鸡丁",
-  "cat": "jiachangcai",
-  "main": "鸡胸肉、熟腰果、黄瓜、胡萝卜、生抽",
-  "tags": [
-   "下饭",
-   "家常"
-  ]
- },
- {
-  "id": "baiguo-jiding",
-  "name": "白果鸡丁",
-  "cat": "jiachangcai",
-  "main": "鸡胸肉、白果、青椒、胡萝卜、生抽",
-  "tags": [
+   "硬菜",
    "家常",
-   "清淡"
+   "甜"
   ]
  },
  {
-  "id": "xianjidanwang-jichi",
-  "name": "咸蛋黄焗鸡翅",
-  "cat": "jiachangcai",
-  "main": "鸡中翅、熟咸蛋黄、料酒、淀粉、食用油",
-  "tags": [
-   "下饭",
-   "硬菜"
-  ]
- },
- {
-  "id": "tangcu-paigu",
-  "name": "糖醋排骨",
-  "cat": "jiachangcai",
-  "main": "猪肋排、冰糖、香醋、生抽、料酒",
-  "tags": [
-   "甜",
-   "下饭",
-   "硬菜"
-  ]
- },
- {
-  "id": "meicai-kourou",
-  "name": "梅菜扣肉",
-  "cat": "jiachangcai",
-  "main": "带皮五花肉、梅干菜、生抽、老抽、冰糖",
+  "id": "cuipi-shaorou",
+  "name": "脆皮烧肉",
+  "cat": "yuecai",
+  "main": "五花肉、盐、五香粉、白醋、粗盐",
   "tags": [
    "硬菜",
-   "下饭",
+   "家常",
+   "重口"
+  ]
+ },
+ {
+  "id": "chiyou-ji",
+  "name": "豉油鸡",
+  "cat": "yuecai",
+  "main": "三黄鸡、生抽、老抽、冰糖、姜",
+  "tags": [
+   "硬菜",
+   "家常",
+   "重口"
+  ]
+ },
+ {
+  "id": "baiqie-qingyuanji",
+  "name": "白切清远鸡",
+  "cat": "yuecai",
+  "main": "清远鸡、姜、沙姜、小葱、生抽",
+  "tags": [
+   "清淡",
+   "硬菜",
+   "家常"
+  ]
+ },
+ {
+  "id": "shaoya",
+  "name": "烧鸭",
+  "cat": "yuecai",
+  "main": "光鸭、五香粉、盐、生抽、麦芽糖",
+  "tags": [
+   "硬菜",
+   "家常",
+   "重口"
+  ]
+ },
+ {
+  "id": "congjiang-ji",
+  "name": "葱姜鸡",
+  "cat": "yuecai",
+  "main": "鸡、姜、小葱、盐、花生油",
+  "tags": [
+   "清淡",
+   "家常",
    "暖胃"
   ]
  },
  {
-  "id": "fenzheng-rou",
-  "name": "粉蒸肉",
-  "cat": "jiachangcai",
-  "main": "带皮五花肉、蒸肉米粉、红薯、生抽、豆瓣酱",
+  "id": "kejia-meicai-kourou",
+  "name": "客家梅菜扣肉",
+  "cat": "yuecai",
+  "main": "五花肉、梅菜、生抽、老抽、冰糖",
   "tags": [
    "硬菜",
-   "家常"
+   "家常",
+   "重口"
   ]
  },
  {
-  "id": "hongshao-shizitou",
-  "name": "红烧狮子头",
-  "cat": "jiachangcai",
-  "main": "猪肉馅、荸荠、鸡蛋、葱姜、生抽",
-  "tags": [
-   "硬菜",
-   "下饭"
-  ]
- },
- {
-  "id": "guobaorou",
-  "name": "锅包肉",
-  "cat": "jiachangcai",
-  "main": "猪里脊、土豆淀粉、胡萝卜、大葱、白醋",
-  "tags": [
-   "甜",
-   "硬菜",
-   "下饭"
-  ]
- },
- {
-  "id": "ruanzha-liji",
-  "name": "软炸里脊",
-  "cat": "jiachangcai",
-  "main": "猪里脊、鸡蛋、面粉、淀粉、料酒",
+  "id": "yutou-menya",
+  "name": "芋头焖鸭",
+  "cat": "yuecai",
+  "main": "鸭、芋头、姜、蒜、生抽",
   "tags": [
    "下饭",
-   "快手"
-  ]
- },
- {
-  "id": "jiaoyan-paitiao",
-  "name": "椒盐排条",
-  "cat": "jiachangcai",
-  "main": "猪小排、鸡蛋、淀粉、椒盐粉、料酒",
-  "tags": [
-   "下饭",
-   "快手"
-  ]
- },
- {
-  "id": "jiang-paigu",
-  "name": "酱排骨",
-  "cat": "jiachangcai",
-  "main": "猪肋排、生抽、老抽、冰糖、甜面酱",
-  "tags": [
-   "下饭",
-   "甜",
-   "硬菜"
-  ]
- },
- {
-  "id": "dongsun-rousi",
-  "name": "冬笋炒肉丝",
-  "cat": "jiachangcai",
-  "main": "猪里脊、冬笋、木耳、生抽、料酒",
-  "tags": [
-   "快手",
-   "下饭",
-   "家常"
-  ]
- },
- {
-  "id": "jiaobai-rousi",
-  "name": "茭白炒肉丝",
-  "cat": "jiachangcai",
-  "main": "猪里脊、茭白、青椒、生抽、料酒",
-  "tags": [
-   "快手",
-   "下饭",
-   "家常"
-  ]
- },
- {
-  "id": "maodou-rousi",
-  "name": "毛豆炒肉丝",
-  "cat": "jiachangcai",
-  "main": "猪里脊、毛豆、红椒、生抽、料酒",
-  "tags": [
-   "快手",
-   "下饭",
-   "家常"
-  ]
- },
- {
-  "id": "zhacai-rousi",
-  "name": "榨菜肉丝",
-  "cat": "jiachangcai",
-  "main": "猪里脊、榨菜、青椒、生抽、料酒",
-  "tags": [
-   "快手",
-   "下饭",
-   "家常"
-  ]
- },
- {
-  "id": "xuecai-rousi",
-  "name": "雪菜肉丝",
-  "cat": "jiachangcai",
-  "main": "猪里脊、雪里蕻、红椒、生抽、料酒",
-  "tags": [
-   "快手",
-   "下饭",
-   "家常"
-  ]
- },
- {
-  "id": "mayi-shangshu",
-  "name": "蚂蚁上树",
-  "cat": "jiachangcai",
-  "main": "红薯粉条、猪肉末、郫县豆瓣酱、蒜、生抽",
-  "tags": [
-   "下饭",
-   "家常"
-  ]
- },
- {
-  "id": "jiachang-doufu",
-  "name": "家常豆腐",
-  "cat": "jiachangcai",
-  "main": "北豆腐、青红椒、木耳、郫县豆瓣酱、生抽",
-  "tags": [
-   "下饭",
-   "家常"
-  ]
- },
- {
-  "id": "guota-doufu",
-  "name": "锅塌豆腐",
-  "cat": "jiachangcai",
-  "main": "北豆腐、鸡蛋、面粉、葱花、生抽",
-  "tags": [
-   "下饭",
-   "家常"
-  ]
- },
- {
-  "id": "fuzhu-shaorou",
-  "name": "腐竹烧肉",
-  "cat": "jiachangcai",
-  "main": "带皮五花肉、干腐竹、冰糖、生抽、老抽",
-  "tags": [
-   "下饭",
-   "硬菜",
-   "家常"
-  ]
- },
- {
-  "id": "sungan-shaorou",
-  "name": "笋干烧肉",
-  "cat": "jiachangcai",
-  "main": "带皮五花肉、笋干、冰糖、生抽、老抽",
-  "tags": [
-   "下饭",
-   "硬菜",
+   "家常",
    "暖胃"
   ]
  },
  {
-  "id": "tudou-shaoniurou",
-  "name": "土豆烧牛肉",
-  "cat": "jiachangcai",
-  "main": "牛腩、土豆、番茄、生抽、冰糖",
+  "id": "chenpi-ya",
+  "name": "陈皮鸭",
+  "cat": "yuecai",
+  "main": "鸭、新会陈皮、姜、生抽、冰糖",
   "tags": [
-   "下饭",
-   "硬菜"
+   "硬菜",
+   "家常",
+   "暖胃"
   ]
  },
  {
-  "id": "luobo-shaopaigu",
-  "name": "萝卜烧排骨",
-  "cat": "jiachangcai",
-  "main": "猪肋排、白萝卜、冰糖、生抽、老抽",
-  "tags": [
-   "下饭",
-   "家常"
-  ]
- },
- {
-  "id": "huangdou-menzhuti",
-  "name": "黄豆焖猪蹄",
-  "cat": "jiachangcai",
-  "main": "猪蹄、干黄豆、生抽、老抽、冰糖",
+  "id": "zhizhi-yangna-bao",
+  "name": "支竹羊腩煲",
+  "cat": "yuecai",
+  "main": "羊腩、支竹（腐竹）、胡萝卜、姜、蒜",
   "tags": [
    "硬菜",
    "暖胃",
@@ -412,4257 +121,1920 @@
   ]
  },
  {
-  "id": "hongshao-zhuti",
-  "name": "红烧猪蹄",
-  "cat": "jiachangcai",
-  "main": "猪蹄、冰糖、生抽、老抽、姜",
+  "id": "gangshi-gulaorou",
+  "name": "港式咕噜肉",
+  "cat": "yuecai",
+  "main": "猪里脊、菠萝、青椒、红椒、番茄酱",
   "tags": [
    "硬菜",
-   "下饭"
+   "下饭",
+   "甜"
   ]
  },
  {
-  "id": "lu-zhuti",
-  "name": "卤猪蹄",
-  "cat": "jiachangcai",
-  "main": "猪蹄、生抽、老抽、冰糖、姜",
+  "id": "qingzheng-shiban",
+  "name": "清蒸石斑鱼",
+  "cat": "yuecai",
+  "main": "石斑鱼、姜、小葱、蒸鱼豉油、花生油",
+  "tags": [
+   "清淡",
+   "硬菜",
+   "养生"
+  ]
+ },
+ {
+  "id": "baizhuo-jiweixia",
+  "name": "白灼基围虾",
+  "cat": "yuecai",
+  "main": "基围虾、姜、小葱、生抽、花生油",
+  "tags": [
+   "清淡",
+   "快手",
+   "养生"
+  ]
+ },
+ {
+  "id": "chizhi-zhengdaizi",
+  "name": "豉汁蒸带子",
+  "cat": "yuecai",
+  "main": "鲜带子、豆豉、蒜、生抽、小葱",
+  "tags": [
+   "清淡",
+   "快手",
+   "养生"
+  ]
+ },
+ {
+  "id": "shangtang-julongxia",
+  "name": "上汤焗龙虾",
+  "cat": "yuecai",
+  "main": "龙虾、上汤（鸡汤）、姜、蒜、牛油",
   "tags": [
    "硬菜",
+   "清淡",
+   "养生"
+  ]
+ },
+ {
+  "id": "jiangcong-chaoxie",
+  "name": "姜葱炒蟹",
+  "cat": "yuecai",
+  "main": "膏蟹、姜、小葱、蒜、生抽",
+  "tags": [
+   "硬菜",
+   "下饭",
+   "重口"
+  ]
+ },
+ {
+  "id": "baizhuo-moyu",
+  "name": "白灼墨鱼",
+  "cat": "yuecai",
+  "main": "墨鱼、姜、小葱、生抽、花生油",
+  "tags": [
+   "清淡",
+   "快手",
+   "养生"
+  ]
+ },
+ {
+  "id": "qingzheng-longliyu",
+  "name": "清蒸龙利鱼",
+  "cat": "yuecai",
+  "main": "龙利鱼柳、姜、小葱、蒸鱼豉油、花生油",
+  "tags": [
+   "清淡",
+   "快手",
+   "养生"
+  ]
+ },
+ {
+  "id": "suanrong-zhengshanbei",
+  "name": "蒜蓉蒸扇贝",
+  "cat": "yuecai",
+  "main": "扇贝、蒜、粉丝、生抽、小葱",
+  "tags": [
+   "清淡",
+   "快手",
+   "养生"
+  ]
+ },
+ {
+  "id": "jiaoyan-youyu",
+  "name": "椒盐鱿鱼",
+  "cat": "yuecai",
+  "main": "鱿鱼、椒盐粉、鸡蛋、淀粉、蒜",
+  "tags": [
+   "下饭",
+   "重口",
+   "快手"
+  ]
+ },
+ {
+  "id": "chizhi-zhengchangyu",
+  "name": "豉汁蒸鲳鱼",
+  "cat": "yuecai",
+  "main": "银鲳鱼、豆豉、蒜、姜、生抽",
+  "tags": [
+   "清淡",
+   "快手",
+   "养生"
+  ]
+ },
+ {
+  "id": "caiyuan-niurou",
+  "name": "菜远牛肉",
+  "cat": "yuecai",
+  "main": "牛肉、菜心（菜远）、姜、蒜、生抽",
+  "tags": [
+   "下饭",
+   "家常",
+   "快手"
+  ]
+ },
+ {
+  "id": "chijiao-chaoniuhe",
+  "name": "豉椒炒牛河",
+  "cat": "yuecai",
+  "main": "牛河（沙河粉）、牛肉、青椒、红椒、洋葱",
+  "tags": [
+   "下饭",
+   "家常",
+   "重口"
+  ]
+ },
+ {
+  "id": "jielan-niurou",
+  "name": "芥兰炒牛肉",
+  "cat": "yuecai",
+  "main": "牛肉、芥兰、姜、蒜、生抽",
+  "tags": [
+   "下饭",
+   "家常",
+   "快手"
+  ]
+ },
+ {
+  "id": "lianggua-niurou",
+  "name": "凉瓜炒牛肉",
+  "cat": "yuecai",
+  "main": "牛肉、凉瓜（苦瓜）、豆豉、蒜、姜",
+  "tags": [
+   "下饭",
+   "家常",
+   "低脂"
+  ]
+ },
+ {
+  "id": "huadan-niurou",
+  "name": "滑蛋牛肉",
+  "cat": "yuecai",
+  "main": "牛肉、鸡蛋、葱花、生抽、淀粉",
+  "tags": [
+   "下饭",
+   "家常",
+   "快手"
+  ]
+ },
+ {
+  "id": "xilanhua-chaodaizi",
+  "name": "西兰花炒带子",
+  "cat": "yuecai",
+  "main": "带子、西兰花、蒜、姜、生抽",
+  "tags": [
+   "清淡",
+   "家常",
+   "养生"
+  ]
+ },
+ {
+  "id": "jiuhuang-xiaren-chaodan",
+  "name": "韭黄虾仁炒蛋",
+  "cat": "yuecai",
+  "main": "虾仁、鸡蛋、韭黄、盐、料酒",
+  "tags": [
+   "下饭",
+   "家常",
+   "快手"
+  ]
+ },
+ {
+  "id": "xiajiang-chaotongcai",
+  "name": "虾酱炒通菜",
+  "cat": "yuecai",
+  "main": "通菜（空心菜）、虾酱、蒜、红椒、油",
+  "tags": [
+   "素食",
+   "快手",
+   "重口"
+  ]
+ },
+ {
+  "id": "haoyou-niurou",
+  "name": "蚝油牛肉",
+  "cat": "yuecai",
+  "main": "牛肉、蚝油、生抽、姜、蒜",
+  "tags": [
+   "下饭",
+   "家常",
+   "快手"
+  ]
+ },
+ {
+  "id": "heijiao-niuliu",
+  "name": "黑椒牛柳",
+  "cat": "yuecai",
+  "main": "牛柳、洋葱、青椒、黑椒汁、生抽",
+  "tags": [
+   "下饭",
+   "家常",
+   "重口"
+  ]
+ },
+ {
+  "id": "baizhuo-shengcai",
+  "name": "白灼生菜",
+  "cat": "yuecai",
+  "main": "生菜、蒜、生抽、花生油",
+  "tags": [
+   "素食",
+   "快手",
+   "清淡"
+  ]
+ },
+ {
+  "id": "shangtang-wawacai",
+  "name": "上汤娃娃菜",
+  "cat": "yuecai",
+  "main": "娃娃菜、皮蛋、咸蛋、火腿、蒜",
+  "tags": [
+   "素食",
+   "清淡",
+   "家常"
+  ]
+ },
+ {
+  "id": "suanrong-jielan",
+  "name": "蒜蓉炒芥蓝",
+  "cat": "yuecai",
+  "main": "芥蓝、蒜、生抽、蚝油、油",
+  "tags": [
+   "素食",
+   "快手",
+   "清淡"
+  ]
+ },
+ {
+  "id": "haoyou-donggu",
+  "name": "蚝油冬菇",
+  "cat": "yuecai",
+  "main": "干冬菇、蚝油、生抽、糖、姜",
+  "tags": [
+   "素食",
+   "家常",
    "暖胃"
   ]
  },
  {
-  "id": "hongshao-zhuwei",
-  "name": "红烧猪尾",
-  "cat": "jiachangcai",
-  "main": "猪尾、冰糖、生抽、老抽、姜",
+  "id": "shangtang-doumiao",
+  "name": "上汤豆苗",
+  "cat": "yuecai",
+  "main": "豆苗、皮蛋、蒜、上汤（鸡汤）、油",
   "tags": [
-   "硬菜",
-   "下饭"
+   "素食",
+   "快手",
+   "清淡"
   ]
  },
  {
-  "id": "tangcu-yukuai",
-  "name": "糖醋鱼块",
-  "cat": "jiachangcai",
-  "main": "草鱼、鸡蛋、番茄酱、白糖、白醋",
+  "id": "suanrong-xilanhua",
+  "name": "蒜蓉炒西兰花",
+  "cat": "yuecai",
+  "main": "西兰花、蒜、生抽、蚝油、油",
   "tags": [
-   "甜",
-   "下饭"
+   "素食",
+   "快手",
+   "低脂"
   ]
  },
  {
-  "id": "hongshao-yukuai",
-  "name": "红烧鱼块",
-  "cat": "jiachangcai",
-  "main": "草鱼、生抽、老抽、白糖、姜蒜",
+  "id": "shangtang-bocai",
+  "name": "上汤菠菜",
+  "cat": "yuecai",
+  "main": "菠菜、皮蛋、咸蛋、蒜、上汤（鸡汤）",
   "tags": [
+   "素食",
+   "快手",
+   "清淡"
+  ]
+ },
+ {
+  "id": "xiapi-jiegua",
+  "name": "虾皮炒节瓜",
+  "cat": "yuecai",
+  "main": "节瓜、虾皮、蒜、油、盐",
+  "tags": [
+   "素食",
+   "快手",
+   "清淡"
+  ]
+ },
+ {
+  "id": "xiyangcai-bao-zhugu-tang",
+  "name": "西洋菜煲猪骨汤",
+  "cat": "yuecai",
+  "main": "猪骨、西洋菜、蜜枣、姜、盐",
+  "tags": [
+   "汤羹",
+   "养生",
+   "暖胃"
+  ]
+ },
+ {
+  "id": "bawanghua-zhugu-tang",
+  "name": "霸王花猪骨汤",
+  "cat": "yuecai",
+  "main": "猪骨、干霸王花、蜜枣、南北杏、姜",
+  "tags": [
+   "汤羹",
+   "养生",
+   "暖胃"
+  ]
+ },
+ {
+  "id": "jiegua-zhangyu-tang",
+  "name": "节瓜章鱼瘦肉汤",
+  "cat": "yuecai",
+  "main": "节瓜、干章鱼、瘦肉、眉豆、姜",
+  "tags": [
+   "汤羹",
+   "养生",
+   "暖胃"
+  ]
+ },
+ {
+  "id": "fenge-lingyu-tang",
+  "name": "粉葛鲮鱼汤",
+  "cat": "yuecai",
+  "main": "粉葛、鲮鱼、赤小豆、姜、油",
+  "tags": [
+   "汤羹",
+   "养生",
+   "暖胃"
+  ]
+ },
+ {
+  "id": "doufu-yuanxi-yutou-tang",
+  "name": "豆腐芫茜鱼头汤",
+  "cat": "yuecai",
+  "main": "大鱼头、豆腐、芫茜（香菜）、姜、葱",
+  "tags": [
+   "汤羹",
+   "清淡",
+   "养生"
+  ]
+ },
+ {
+  "id": "huaishan-qizi-jitang",
+  "name": "淮山杞子煲鸡汤",
+  "cat": "yuecai",
+  "main": "鸡、淮山（山药）、枸杞子、姜、盐",
+  "tags": [
+   "汤羹",
+   "养生",
+   "暖胃"
+  ]
+ },
+ {
+  "id": "lianou-zhangyu-tang",
+  "name": "莲藕章鱼猪腱汤",
+  "cat": "yuecai",
+  "main": "猪腱、莲藕、干章鱼、姜、盐",
+  "tags": [
+   "汤羹",
+   "养生",
+   "暖胃"
+  ]
+ },
+ {
+  "id": "jiecai-iandan-tang",
+  "name": "芥菜咸蛋汤",
+  "cat": "yuecai",
+  "main": "芥菜、咸蛋、姜、瘦肉、水",
+  "tags": [
+   "汤羹",
+   "清淡",
+   "快手"
+  ]
+ },
+ {
+  "id": "tingzai-zhou",
+  "name": "艇仔粥",
+  "cat": "yuecai",
+  "main": "大米、瘦肉、猪肝、鲜虾、油条",
+  "tags": [
+   "粥粉面",
+   "家常",
+   "暖胃"
+  ]
+ },
+ {
+  "id": "shenggun-niurou-zhou",
+  "name": "生滚牛肉粥",
+  "cat": "yuecai",
+  "main": "大米、牛肉、姜、葱花、生抽",
+  "tags": [
+   "粥粉面",
+   "家常",
+   "暖胃"
+  ]
+ },
+ {
+  "id": "jidi-zhou",
+  "name": "及第粥",
+  "cat": "yuecai",
+  "main": "大米、猪肝、猪腰、猪粉肠、姜",
+  "tags": [
+   "粥粉面",
+   "家常",
+   "暖胃"
+  ]
+ },
+ {
+  "id": "huaji-zhou",
+  "name": "滑鸡粥",
+  "cat": "yuecai",
+  "main": "大米、鸡腿肉、姜、葱花、生抽",
+  "tags": [
+   "粥粉面",
+   "家常",
+   "暖胃"
+  ]
+ },
+ {
+  "id": "yuntun-mian",
+  "name": "云吞面",
+  "cat": "yuecai",
+  "main": "云吞（鲜虾肉馅）、竹升面（全蛋面）、上汤（鸡汤）、小葱、生抽",
+  "tags": [
+   "粥粉面",
+   "家常",
+   "暖胃"
+  ]
+ },
+ {
+  "id": "chiyouhuang-chaomian",
+  "name": "豉油皇炒面",
+  "cat": "yuecai",
+  "main": "油面（熟面）、生抽、老抽、糖、豆芽",
+  "tags": [
+   "粥粉面",
    "下饭",
    "家常"
   ]
  },
  {
-  "id": "ganzha-daiyu",
-  "name": "干炸带鱼",
-  "cat": "jiachangcai",
-  "main": "带鱼、花椒盐、料酒、姜片、面粉",
+  "id": "ganchao-niuhefen",
+  "name": "干炒河粉",
+  "cat": "yuecai",
+  "main": "干河粉（沙河粉）、芽菜（豆芽）、韭黄、生抽、老抽",
   "tags": [
+   "粥粉面",
    "下饭",
+   "家常"
+  ]
+ },
+ {
+  "id": "xiajiao",
+  "name": "虾饺",
+  "cat": "yuecai",
+  "main": "虾仁、肥膘（或笋丁）、澄面（小麦淀粉）、玉米淀粉、盐",
+  "tags": [
+   "点心",
+   "清淡",
    "快手"
   ]
  },
  {
-  "id": "tangcu-daiyu",
-  "name": "糖醋带鱼",
-  "cat": "jiachangcai",
-  "main": "带鱼、番茄酱、白糖、白醋、面粉",
+  "id": "ganzheng-shaomai",
+  "name": "干蒸烧卖",
+  "cat": "yuecai",
+  "main": "猪肉糜、虾仁、香菇、云吞皮（或烧卖皮）、生抽",
   "tags": [
-   "甜",
+   "点心",
+   "家常",
    "下饭"
   ]
  },
  {
-  "id": "hongshao-wuchangyu",
-  "name": "红烧武昌鱼",
-  "cat": "jiachangcai",
-  "main": "武昌鱼、生抽、老抽、白糖、姜蒜",
+  "id": "xianxia-changfen",
+  "name": "鲜虾肠粉",
+  "cat": "yuecai",
+  "main": "粘米粉、澄面、水、鲜虾仁、油",
   "tags": [
+   "点心",
+   "清淡",
+   "快手"
+  ]
+ },
+ {
+  "id": "chizhi-zhengfengzhao",
+  "name": "豉汁蒸凤爪",
+  "cat": "yuecai",
+  "main": "鸡爪、豆豉、蒜、生抽、糖",
+  "tags": [
+   "点心",
+   "重口",
+   "家常"
+  ]
+ },
+ {
+  "id": "chizhi-zhengpaigu",
+  "name": "豉汁蒸排骨",
+  "cat": "yuecai",
+  "main": "排骨、豆豉、蒜、姜、生抽",
+  "tags": [
+   "点心",
+   "下饭",
+   "重口"
+  ]
+ },
+ {
+  "id": "yanjianrou",
+  "name": "盐煎肉",
+  "cat": "chuancai",
+  "main": "猪后腿二刀肉、青蒜苗、郫县豆瓣、永川豆豉、生抽",
+  "tags": [
+   "下饭",
+   "重口",
+   "家常"
+  ]
+ },
+ {
+  "id": "xianshaobai",
+  "name": "咸烧白",
+  "cat": "chuancai",
+  "main": "带皮五花肉、宜宾碎米芽菜、姜、花椒、生抽",
+  "tags": [
+   "硬菜",
+   "重口",
+   "下饭"
+  ]
+ },
+ {
+  "id": "tianshaobai",
+  "name": "甜烧白",
+  "cat": "chuancai",
+  "main": "带皮五花肉、红豆沙、糯米、红糖、猪油",
+  "tags": [
+   "甜",
+   "硬菜",
+   "重口"
+  ]
+ },
+ {
+  "id": "ganbian-feichang",
+  "name": "干煸肥肠",
+  "cat": "chuancai",
+  "main": "猪大肠、干辣椒、花椒、姜、蒜",
+  "tags": [
+   "重口",
+   "辣",
+   "下饭"
+  ]
+ },
+ {
+  "id": "huobao-yaohua",
+  "name": "火爆腰花",
+  "cat": "chuancai",
+  "main": "猪腰、青椒、泡椒、木耳、姜",
+  "tags": [
+   "下饭",
+   "重口",
+   "快手"
+  ]
+ },
+ {
+  "id": "baochao-zhugan",
+  "name": "爆炒猪肝",
+  "cat": "chuancai",
+  "main": "猪肝、青椒、泡椒、姜、蒜",
+  "tags": [
+   "下饭",
+   "快手",
+   "重口"
+  ]
+ },
+ {
+  "id": "chuanwei-xiangchang",
+  "name": "川味香肠",
+  "cat": "chuancai",
+  "main": "川味腊肠、青蒜苗、干辣椒、姜、蒜",
+  "tags": [
+   "下饭",
+   "重口",
+   "家常"
+  ]
+ },
+ {
+  "id": "fenzheng-niurou",
+  "name": "粉蒸牛肉",
+  "cat": "chuancai",
+  "main": "牛里脊、蒸肉米粉、郫县豆瓣、醪糟、姜",
+  "tags": [
+   "硬菜",
+   "重口",
+   "下饭"
+  ]
+ },
+ {
+  "id": "fenzheng-paigu",
+  "name": "粉蒸排骨",
+  "cat": "chuancai",
+  "main": "猪肋排、蒸肉米粉、郫县豆瓣、甜面酱、姜",
+  "tags": [
+   "家常",
    "下饭",
    "硬菜"
   ]
  },
  {
-  "id": "qingzheng-guiyu",
-  "name": "清蒸鳜鱼",
-  "cat": "jiachangcai",
-  "main": "鳜鱼、大葱、姜、蒸鱼豉油、料酒",
+  "id": "ganbian-niurousi",
+  "name": "干煸牛肉丝",
+  "cat": "chuancai",
+  "main": "牛里脊、芹菜、干辣椒、花椒、郫县豆瓣",
+  "tags": [
+   "下饭",
+   "辣",
+   "重口"
+  ]
+ },
+ {
+  "id": "mala-niurougan",
+  "name": "麻辣牛肉干",
+  "cat": "chuancai",
+  "main": "牛后腿肉、干辣椒粉、花椒粉、熟白芝麻、生抽",
+  "tags": [
+   "重口",
+   "辣",
+   "下饭"
+  ]
+ },
+ {
+  "id": "qiaojiao-niurou",
+  "name": "跷脚牛肉",
+  "cat": "chuancai",
+  "main": "牛脊骨、牛腱肉、牛肚、白芷、草果",
+  "tags": [
+   "暖胃",
+   "养生",
+   "硬菜"
+  ]
+ },
+ {
+  "id": "lengchi-tu",
+  "name": "冷吃兔",
+  "cat": "chuancai",
+  "main": "兔肉、干辣椒、花椒、姜、蒜",
+  "tags": [
+   "重口",
+   "辣",
+   "下饭"
+  ]
+ },
+ {
+  "id": "mala-tutou",
+  "name": "麻辣兔头",
+  "cat": "chuancai",
+  "main": "兔头、郫县豆瓣、干辣椒、花椒、八角",
+  "tags": [
+   "重口",
+   "辣",
+   "下饭"
+  ]
+ },
+ {
+  "id": "laoma-tihua",
+  "name": "老妈蹄花",
+  "cat": "chuancai",
+  "main": "猪前蹄、白芸豆、姜、花椒、料酒",
+  "tags": [
+   "暖胃",
+   "养生",
+   "硬菜"
+  ]
+ },
+ {
+  "id": "yuer-ji",
+  "name": "芋儿鸡",
+  "cat": "chuancai",
+  "main": "土鸡、芋头、郫县豆瓣、干辣椒、花椒",
+  "tags": [
+   "下饭",
+   "重口",
+   "硬菜"
+  ]
+ },
+ {
+  "id": "shaojigong",
+  "name": "烧鸡公",
+  "cat": "chuancai",
+  "main": "公鸡、土豆、郫县豆瓣、泡椒、干辣椒",
+  "tags": [
+   "重口",
+   "辣",
+   "下饭"
+  ]
+ },
+ {
+  "id": "chaihuo-ji",
+  "name": "柴火鸡",
+  "cat": "chuancai",
+  "main": "土鸡、土豆、藕、青椒、郫县豆瓣",
+  "tags": [
+   "重口",
+   "辣",
+   "下饭"
+  ]
+ },
+ {
+  "id": "jiaoma-ji",
+  "name": "椒麻鸡",
+  "cat": "chuancai",
+  "main": "三黄鸡、鲜花椒、小葱、姜、生抽",
   "tags": [
    "清淡",
-   "低脂",
+   "家常",
+   "硬菜"
+  ]
+ },
+ {
+  "id": "maoxuewang",
+  "name": "毛血旺",
+  "cat": "chuancai",
+  "main": "鸭血、毛肚、午餐肉、黄豆芽、黄喉",
+  "tags": [
+   "重口",
+   "辣",
+   "下饭"
+  ]
+ },
+ {
+  "id": "paojiao-jiza",
+  "name": "泡椒鸡杂",
+  "cat": "chuancai",
+  "main": "鸡胗、鸡肝、鸡心、泡椒、泡姜",
+  "tags": [
+   "下饭",
+   "重口",
+   "快手"
+  ]
+ },
+ {
+  "id": "zhangcha-ya",
+  "name": "樟茶鸭",
+  "cat": "chuancai",
+  "main": "鸭、樟树叶、花茶、柏枝、姜",
+  "tags": [
+   "硬菜",
+   "重口",
+   "下饭"
+  ]
+ },
+ {
+  "id": "tianpi-ya",
+  "name": "甜皮鸭",
+  "cat": "chuancai",
+  "main": "鸭、麦芽糖、冰糖、生抽、八角",
+  "tags": [
+   "甜",
+   "硬菜",
+   "下饭"
+  ]
+ },
+ {
+  "id": "douban-yu",
+  "name": "豆瓣鱼",
+  "cat": "chuancai",
+  "main": "草鱼、郫县豆瓣、姜、蒜、小葱",
+  "tags": [
+   "下饭",
+   "重口",
+   "家常"
+  ]
+ },
+ {
+  "id": "taian-yu",
+  "name": "太安鱼",
+  "cat": "chuancai",
+  "main": "草鱼、泡椒、泡姜、郫县豆瓣、干辣椒",
+  "tags": [
+   "重口",
+   "辣",
+   "下饭"
+  ]
+ },
+ {
+  "id": "youting-jiyu",
+  "name": "邮亭鲫鱼",
+  "cat": "chuancai",
+  "main": "鲫鱼、郫县豆瓣、泡椒、泡萝卜、干辣椒",
+  "tags": [
+   "重口",
+   "辣",
+   "下饭"
+  ]
+ },
+ {
+  "id": "dasuan-shaonianyu",
+  "name": "大蒜烧鲶鱼",
+  "cat": "chuancai",
+  "main": "鲶鱼、大蒜、郫县豆瓣、泡椒、姜",
+  "tags": [
+   "重口",
+   "下饭",
+   "硬菜"
+  ]
+ },
+ {
+  "id": "tengjiao-yu",
+  "name": "藤椒鱼",
+  "cat": "chuancai",
+  "main": "黑鱼、藤椒、青小米辣、泡椒、鸡蛋清",
+  "tags": [
+   "辣",
+   "下饭",
+   "重口"
+  ]
+ },
+ {
+  "id": "paocai-yu",
+  "name": "泡菜鱼",
+  "cat": "chuancai",
+  "main": "草鱼、四川泡菜、泡椒、姜、蒜",
+  "tags": [
+   "下饭",
+   "重口",
+   "家常"
+  ]
+ },
+ {
+  "id": "ganbian-shansi",
+  "name": "干煸鳝丝",
+  "cat": "chuancai",
+  "main": "鳝鱼、芹菜、干辣椒、花椒、郫县豆瓣",
+  "tags": [
+   "重口",
+   "辣",
+   "下饭"
+  ]
+ },
+ {
+  "id": "gongbao-xiaqiu",
+  "name": "宫保虾球",
+  "cat": "chuancai",
+  "main": "大虾仁、油酥花生米、干辣椒、花椒、大葱",
+  "tags": [
+   "下饭",
+   "重口",
+   "快手"
+  ]
+ },
+ {
+  "id": "shuizhu-niuwa",
+  "name": "水煮牛蛙",
+  "cat": "chuancai",
+  "main": "牛蛙、黄豆芽、郫县豆瓣、干辣椒、花椒",
+  "tags": [
+   "重口",
+   "辣",
+   "下饭"
+  ]
+ },
+ {
+  "id": "kaishui-baicai",
+  "name": "开水白菜",
+  "cat": "chuancai",
+  "main": "白菜心、老母鸡、猪瘦肉、鸡胸肉、火腿",
+  "tags": [
+   "清淡",
+   "养生",
+   "硬菜"
+  ]
+ },
+ {
+  "id": "jidouhua",
+  "name": "鸡豆花",
+  "cat": "chuancai",
+  "main": "鸡胸肉、鸡蛋清、清鸡汤、火腿、豌豆尖",
+  "tags": [
+   "清淡",
+   "养生",
+   "硬菜"
+  ]
+ },
+ {
+  "id": "qiangchao-lianbai",
+  "name": "炝炒莲白",
+  "cat": "chuancai",
+  "main": "莲白、干辣椒、花椒、蒜、生抽",
+  "tags": [
+   "素食",
+   "快手",
+   "下饭"
+  ]
+ },
+ {
+  "id": "xiongzhang-doufu",
+  "name": "熊掌豆腐",
+  "cat": "chuancai",
+  "main": "老豆腐、猪肉末、郫县豆瓣、蒜苗、姜",
+  "tags": [
+   "下饭",
+   "家常",
+   "重口"
+  ]
+ },
+ {
+  "id": "koudai-doufu",
+  "name": "口袋豆腐",
+  "cat": "chuancai",
+  "main": "嫩豆腐、猪肉末、虾仁、香菇、鸡蛋",
+  "tags": [
+   "清淡",
+   "养生",
+   "家常"
+  ]
+ },
+ {
+  "id": "shaojiao-qiezi",
+  "name": "烧椒茄子",
+  "cat": "chuancai",
+  "main": "茄子、青椒、蒜、小米辣、生抽",
+  "tags": [
+   "素食",
+   "辣",
+   "家常"
+  ]
+ },
+ {
+  "id": "ganbian-xingbaogu",
+  "name": "干煸杏鲍菇",
+  "cat": "chuancai",
+  "main": "杏鲍菇、干辣椒、花椒、青蒜苗、姜",
+  "tags": [
+   "素食",
+   "辣",
+   "下饭"
+  ]
+ },
+ {
+  "id": "yuxiang-qiebing",
+  "name": "鱼香茄饼",
+  "cat": "chuancai",
+  "main": "茄子、猪肉末、鸡蛋、面粉、红薯淀粉",
+  "tags": [
+   "下饭",
+   "重口",
+   "家常"
+  ]
+ },
+ {
+  "id": "fushun-douhua",
+  "name": "富顺豆花",
+  "cat": "chuancai",
+  "main": "干黄豆、内酯豆腐、胆水（盐卤）、小米辣、蒜",
+  "tags": [
+   "清淡",
+   "素食",
+   "养生"
+  ]
+ },
+ {
+  "id": "paojiao-ouding",
+  "name": "泡椒藕丁",
+  "cat": "chuancai",
+  "main": "莲藕、泡椒、泡姜、蒜、青椒",
+  "tags": [
+   "素食",
+   "辣",
+   "下饭"
+  ]
+ },
+ {
+  "id": "ganbian-kugua",
+  "name": "干煸苦瓜",
+  "cat": "chuancai",
+  "main": "苦瓜、干辣椒、花椒、蒜、豆豉",
+  "tags": [
+   "素食",
+   "少油",
+   "下饭"
+  ]
+ },
+ {
+  "id": "qiangchao-wandoujian",
+  "name": "炝炒豌豆尖",
+  "cat": "chuancai",
+  "main": "豌豆尖、干辣椒、花椒、蒜、盐",
+  "tags": [
+   "素食",
+   "快手",
+   "清淡"
+  ]
+ },
+ {
+  "id": "lizhuang-bairou",
+  "name": "李庄白肉",
+  "cat": "chuancai",
+  "main": "猪后腿二刀肉、姜、小葱、花椒、料酒",
+  "tags": [
+   "重口",
+   "硬菜",
+   "家常"
+  ]
+ },
+ {
+  "id": "chuanwei-paocai",
+  "name": "川味泡菜",
+  "cat": "chuancai",
+  "main": "白萝卜、仔姜、豇豆、小米辣、青花椒",
+  "tags": [
+   "素食",
+   "辣",
+   "家常"
+  ]
+ },
+ {
+  "id": "mala-yabo",
+  "name": "麻辣鸭脖",
+  "cat": "chuancai",
+  "main": "鸭脖、干辣椒、花椒、八角、桂皮",
+  "tags": [
+   "重口",
+   "辣",
+   "下饭"
+  ]
+ },
+ {
+  "id": "shangxin-liangfen",
+  "name": "伤心凉粉",
+  "cat": "chuancai",
+  "main": "豌豆淀粉、清水、小米辣、蒜、小葱",
+  "tags": [
+   "辣",
+   "素食",
+   "家常"
+  ]
+ },
+ {
+  "id": "chuanwei-larou",
+  "name": "川味腊肉",
+  "cat": "chuancai",
+  "main": "川味腊肉、蒜苗、干辣椒、姜、蒜",
+  "tags": [
+   "重口",
+   "下饭",
+   "家常"
+  ]
+ },
+ {
+  "id": "mala-tuding",
+  "name": "麻辣兔丁",
+  "cat": "chuancai",
+  "main": "兔腿肉、干辣椒、花椒、熟花生米、姜",
+  "tags": [
+   "重口",
+   "辣",
+   "下饭"
+  ]
+ },
+ {
+  "id": "tianshui-mian",
+  "name": "甜水面",
+  "cat": "chuancai",
+  "main": "中筋面粉、清水、盐、复制甜酱油、辣椒油",
+  "tags": [
+   "甜",
+   "重口",
+   "家常"
+  ]
+ },
+ {
+  "id": "zhong-shuijiao",
+  "name": "钟水饺",
+  "cat": "chuancai",
+  "main": "饺子皮、猪前腿肉、姜、小葱、复制甜酱油",
+  "tags": [
+   "辣",
+   "甜",
+   "家常"
+  ]
+ },
+ {
+  "id": "qingtang-chaoshou",
+  "name": "清汤抄手",
+  "cat": "chuancai",
+  "main": "抄手皮、猪前腿肉、虾仁、鸡蛋、姜",
+  "tags": [
+   "清淡",
+   "暖胃",
+   "家常"
+  ]
+ },
+ {
+  "id": "yeerba",
+  "name": "叶儿粑",
+  "cat": "chuancai",
+  "main": "糯米粉、粘米粉、芽菜肉馅、红糖、猪油",
+  "tags": [
+   "甜",
+   "家常",
+   "养生"
+  ]
+ },
+ {
+  "id": "sandapao",
+  "name": "三大炮",
+  "cat": "chuancai",
+  "main": "糯米、黄豆、红糖、熟白芝麻、清水",
+  "tags": [
+   "甜",
+   "家常",
+   "素食"
+  ]
+ },
+ {
+  "id": "danhonggao",
+  "name": "蛋烘糕",
+  "cat": "chuancai",
+  "main": "面粉、鸡蛋、红糖、酵母、清水",
+  "tags": [
+   "甜",
+   "快手",
+   "家常"
+  ]
+ },
+ {
+  "id": "juntun-guokui",
+  "name": "军屯锅盔",
+  "cat": "chuancai",
+  "main": "中筋面粉、猪肉末、芽菜、花椒粉、姜",
+  "tags": [
+   "重口",
+   "家常",
+   "下饭"
+  ]
+ },
+ {
+  "id": "hongtang-bingfen",
+  "name": "红糖冰粉",
+  "cat": "chuancai",
+  "main": "冰粉粉、清水、红糖、山楂片、葡萄干",
+  "tags": [
+   "甜",
+   "清淡",
+   "素食"
+  ]
+ },
+ {
+  "id": "lai-tangyuan",
+  "name": "赖汤圆",
+  "cat": "chuancai",
+  "main": "糯米粉、黑芝麻、白糖、猪油、面粉",
+  "tags": [
+   "甜",
+   "家常",
+   "养生"
+  ]
+ },
+ {
+  "id": "chuanwei-lianggao",
+  "name": "川味凉糕",
+  "cat": "chuancai",
+  "main": "凉糕粉、清水、红糖、石灰水、熟白芝麻",
+  "tags": [
+   "甜",
+   "清淡",
+   "素食"
+  ]
+ },
+ {
+  "id": "maoshi-hongshaorou",
+  "name": "毛氏红烧肉",
+  "cat": "xiangcai",
+  "main": "五花肉、冰糖、干辣椒、姜、料酒",
+  "tags": [
+   "硬菜",
+   "重口",
+   "下饭",
+   "家常"
+  ]
+ },
+ {
+  "id": "lajiao-chaorou",
+  "name": "辣椒炒肉",
+  "cat": "xiangcai",
+  "main": "猪前腿肉、螺丝椒、大蒜、豆豉、生抽",
+  "tags": [
+   "辣",
+   "下饭",
+   "快手",
+   "家常"
+  ]
+ },
+ {
+  "id": "lawei-hezheng",
+  "name": "腊味合蒸",
+  "cat": "xiangcai",
+  "main": "腊肉、腊肠、腊鸭、干豆豉、干辣椒粉",
+  "tags": [
+   "硬菜",
+   "重口",
+   "下饭",
+   "暖胃"
+  ]
+ },
+ {
+  "id": "yongzhou-xueya",
+  "name": "永州血鸭",
+  "cat": "xiangcai",
+  "main": "仔鸭、鸭血、青红椒、仔姜、干辣椒",
+  "tags": [
+   "辣",
+   "硬菜",
+   "重口",
+   "下饭"
+  ]
+ },
+ {
+  "id": "dongan-ziji",
+  "name": "东安子鸡",
+  "cat": "xiangcai",
+  "main": "嫩母鸡、干红椒、花椒、米醋、姜",
+  "tags": [
+   "辣",
+   "重口",
+   "下饭",
+   "家常"
+  ]
+ },
+ {
+  "id": "malazi-ji",
+  "name": "麻辣子鸡",
+  "cat": "xiangcai",
+  "main": "鸡腿肉、干辣椒、花椒、大蒜、姜",
+  "tags": [
+   "辣",
+   "重口",
+   "下饭",
+   "快手"
+  ]
+ },
+ {
+  "id": "xiangxi-tufei-zhugan",
+  "name": "湘西土匪猪肝",
+  "cat": "xiangcai",
+  "main": "猪肝、泡椒、青红椒、大蒜、姜",
+  "tags": [
+   "辣",
+   "下饭",
+   "重口",
+   "快手"
+  ]
+ },
+ {
+  "id": "xiaochao-huangniurou",
+  "name": "小炒黄牛肉",
+  "cat": "xiangcai",
+  "main": "黄牛肉、小米椒、螺丝椒、仔姜、大蒜",
+  "tags": [
+   "辣",
+   "下饭",
+   "快手",
+   "重口"
+  ]
+ },
+ {
+  "id": "baijiaojiao-chaorou",
+  "name": "白辣椒炒肉",
+  "cat": "xiangcai",
+  "main": "五花肉、白辣椒（腌青椒）、大蒜、豆豉、生抽",
+  "tags": [
+   "辣",
+   "下饭",
+   "重口",
+   "家常"
+  ]
+ },
+ {
+  "id": "xiangxi-xueba-ya",
+  "name": "湘西血粑鸭",
+  "cat": "xiangcai",
+  "main": "仔鸭、糯米血粑、干辣椒、仔姜、料酒",
+  "tags": [
+   "辣",
+   "硬菜",
+   "重口",
+   "暖胃"
+  ]
+ },
+ {
+  "id": "suanla-jiza",
+  "name": "酸辣鸡杂",
+  "cat": "xiangcai",
+  "main": "鸡杂（胗肝心）、酸豆角、泡椒、青红椒、料酒",
+  "tags": [
+   "辣",
+   "下饭",
+   "重口",
+   "快手"
+  ]
+ },
+ {
+  "id": "ganguo-feichang",
+  "name": "干锅肥肠",
+  "cat": "xiangcai",
+  "main": "熟肥肠、洋葱、青红椒、干辣椒、花椒",
+  "tags": [
+   "辣",
+   "硬菜",
+   "重口",
+   "下饭"
+  ]
+ },
+ {
+  "id": "hongcaitai-chao-larou",
+  "name": "红菜苔炒腊肉",
+  "cat": "xiangcai",
+  "main": "红菜苔、腊肉、大蒜、干辣椒、生抽",
+  "tags": [
+   "下饭",
+   "家常",
+   "重口",
+   "快手"
+  ]
+ },
+ {
+  "id": "lihao-chao-larou",
+  "name": "藜蒿炒腊肉",
+  "cat": "xiangcai",
+  "main": "藜蒿、腊肉、大蒜、干辣椒、生抽",
+  "tags": [
+   "下饭",
+   "快手",
+   "家常",
+   "重口"
+  ]
+ },
+ {
+  "id": "luobogan-chao-larou",
+  "name": "萝卜干炒腊肉",
+  "cat": "xiangcai",
+  "main": "萝卜干、腊肉、干辣椒、大蒜、生抽",
+  "tags": [
+   "下饭",
+   "重口",
+   "家常",
+   "辣"
+  ]
+ },
+ {
+  "id": "larou-chao-juecai",
+  "name": "腊肉炒蕨菜",
+  "cat": "xiangcai",
+  "main": "干蕨菜、腊肉、干辣椒、大蒜、生抽",
+  "tags": [
+   "下饭",
+   "重口",
+   "辣",
+   "家常"
+  ]
+ },
+ {
+  "id": "xianggan-chao-larou",
+  "name": "香干炒腊肉",
+  "cat": "xiangcai",
+  "main": "香干、腊肉、青红椒、大蒜、生抽",
+  "tags": [
+   "下饭",
+   "辣",
+   "家常",
+   "重口"
+  ]
+ },
+ {
+  "id": "shaoyang-zhuxue-wanzi",
+  "name": "邵阳猪血丸子",
+  "cat": "xiangcai",
+  "main": "猪血丸子、青红椒、大蒜、干辣椒、生抽",
+  "tags": [
+   "重口",
+   "辣",
+   "下饭",
+   "硬菜"
+  ]
+ },
+ {
+  "id": "xiangxi-suanrou",
+  "name": "湘西酸肉",
+  "cat": "xiangcai",
+  "main": "湘西酸肉、干辣椒、大蒜、仔姜、蒜苗",
+  "tags": [
+   "重口",
+   "辣",
+   "下饭",
+   "硬菜"
+  ]
+ },
+ {
+  "id": "zhijiang-ya",
+  "name": "芷江鸭",
+  "cat": "xiangcai",
+  "main": "麻鸭、芷江甜酱、仔姜、干辣椒、啤酒",
+  "tags": [
+   "辣",
+   "硬菜",
+   "重口",
+   "暖胃"
+  ]
+ },
+ {
+  "id": "xiangshi-hongshao-zhujiao",
+  "name": "湘式红烧猪脚",
+  "cat": "xiangcai",
+  "main": "猪前脚、干辣椒、姜、冰糖、生抽",
+  "tags": [
+   "硬菜",
+   "重口",
+   "辣",
+   "下饭"
+  ]
+ },
+ {
+  "id": "fasi-niubaiye",
+  "name": "发丝牛百叶",
+  "cat": "xiangcai",
+  "main": "牛百叶、冬笋、泡椒、小米椒、米醋",
+  "tags": [
+   "辣",
+   "快手",
+   "重口",
+   "下饭"
+  ]
+ },
+ {
+  "id": "ganguo-shousiji",
+  "name": "干锅手撕鸡",
+  "cat": "xiangcai",
+  "main": "三黄鸡、洋葱、青红椒、干辣椒、豆瓣酱",
+  "tags": [
+   "辣",
+   "硬菜",
+   "重口",
+   "下饭"
+  ]
+ },
+ {
+  "id": "tanzicai-chaorou",
+  "name": "坛子菜炒肉",
+  "cat": "xiangcai",
+  "main": "坛子菜（腌干豆角）、五花肉、干辣椒、大蒜、生抽",
+  "tags": [
+   "下饭",
+   "重口",
+   "辣",
+   "家常"
+  ]
+ },
+ {
+  "id": "xiangxi-waipocai",
+  "name": "湘西外婆菜",
+  "cat": "xiangcai",
+  "main": "外婆菜、肉末、小米椒、大蒜、生抽",
+  "tags": [
+   "下饭",
+   "辣",
+   "快手",
+   "家常"
+  ]
+ },
+ {
+  "id": "suandoujiao-chaoroumo",
+  "name": "酸豆角炒肉末",
+  "cat": "xiangcai",
+  "main": "酸豆角、猪肉末、小米椒、大蒜、生抽",
+  "tags": [
+   "下饭",
+   "辣",
+   "快手",
+   "家常"
+  ]
+ },
+ {
+  "id": "shuangse-duojiao-yutou",
+  "name": "双色剁椒鱼头",
+  "cat": "xiangcai",
+  "main": "胖头鱼头、红剁椒、青剁椒、姜、大蒜",
+  "tags": [
+   "辣",
+   "硬菜",
+   "下饭",
+   "重口"
+  ]
+ },
+ {
+  "id": "changsha-kouweixia",
+  "name": "长沙口味虾",
+  "cat": "xiangcai",
+  "main": "小龙虾、干辣椒、花椒、香叶、豆瓣酱",
+  "tags": [
+   "辣",
+   "重口",
+   "硬菜",
+   "下饭"
+  ]
+ },
+ {
+  "id": "ganguo-yuza",
+  "name": "干锅鱼杂",
+  "cat": "xiangcai",
+  "main": "鱼杂（鱼泡鱼籽鱼白）、洋葱、青红椒、豆瓣酱、干辣椒",
+  "tags": [
+   "辣",
+   "重口",
+   "下饭",
+   "硬菜"
+  ]
+ },
+ {
+  "id": "yinyu-zhengdan",
+  "name": "银鱼蒸蛋",
+  "cat": "xiangcai",
+  "main": "鸡蛋、干银鱼、温水、生抽、香油",
+  "tags": [
+   "清淡",
+   "养生",
+   "家常",
+   "快手"
+  ]
+ },
+ {
+  "id": "duojiao-zheng-jiyu",
+  "name": "剁椒蒸鲫鱼",
+  "cat": "xiangcai",
+  "main": "鲫鱼、红剁椒、姜、大蒜、料酒",
+  "tags": [
+   "辣",
+   "下饭",
+   "家常",
+   "快手"
+  ]
+ },
+ {
+  "id": "xiangjiang-huobeiyu",
+  "name": "湘江火焙鱼",
+  "cat": "xiangcai",
+  "main": "火焙小鱼干、青红椒、大蒜、豆豉、生抽",
+  "tags": [
+   "辣",
+   "重口",
+   "下饭",
+   "家常"
+  ]
+ },
+ {
+  "id": "xiangjian-diaoziyu",
+  "name": "香煎刁子鱼",
+  "cat": "xiangcai",
+  "main": "刁子鱼、姜、大蒜、干辣椒、料酒",
+  "tags": [
+   "家常",
+   "下饭",
+   "辣",
+   "快手"
+  ]
+ },
+ {
+  "id": "suanla-yupian",
+  "name": "酸辣鱼片",
+  "cat": "xiangcai",
+  "main": "草鱼、泡椒、酸豆角、姜、大蒜",
+  "tags": [
+   "辣",
+   "下饭",
+   "家常",
+   "暖胃"
+  ]
+ },
+ {
+  "id": "kouwei-suoluo",
+  "name": "口味嗦螺",
+  "cat": "xiangcai",
+  "main": "田螺、干辣椒、花椒、豆瓣酱、紫苏",
+  "tags": [
+   "辣",
+   "重口",
+   "下饭",
+   "硬菜"
+  ]
+ },
+ {
+  "id": "ganguo-xianglaxia",
+  "name": "干锅香辣虾",
+  "cat": "xiangcai",
+  "main": "基围虾、土豆、洋葱、干辣椒、花椒",
+  "tags": [
+   "辣",
+   "硬菜",
+   "重口",
+   "下饭"
+  ]
+ },
+ {
+  "id": "duojiao-zheng-yutou",
+  "name": "剁椒蒸芋头",
+  "cat": "xiangcai",
+  "main": "小芋头、红剁椒、大蒜、豆豉、生抽",
+  "tags": [
+   "辣",
+   "素食",
+   "下饭",
+   "家常"
+  ]
+ },
+ {
+  "id": "leilajiao-pidan",
+  "name": "擂辣椒皮蛋",
+  "cat": "xiangcai",
+  "main": "螺丝椒、皮蛋、大蒜、豆豉、生抽",
+  "tags": [
+   "辣",
+   "快手",
+   "重口",
+   "下饭"
+  ]
+ },
+ {
+  "id": "duojiao-zheng-doufu",
+  "name": "剁椒蒸豆腐",
+  "cat": "xiangcai",
+  "main": "嫩豆腐、红剁椒、大蒜、生抽、蒸鱼豉油",
+  "tags": [
+   "辣",
+   "素食",
+   "清淡",
+   "快手"
+  ]
+ },
+ {
+  "id": "suanla-ouding",
+  "name": "酸辣藕丁",
+  "cat": "xiangcai",
+  "main": "莲藕、泡椒、小米椒、大蒜、米醋",
+  "tags": [
+   "辣",
+   "素食",
+   "快手",
+   "下饭"
+  ]
+ },
+ {
+  "id": "duojiao-shao-donggua",
+  "name": "剁椒烧冬瓜",
+  "cat": "xiangcai",
+  "main": "冬瓜、红剁椒、大蒜、生抽、蚝油",
+  "tags": [
+   "辣",
+   "素食",
+   "少油",
+   "家常"
+  ]
+ },
+ {
+  "id": "ganguo-tudoupian",
+  "name": "干锅土豆片",
+  "cat": "xiangcai",
+  "main": "土豆、五花肉、干辣椒、豆瓣酱、大蒜",
+  "tags": [
+   "辣",
+   "下饭",
+   "素食",
+   "重口"
+  ]
+ },
+ {
+  "id": "suancai-chao-fenpi",
+  "name": "酸菜炒粉皮",
+  "cat": "xiangcai",
+  "main": "粉皮、酸菜、小米椒、大蒜、生抽",
+  "tags": [
+   "辣",
+   "素食",
+   "下饭",
+   "家常"
+  ]
+ },
+ {
+  "id": "gandoujiao-zhengrou",
+  "name": "干豆角蒸肉",
+  "cat": "xiangcai",
+  "main": "五花肉、干豆角、干辣椒粉、豆豉、生抽",
+  "tags": [
+   "硬菜",
+   "下饭",
+   "重口",
+   "暖胃"
+  ]
+ },
+ {
+  "id": "qingjiao-chao-xianggan",
+  "name": "青椒炒香干",
+  "cat": "xiangcai",
+  "main": "香干、青椒、大蒜、豆豉、生抽",
+  "tags": [
+   "辣",
+   "家常",
+   "快手",
+   "下饭"
+  ]
+ },
+ {
+  "id": "xiangshi-zheng-qiezi",
+  "name": "湘式蒸茄子",
+  "cat": "xiangcai",
+  "main": "长茄子、红剁椒、大蒜、豆豉、生抽",
+  "tags": [
+   "辣",
+   "素食",
+   "少油",
+   "家常"
+  ]
+ },
+ {
+  "id": "duojiao-zheng-wawacai",
+  "name": "剁椒蒸娃娃菜",
+  "cat": "xiangcai",
+  "main": "娃娃菜、红剁椒、大蒜、粉丝、蒸鱼豉油",
+  "tags": [
+   "辣",
+   "素食",
+   "清淡",
+   "快手"
+  ]
+ },
+ {
+  "id": "suanrong-hongcaitai",
+  "name": "蒜蓉红菜苔",
+  "cat": "xiangcai",
+  "main": "红菜苔、大蒜、干辣椒、生抽、盐",
+  "tags": [
+   "素食",
+   "清淡",
+   "快手",
    "少油"
   ]
  },
  {
-  "id": "hongshao-huangyu",
-  "name": "红烧黄鱼",
-  "cat": "jiachangcai",
-  "main": "黄鱼、生抽、老抽、白糖、姜蒜",
+  "id": "duojiao-zheng-lachang",
+  "name": "剁椒蒸腊肠",
+  "cat": "xiangcai",
+  "main": "腊肠、红剁椒、大蒜、豆豉、料酒",
   "tags": [
+   "重口",
+   "辣",
    "下饭",
    "家常"
   ]
  },
  {
-  "id": "xiangjian-daiyu",
-  "name": "香煎带鱼",
-  "cat": "jiachangcai",
-  "main": "带鱼、盐、料酒、姜片、黑胡椒",
+  "id": "liuyang-fenzhengrou",
+  "name": "浏阳粉蒸肉",
+  "cat": "xiangcai",
+  "main": "五花肉、蒸肉米粉、干辣椒粉、豆瓣酱、生抽",
   "tags": [
+   "硬菜",
+   "重口",
    "下饭",
-   "快手"
+   "暖胃"
   ]
  },
  {
-  "id": "jiangmen-jiyu",
-  "name": "酱焖鲫鱼",
-  "cat": "jiachangcai",
-  "main": "鲫鱼、黄豆酱、姜蒜、生抽、白糖",
-  "tags": [
-   "下饭",
-   "家常"
-  ]
- },
- {
-  "id": "congyou-yupian",
-  "name": "葱油鱼片",
-  "cat": "jiachangcai",
-  "main": "黑鱼、大葱、姜、蛋清、淀粉",
-  "tags": [
-   "清淡",
-   "家常"
-  ]
- },
- {
-  "id": "suantang-yupian",
-  "name": "酸汤鱼片",
-  "cat": "jiachangcai",
-  "main": "黑鱼、番茄、泡椒、黄灯笼椒酱、蛋清",
+  "id": "duojiao-zheng-jinzhengu",
+  "name": "剁椒蒸金针菇",
+  "cat": "xiangcai",
+  "main": "金针菇、红剁椒、大蒜、粉丝、蒸鱼豉油",
   "tags": [
    "辣",
+   "素食",
+   "快手",
+   "少油"
+  ]
+ },
+ {
+  "id": "xiangxi-midoufu",
+  "name": "湘西米豆腐",
+  "cat": "xiangcai",
+  "main": "米豆腐、红剁椒、酸豆角、大蒜、生抽",
+  "tags": [
+   "辣",
+   "素食",
+   "下饭",
+   "家常"
+  ]
+ },
+ {
+  "id": "hunan-gualiangufen",
+  "name": "湖南刮凉粉",
+  "cat": "xiangcai",
+  "main": "豌豆凉粉、黄瓜、小米椒、大蒜、香醋",
+  "tags": [
+   "辣",
+   "素食",
+   "快手",
+   "少油"
+  ]
+ },
+ {
+  "id": "changsha-choudoufu",
+  "name": "长沙臭豆腐",
+  "cat": "xiangcai",
+  "main": "臭豆腐生坯、辣椒酱、大蒜、香醋、生抽",
+  "tags": [
+   "重口",
+   "辣",
+   "快手",
    "下饭"
   ]
  },
  {
-  "id": "fanqie-yupian",
-  "name": "番茄鱼片",
-  "cat": "jiachangcai",
-  "main": "黑鱼、番茄、蛋清、淀粉、番茄酱",
+  "id": "tangyou-baba",
+  "name": "糖油粑粑",
+  "cat": "xiangcai",
+  "main": "糯米粉、温水、红糖、冰糖、蜂蜜",
   "tags": [
-   "下饭",
-   "家常"
-  ]
- },
- {
-  "id": "shuizhu-yu",
-  "name": "水煮鱼",
-  "cat": "jiachangcai",
-  "main": "草鱼、黄豆芽、郫县豆瓣酱、蛋清、干辣椒",
-  "tags": [
-   "辣",
-   "下饭",
-   "硬菜"
-  ]
- },
- {
-  "id": "youmen-daxia",
-  "name": "油焖大虾",
-  "cat": "jiachangcai",
-  "main": "大虾、生抽、白糖、番茄酱、姜",
-  "tags": [
-   "下饭",
-   "硬菜"
-  ]
- },
- {
-  "id": "jiaoyan-xia",
-  "name": "椒盐虾",
-  "cat": "jiachangcai",
-  "main": "大虾、椒盐粉、大蒜、料酒、淀粉",
-  "tags": [
-   "下饭",
+   "甜",
+   "家常",
    "快手"
   ]
  },
  {
-  "id": "suanrong-fensixia",
-  "name": "蒜蓉粉丝虾",
-  "cat": "jiachangcai",
-  "main": "大虾、龙口粉丝、大蒜、生抽、蒸鱼豉油",
+  "id": "changsha-mifen",
+  "name": "长沙米粉",
+  "cat": "xiangcai",
+  "main": "鲜米粉、猪骨、肉末、酸豆角、剁椒",
   "tags": [
-   "清淡",
-   "家常"
-  ]
- },
- {
-  "id": "yanshui-xia",
-  "name": "盐水虾",
-  "cat": "jiachangcai",
-  "main": "基围虾、姜、大葱、料酒、盐",
-  "tags": [
-   "快手",
-   "清淡",
-   "低脂"
-  ]
- },
- {
-  "id": "xilanhua-xiaren",
-  "name": "西兰花炒虾仁",
-  "cat": "jiachangcai",
-  "main": "虾仁、西兰花、大蒜、蛋清、淀粉",
-  "tags": [
-   "快手",
-   "低脂",
+   "辣",
+   "家常",
+   "暖胃",
    "下饭"
   ]
  },
  {
-  "id": "huanggua-xiaren",
-  "name": "黄瓜炒虾仁",
-  "cat": "jiachangcai",
-  "main": "虾仁、黄瓜、蛋清、淀粉、大蒜",
+  "id": "hunan-suanluobo",
+  "name": "湖南酸萝卜",
+  "cat": "xiangcai",
+  "main": "白萝卜、小米椒、米醋、白糖、盐",
   "tags": [
-   "快手",
-   "低脂",
+   "辣",
+   "素食",
+   "少油",
+   "快手"
+  ]
+ },
+ {
+  "id": "xiangshi-lawei-luobotang",
+  "name": "湘式腊味萝卜汤",
+  "cat": "xiangcai",
+  "main": "腊肉、白萝卜、姜、干辣椒、白胡椒粉",
+  "tags": [
+   "暖胃",
+   "家常",
+   "养生",
    "清淡"
   ]
  },
  {
-  "id": "yaoguo-xiaren",
-  "name": "腰果虾仁",
-  "cat": "jiachangcai",
-  "main": "虾仁、熟腰果、黄瓜、胡萝卜、蛋清",
+  "id": "xiangwei-douchi-zhengpaigu",
+  "name": "湘味豆豉蒸排骨",
+  "cat": "xiangcai",
+  "main": "肋排、浏阳豆豉、红剁椒、大蒜、生抽",
   "tags": [
+   "辣",
    "下饭",
-   "家常"
+   "家常",
+   "重口"
   ]
  },
  {
-  "id": "huadan-xiaren",
-  "name": "滑蛋虾仁",
-  "cat": "jiachangcai",
-  "main": "虾仁、鸡蛋、蛋清、淀粉、牛奶",
+  "id": "xiangshi-haozi-baba",
+  "name": "湘西蒿子粑粑",
+  "cat": "xiangcai",
+  "main": "糯米粉、粘米粉、嫩蒿菜、腊肉末、盐",
   "tags": [
-   "快手",
-   "清淡"
-  ]
- },
- {
-  "id": "qingchao-xiaren",
-  "name": "清炒虾仁",
-  "cat": "jiachangcai",
-  "main": "虾仁、鸡蛋清、淀粉、料酒、盐",
-  "tags": [
-   "快手",
-   "低脂",
-   "清淡"
-  ]
- },
- {
-  "id": "qiezhi-daxia",
-  "name": "茄汁大虾",
-  "cat": "jiachangcai",
-  "main": "大虾、番茄酱、白糖、白醋、姜",
-  "tags": [
-   "下饭",
+   "家常",
+   "养生",
    "甜"
-  ]
- },
- {
-  "id": "suanxiang-xiaolongxia",
-  "name": "蒜香小龙虾",
-  "cat": "jiachangcai",
-  "main": "小龙虾、大蒜、啤酒、生抽、白糖",
-  "tags": [
-   "下饭",
-   "重口"
-  ]
- },
- {
-  "id": "qingzheng-pangxie",
-  "name": "清蒸螃蟹",
-  "cat": "jiachangcai",
-  "main": "大闸蟹、姜、香醋、小葱、料酒",
-  "tags": [
-   "清淡",
-   "低脂",
-   "暖胃"
-  ]
- },
- {
-  "id": "xiangla-chaoxie",
-  "name": "香辣炒蟹",
-  "cat": "jiachangcai",
-  "main": "肉蟹、干辣椒、花椒、郫县豆瓣酱、姜蒜",
-  "tags": [
-   "辣",
-   "下饭",
-   "硬菜"
-  ]
- },
- {
-  "id": "congjiang-chaoxie",
-  "name": "葱姜炒蟹",
-  "cat": "jiachangcai",
-  "main": "肉蟹、大葱、姜、生抽、料酒",
-  "tags": [
-   "下饭",
-   "家常"
-  ]
- },
- {
-  "id": "geli-zhengdan",
-  "name": "蛤蜊蒸蛋",
-  "cat": "jiachangcai",
-  "main": "蛤蜊、鸡蛋、温水、生抽、香油",
-  "tags": [
-   "快手",
-   "清淡",
-   "低脂"
-  ]
- },
- {
-  "id": "lachao-geli",
-  "name": "辣炒蛤蜊",
-  "cat": "jiachangcai",
-  "main": "蛤蜊、干辣椒、花椒、蒜、生抽",
-  "tags": [
-   "辣",
-   "下饭",
-   "快手"
-  ]
- },
- {
-  "id": "saipangxie",
-  "name": "赛螃蟹",
-  "cat": "jiachangcai",
-  "main": "鸡蛋、咸蛋黄、姜、香醋、白糖",
-  "tags": [
-   "快手",
-   "清淡",
-   "家常"
-  ]
- },
- {
-  "id": "roumo-zhengdan",
-  "name": "肉末蒸蛋",
-  "cat": "jiachangcai",
-  "main": "鸡蛋、猪肉末、温水、生抽、香油",
-  "tags": [
-   "快手",
-   "清淡",
-   "家常"
-  ]
- },
- {
-  "id": "congchao-jidan",
-  "name": "葱炒鸡蛋",
-  "cat": "jiachangcai",
-  "main": "鸡蛋、大葱、盐、食用油",
-  "tags": [
-   "快手",
-   "家常",
-   "下饭"
-  ]
- },
- {
-  "id": "qingjiao-chaojidan",
-  "name": "青椒炒鸡蛋",
-  "cat": "jiachangcai",
-  "main": "鸡蛋、青椒、盐、食用油",
-  "tags": [
-   "快手",
-   "家常",
-   "素食"
-  ]
- },
- {
-  "id": "xianggu-chaojidan",
-  "name": "香菇炒鸡蛋",
-  "cat": "jiachangcai",
-  "main": "鸡蛋、鲜香菇、小葱、盐、食用油",
-  "tags": [
-   "快手",
-   "家常",
-   "素食"
-  ]
- },
- {
-  "id": "bocai-chaojidan",
-  "name": "菠菜炒鸡蛋",
-  "cat": "jiachangcai",
-  "main": "鸡蛋、菠菜、盐、食用油",
-  "tags": [
-   "快手",
-   "家常",
-   "素食"
-  ]
- },
- {
-  "id": "xilanhua-chaojidan",
-  "name": "西兰花炒鸡蛋",
-  "cat": "jiachangcai",
-  "main": "鸡蛋、西兰花、大蒜、盐、食用油",
-  "tags": [
-   "快手",
-   "素食",
-   "清淡"
-  ]
- },
- {
-  "id": "qingjiao-doufu",
-  "name": "青椒豆腐",
-  "cat": "jiachangcai",
-  "main": "北豆腐、青椒、生抽、蒜、淀粉",
-  "tags": [
-   "下饭",
-   "素食",
-   "家常"
-  ]
- },
- {
-  "id": "xianjidanwang-doufu",
-  "name": "咸蛋黄豆腐",
-  "cat": "jiachangcai",
-  "main": "嫩豆腐、熟咸蛋黄、葱花、淀粉、食用油",
-  "tags": [
-   "下饭",
-   "硬菜"
-  ]
- },
- {
-  "id": "zhacai-doufu",
-  "name": "榨菜豆腐",
-  "cat": "jiachangcai",
-  "main": "嫩豆腐、榨菜、生抽、葱花、香油",
-  "tags": [
-   "快手",
-   "素食",
-   "家常"
-  ]
- },
- {
-  "id": "suanrong-fensi-wawacai",
-  "name": "蒜蓉粉丝娃娃菜",
-  "cat": "jiachangcai",
-  "main": "娃娃菜、龙口粉丝、大蒜、生抽、蒸鱼豉油",
-  "tags": [
-   "清淡",
-   "家常",
-   "素食"
-  ]
- },
- {
-  "id": "baicai-doufu",
-  "name": "白菜炖豆腐",
-  "cat": "jiachangcai",
-  "main": "大白菜、北豆腐、生抽、姜、盐",
-  "tags": [
-   "家常",
-   "清淡",
-   "素食"
-  ]
- },
- {
-  "id": "douya-chao-fensi",
-  "name": "豆芽炒粉丝",
-  "cat": "jiachangcai",
-  "main": "黄豆芽、红薯粉条、生抽、蒜、韭菜",
-  "tags": [
-   "快手",
-   "素食",
-   "家常"
-  ]
- },
- {
-  "id": "qingchao-wundou",
-  "name": "清炒豌豆",
-  "cat": "jiachangcai",
-  "main": "豌豆、大蒜、盐、食用油",
-  "tags": [
-   "快手",
-   "素食",
-   "清淡"
-  ]
- },
- {
-  "id": "qingchao-douya",
-  "name": "清炒豆芽",
-  "cat": "jiachangcai",
-  "main": "绿豆芽、大蒜、香醋、盐、食用油",
-  "tags": [
-   "快手",
-   "素食",
-   "清淡"
-  ]
- },
- {
-  "id": "xianggu-caixin",
-  "name": "香菇菜心",
-  "cat": "jiachangcai",
-  "main": "菜心、鲜香菇、蚝油、蒜、水淀粉",
-  "tags": [
-   "素食",
-   "清淡",
-   "快手"
-  ]
- },
- {
-  "id": "qingchao-shanghaiqing",
-  "name": "清炒上海青",
-  "cat": "jiachangcai",
-  "main": "上海青、大蒜、盐、食用油",
-  "tags": [
-   "快手",
-   "素食",
-   "清淡"
-  ]
- },
- {
-  "id": "qingchao-jielan",
-  "name": "清炒芥蓝",
-  "cat": "jiachangcai",
-  "main": "芥蓝、大蒜、盐、食用油",
-  "tags": [
-   "快手",
-   "素食",
-   "清淡"
-  ]
- },
- {
-  "id": "jielan-rousi",
-  "name": "芥蓝炒肉丝",
-  "cat": "jiachangcai",
-  "main": "猪里脊、芥蓝、生抽、料酒、淀粉",
-  "tags": [
-   "快手",
-   "下饭",
-   "家常"
-  ]
- },
- {
-  "id": "qingchao-youmaicai",
-  "name": "清炒油麦菜",
-  "cat": "jiachangcai",
-  "main": "油麦菜、大蒜、盐、食用油",
-  "tags": [
-   "快手",
-   "素食",
-   "清淡"
-  ]
- },
- {
-  "id": "muer-chao-jidan",
-  "name": "木耳炒鸡蛋",
-  "cat": "jiachangcai",
-  "main": "鸡蛋、干木耳、小葱、盐、食用油",
-  "tags": [
-   "快手",
-   "素食",
-   "家常"
-  ]
- },
- {
-  "id": "baicai-fentiao",
-  "name": "白菜炒粉条",
-  "cat": "jiachangcai",
-  "main": "大白菜、红薯粉条、生抽、蒜、八角",
-  "tags": [
-   "下饭",
-   "家常",
-   "素食"
-  ]
- },
- {
-  "id": "luobo-roumo",
-  "name": "萝卜炒肉末",
-  "cat": "jiachangcai",
-  "main": "白萝卜、猪肉末、生抽、蒜、小葱",
-  "tags": [
-   "下饭",
-   "快手",
-   "家常"
-  ]
- },
- {
-  "id": "jiangbao-qiezi",
-  "name": "酱爆茄子",
-  "cat": "jiachangcai",
-  "main": "长茄子、甜面酱、大蒜、生抽、白糖",
-  "tags": [
-   "下饭",
-   "素食"
-  ]
- },
- {
-  "id": "ganguo-qiezi",
-  "name": "干锅茄子",
-  "cat": "jiachangcai",
-  "main": "长茄子、五花肉、干辣椒、花椒、郫县豆瓣酱",
-  "tags": [
-   "下饭",
-   "辣"
-  ]
- },
- {
-  "id": "jiangjiao-yutou",
-  "name": "酱椒鱼头",
-  "cat": "jiachangcai",
-  "main": "胖头鱼头、酱椒、泡椒、姜、小葱",
-  "tags": [
-   "辣",
-   "下饭",
-   "硬菜"
-  ]
- },
- {
-  "id": "qingchao-mogu",
-  "name": "清炒蘑菇",
-  "cat": "jiachangcai",
-  "main": "口蘑、大蒜、盐、食用油、小葱",
-  "tags": [
-   "快手",
-   "素食",
-   "清淡"
-  ]
- },
- {
-  "id": "xiancai-doufu",
-  "name": "咸菜豆腐",
-  "cat": "jiachangcai",
-  "main": "嫩豆腐、雪里蕻咸菜、生抽、蒜、香油",
-  "tags": [
-   "下饭",
-   "素食",
-   "家常"
-  ]
- },
- {
-  "id": "fanqie-chao-doufu",
-  "name": "番茄炒豆腐",
-  "cat": "jiachangcai",
-  "main": "北豆腐、番茄、鸡蛋、白糖、盐",
-  "tags": [
-   "下饭",
-   "素食",
-   "家常"
-  ]
- },
- {
-  "id": "huanggua-xiangchang",
-  "name": "黄瓜炒香肠",
-  "cat": "jiachangcai",
-  "main": "黄瓜、广式香肠、大蒜、盐、食用油",
-  "tags": [
-   "快手",
-   "下饭",
-   "家常"
-  ]
- },
- {
-  "id": "qingchao-baicai",
-  "name": "清炒白菜",
-  "cat": "jiachangcai",
-  "main": "大白菜、大蒜、盐、食用油",
-  "tags": [
-   "快手",
-   "素食",
-   "清淡"
-  ]
- },
- {
-  "id": "baicai-roumo",
-  "name": "白菜炒肉末",
-  "cat": "jiachangcai",
-  "main": "大白菜、猪肉末、生抽、蒜、小葱",
-  "tags": [
-   "下饭",
-   "快手",
-   "家常"
-  ]
- },
- {
-  "id": "donggu-caixin",
-  "name": "冬菇菜心",
-  "cat": "jiachangcai",
-  "main": "菜心、干香菇、蚝油、蒜、水淀粉",
-  "tags": [
-   "素食",
-   "清淡",
-   "家常"
-  ]
- },
- {
-  "id": "qingchao-candou",
-  "name": "清炒蚕豆",
-  "cat": "jiachangcai",
-  "main": "鲜蚕豆、大蒜、盐、食用油",
-  "tags": [
-   "快手",
-   "素食",
-   "清淡"
-  ]
- },
- {
-  "id": "doujiao-roumo",
-  "name": "豆角炒肉末",
-  "cat": "jiachangcai",
-  "main": "四季豆、猪肉末、生抽、蒜、干辣椒",
-  "tags": [
-   "下饭",
-   "快手",
-   "家常"
-  ]
- },
- {
-  "id": "douya-rousi",
-  "name": "豆芽炒肉丝",
-  "cat": "jiachangcai",
-  "main": "黄豆芽、猪里脊、生抽、料酒、淀粉",
-  "tags": [
-   "快手",
-   "下饭",
-   "家常"
-  ]
- },
- {
-  "id": "suanrong-jiecai",
-  "name": "蒜蓉芥菜",
-  "cat": "jiachangcai",
-  "main": "芥菜、大蒜、盐、食用油",
-  "tags": [
-   "快手",
-   "素食",
-   "清淡"
-  ]
- },
- {
-  "id": "qingchao-kongxincai",
-  "name": "清炒空心菜",
-  "cat": "jiachangcai",
-  "main": "空心菜、大蒜、盐、食用油",
-  "tags": [
-   "快手",
-   "素食",
-   "清淡"
-  ]
- },
- {
-  "id": "qingchao-bocai",
-  "name": "清炒菠菜",
-  "cat": "jiachangcai",
-  "main": "菠菜、大蒜、盐、食用油",
-  "tags": [
-   "快手",
-   "素食",
-   "清淡"
-  ]
- },
- {
-  "id": "xianggu-bocai",
-  "name": "香菇炒菠菜",
-  "cat": "jiachangcai",
-  "main": "菠菜、鲜香菇、大蒜、盐、食用油",
-  "tags": [
-   "快手",
-   "素食",
-   "清淡"
-  ]
- },
- {
-  "id": "suanrong-shengcai",
-  "name": "蒜蓉生菜",
-  "cat": "jiachangcai",
-  "main": "生菜、大蒜、蚝油、盐、食用油",
-  "tags": [
-   "快手",
-   "素食",
-   "清淡"
-  ]
- },
- {
-  "id": "jiangyou-baicai",
-  "name": "酱油白菜",
-  "cat": "jiachangcai",
-  "main": "大白菜、生抽、蒜、白糖、食用油",
-  "tags": [
-   "下饭",
-   "素食",
-   "家常"
-  ]
- },
- {
-  "id": "suanrong-doufu",
-  "name": "蒜蓉豆腐",
-  "cat": "jiachangcai",
-  "main": "嫩豆腐、大蒜、生抽、蚝油、小葱",
-  "tags": [
-   "下饭",
-   "素食",
-   "家常"
-  ]
- },
- {
-  "id": "hongshao-doufu",
-  "name": "红烧豆腐",
-  "cat": "jiachangcai",
-  "main": "北豆腐、生抽、老抽、白糖、大蒜",
-  "tags": [
-   "下饭",
-   "素食"
-  ]
- },
- {
-  "id": "qingchao-muer",
-  "name": "清炒木耳",
-  "cat": "jiachangcai",
-  "main": "干木耳、大蒜、胡萝卜、盐、食用油",
-  "tags": [
-   "快手",
-   "素食",
-   "清淡"
-  ]
- },
- {
-  "id": "muer-roupian",
-  "name": "木耳炒肉片",
-  "cat": "jiachangcai",
-  "main": "猪里脊、干木耳、青椒、生抽、料酒",
-  "tags": [
-   "快手",
-   "下饭",
-   "家常"
-  ]
- },
- {
-  "id": "huanggua-muer",
-  "name": "黄瓜炒木耳",
-  "cat": "jiachangcai",
-  "main": "黄瓜、干木耳、大蒜、盐、食用油",
-  "tags": [
-   "快手",
-   "素食",
-   "清淡"
-  ]
- },
- {
-  "id": "qingchao-huanggua",
-  "name": "清炒黄瓜",
-  "cat": "jiachangcai",
-  "main": "黄瓜、大蒜、盐、食用油",
-  "tags": [
-   "快手",
-   "素食",
-   "清淡"
-  ]
- },
- {
-  "id": "xilanhua-roumo",
-  "name": "西兰花炒肉末",
-  "cat": "jiachangcai",
-  "main": "西兰花、猪肉末、生抽、蒜、盐",
-  "tags": [
-   "快手",
-   "下饭",
-   "家常"
-  ]
- },
- {
-  "id": "qingchao-luobo",
-  "name": "清炒萝卜丝",
-  "cat": "jiachangcai",
-  "main": "白萝卜、大蒜、葱花、盐、食用油",
-  "tags": [
-   "快手",
-   "素食",
-   "清淡"
-  ]
- },
- {
-  "id": "qingjiao-tudousi",
-  "name": "青椒土豆丝",
-  "cat": "jiachangcai",
-  "main": "土豆、青椒、干辣椒、白醋、大蒜",
-  "tags": [
-   "快手",
-   "素食",
-   "下饭"
-  ]
- },
- {
-  "id": "hongshao-tudou",
-  "name": "红烧土豆",
-  "cat": "jiachangcai",
-  "main": "土豆、生抽、老抽、白糖、八角",
-  "tags": [
-   "下饭",
-   "素食",
-   "家常"
-  ]
- },
- {
-  "id": "qingchao-qiezi",
-  "name": "清炒茄子",
-  "cat": "jiachangcai",
-  "main": "长茄子、大蒜、生抽、盐、食用油",
-  "tags": [
-   "快手",
-   "素食",
-   "清淡"
-  ]
- },
- {
-  "id": "xiaren-doufu",
-  "name": "虾仁炒豆腐",
-  "cat": "jiachangcai",
-  "main": "嫩豆腐、虾仁、蛋清、淀粉、生抽",
-  "tags": [
-   "下饭",
-   "低脂",
-   "家常"
-  ]
- },
- {
-  "id": "dongsun-roupian",
-  "name": "冬笋炒肉片",
-  "cat": "jiachangcai",
-  "main": "猪里脊、冬笋、木耳、生抽、料酒",
-  "tags": [
-   "快手",
-   "下饭",
-   "家常"
-  ]
- },
- {
-  "id": "jiaobai-roupian",
-  "name": "茭白炒肉片",
-  "cat": "jiachangcai",
-  "main": "猪里脊、茭白、青椒、生抽、料酒",
-  "tags": [
-   "快手",
-   "下饭",
-   "家常"
-  ]
- },
- {
-  "id": "qincai-xiangchang",
-  "name": "芹菜炒香肠",
-  "cat": "jiachangcai",
-  "main": "芹菜、广式香肠、大蒜、盐、食用油",
-  "tags": [
-   "下饭",
-   "快手",
-   "家常"
-  ]
- },
- {
-  "id": "suanrong-oupian",
-  "name": "蒜蓉藕片",
-  "cat": "jiachangcai",
-  "main": "莲藕、大蒜、白醋、盐、食用油",
-  "tags": [
-   "快手",
-   "素食",
-   "清淡"
-  ]
- },
- {
-  "id": "tangcu-oupian",
-  "name": "糖醋藕片",
-  "cat": "jiachangcai",
-  "main": "莲藕、白醋、白糖、生抽、胡萝卜",
-  "tags": [
-   "甜",
-   "素食",
-   "下饭"
-  ]
- },
- {
-  "id": "xianggu-qingcai",
-  "name": "香菇炒青菜",
-  "cat": "jiachangcai",
-  "main": "小油菜、鲜香菇、大蒜、蚝油、盐",
-  "tags": [
-   "素食",
-   "清淡",
-   "快手"
-  ]
- },
- {
-  "id": "xianggu-baicai",
-  "name": "香菇白菜",
-  "cat": "jiachangcai",
-  "main": "大白菜、干香菇、生抽、蒜、盐",
-  "tags": [
-   "素食",
-   "清淡",
-   "家常"
-  ]
- },
- {
-  "id": "qiezhi-huacai",
-  "name": "茄汁菜花",
-  "cat": "jiachangcai",
-  "main": "有机花菜、番茄酱、白糖、生抽、大蒜",
-  "tags": [
-   "下饭",
-   "素食",
-   "甜"
-  ]
- },
- {
-  "id": "qingchao-huacai",
-  "name": "清炒花菜",
-  "cat": "jiachangcai",
-  "main": "有机花菜、大蒜、盐、食用油",
-  "tags": [
-   "快手",
-   "素食",
-   "清淡"
-  ]
- },
- {
-  "id": "suanrong-huacai",
-  "name": "蒜蓉花菜",
-  "cat": "jiachangcai",
-  "main": "有机花菜、大蒜、蚝油、盐、食用油",
-  "tags": [
-   "快手",
-   "素食",
-   "清淡"
-  ]
- },
- {
-  "id": "roumo-huacai",
-  "name": "肉末花菜",
-  "cat": "jiachangcai",
-  "main": "有机花菜、猪肉末、郫县豆瓣酱、生抽、蒜",
-  "tags": [
-   "下饭",
-   "快手",
-   "家常"
-  ]
- },
- {
-  "id": "lajiao-chaojidan",
-  "name": "辣椒炒鸡蛋",
-  "cat": "jiachangcai",
-  "main": "鸡蛋、青尖椒、小米辣、盐、食用油",
-  "tags": [
-   "快手",
-   "下饭",
-   "辣"
-  ]
- },
- {
-  "id": "fanqie-huacai",
-  "name": "番茄炒花菜",
-  "cat": "jiachangcai",
-  "main": "有机花菜、番茄、白糖、盐、食用油",
-  "tags": [
-   "下饭",
-   "素食",
-   "家常"
-  ]
- },
- {
-  "id": "huanggua-chaojidan",
-  "name": "黄瓜炒鸡蛋",
-  "cat": "jiachangcai",
-  "main": "鸡蛋、黄瓜、盐、食用油",
-  "tags": [
-   "快手",
-   "家常",
-   "素食"
-  ]
- },
- {
-  "id": "hongshao-mianjin",
-  "name": "红烧面筋",
-  "cat": "jiachangcai",
-  "main": "水面筋、香菇、生抽、老抽、白糖",
-  "tags": [
-   "下饭",
-   "素食",
-   "家常"
-  ]
- },
- {
-  "id": "zicai-eggsoup",
-  "name": "紫菜蛋花汤",
-  "cat": "tanggeng",
-  "main": "免洗紫菜、鸡蛋、虾皮、小葱、香油",
-  "tags": [
-   "快手",
-   "清淡",
-   "低脂"
-  ]
- },
- {
-  "id": "donggua-paigu-tang",
-  "name": "冬瓜排骨汤",
-  "cat": "tanggeng",
-  "main": "猪肋排、冬瓜、姜、料酒、盐",
-  "tags": [
-   "清淡",
-   "低脂",
-   "家常"
-  ]
- },
- {
-  "id": "yumi-paigu-tang",
-  "name": "玉米排骨汤",
-  "cat": "tanggeng",
-  "main": "猪肋排、甜玉米、胡萝卜、姜、料酒",
-  "tags": [
-   "清淡",
-   "家常"
-  ]
- },
- {
-  "id": "lianou-paigu-tang",
-  "name": "莲藕排骨汤",
-  "cat": "tanggeng",
-  "main": "猪肋排、粉藕、姜、料酒、盐",
-  "tags": [
-   "清淡",
-   "家常",
-   "暖胃"
-  ]
- },
- {
-  "id": "yutou-doufu-tang",
-  "name": "鱼头豆腐汤",
-  "cat": "tanggeng",
-  "main": "鱼头、嫩豆腐、姜、大葱、料酒",
-  "tags": [
-   "家常",
-   "暖胃"
-  ]
- },
- {
-  "id": "xianggu-jitang",
-  "name": "香菇炖鸡汤",
-  "cat": "tanggeng",
-  "main": "土鸡半只、干香菇、姜、料酒、红枣",
-  "tags": [
-   "清淡",
-   "暖胃",
-   "家常"
-  ]
- },
- {
-  "id": "luosong-tang",
-  "name": "罗宋汤",
-  "cat": "tanggeng",
-  "main": "牛腩、番茄、洋葱、土豆、胡萝卜",
-  "tags": [
-   "家常",
-   "酸甜"
-  ]
- },
- {
-  "id": "suanla-tang",
-  "name": "酸辣汤",
-  "cat": "tanggeng",
-  "main": "嫩豆腐、黑木耳、胡萝卜、火腿肠、鸡蛋",
-  "tags": [
-   "酸辣",
-   "开胃"
-  ]
- },
- {
-  "id": "baicai-doufu-tang",
-  "name": "白菜豆腐汤",
-  "cat": "tanggeng",
-  "main": "大白菜叶、北豆腐、虾皮、姜、盐",
-  "tags": [
-   "清淡",
-   "素食",
-   "低脂"
-  ]
- },
- {
-  "id": "haidai-doufu-tang",
-  "name": "海带豆腐汤",
-  "cat": "tanggeng",
-  "main": "泡发海带、北豆腐、姜、虾皮、盐",
-  "tags": [
-   "清淡",
-   "素食",
-   "低脂"
-  ]
- },
- {
-  "id": "fanqie-niunan-tang",
-  "name": "番茄牛腩汤",
-  "cat": "tanggeng",
-  "main": "牛腩、番茄、洋葱、番茄酱、姜",
-  "tags": [
-   "家常",
-   "酸甜",
-   "暖胃"
-  ]
- },
- {
-  "id": "luobuo-niurou-tang",
-  "name": "萝卜牛肉汤",
-  "cat": "tanggeng",
-  "main": "牛腩、白萝卜、姜、料酒、盐",
-  "tags": [
-   "清淡",
-   "暖胃",
-   "家常"
-  ]
- },
- {
-  "id": "zhugan-bocai-tang",
-  "name": "猪肝菠菜汤",
-  "cat": "tanggeng",
-  "main": "猪肝、菠菜、姜、料酒、淀粉",
-  "tags": [
-   "清淡",
-   "快手",
-   "家常"
-  ]
- },
- {
-  "id": "suancai-fensi-tang",
-  "name": "酸菜粉丝汤",
-  "cat": "tanggeng",
-  "main": "东北酸菜、龙口粉丝、猪肉丝、姜丝、白胡椒粉",
-  "tags": [
-   "酸辣",
-   "开胃",
-   "快手"
-  ]
- },
- {
-  "id": "jicai-doufu-geng",
-  "name": "荠菜豆腐羹",
-  "cat": "tanggeng",
-  "main": "荠菜、嫩豆腐、香菇、水淀粉、盐",
-  "tags": [
-   "清淡",
-   "素食",
-   "低脂"
-  ]
- },
- {
-  "id": "xihu-niurou-geng",
-  "name": "西湖牛肉羹",
-  "cat": "tanggeng",
-  "main": "牛里脊、嫩豆腐、香菇、蛋清、香菜",
-  "tags": [
-   "清淡",
-   "家常"
-  ]
- },
- {
-  "id": "naiyou-mogu-tang",
-  "name": "奶油蘑菇汤",
-  "cat": "tanggeng",
-  "main": "口蘑、洋葱、黄油、面粉、牛奶",
-  "tags": [
-   "西式",
-   "家常"
-  ]
- },
- {
-  "id": "bingtang-xueli",
-  "name": "冰糖雪梨",
-  "cat": "tanggeng",
-  "main": "雪梨、冰糖、枸杞、红枣",
-  "tags": [
-   "甜",
-   "清淡",
-   "养生"
-  ]
- },
- {
-  "id": "yiner-lianzi-geng",
-  "name": "银耳莲子羹",
-  "cat": "tanggeng",
-  "main": "干银耳、莲子、红枣、枸杞、冰糖",
-  "tags": [
-   "甜",
-   "养生",
-   "清淡"
-  ]
- },
- {
-  "id": "shanyao-paigu-tang",
-  "name": "山药排骨汤",
-  "cat": "tanggeng",
-  "main": "猪肋排、铁棍山药、姜、料酒、盐",
-  "tags": [
-   "清淡",
-   "暖胃",
-   "家常"
-  ]
- },
- {
-  "id": "fanqie-paigu-tang",
-  "name": "番茄排骨汤",
-  "cat": "tanggeng",
-  "main": "猪肋排、番茄、洋葱、姜、番茄酱",
-  "tags": [
-   "家常",
-   "暖胃",
-   "清淡"
-  ]
- },
- {
-  "id": "haidai-paigu-tang",
-  "name": "海带排骨汤",
-  "cat": "tanggeng",
-  "main": "猪肋排、干海带、姜、料酒、盐",
-  "tags": [
-   "清淡",
-   "低脂",
-   "家常"
-  ]
- },
- {
-  "id": "huangdou-zhuti-tang",
-  "name": "黄豆猪蹄汤",
-  "cat": "tanggeng",
-  "main": "猪蹄、干黄豆、姜、料酒、盐",
-  "tags": [
-   "暖胃",
-   "家常",
-   "养生"
-  ]
- },
- {
-  "id": "huasheng-zhuti-tang",
-  "name": "花生猪蹄汤",
-  "cat": "tanggeng",
-  "main": "猪蹄、花生、姜、料酒、盐",
-  "tags": [
-   "暖胃",
-   "家常",
-   "养生"
-  ]
- },
- {
-  "id": "yezi-jitang",
-  "name": "椰子鸡汤",
-  "cat": "tanggeng",
-  "main": "土鸡半只、椰子、红枣、枸杞、姜",
-  "tags": [
-   "清淡",
-   "暖胃",
-   "养生"
-  ]
- },
- {
-  "id": "banli-jitang",
-  "name": "板栗鸡汤",
-  "cat": "tanggeng",
-  "main": "土鸡半只、板栗、姜、料酒、红枣",
-  "tags": [
-   "暖胃",
-   "家常",
-   "养生"
-  ]
- },
- {
-  "id": "shanyao-jitang",
-  "name": "山药鸡汤",
-  "cat": "tanggeng",
-  "main": "土鸡半只、铁棍山药、枸杞、姜、料酒",
-  "tags": [
-   "清淡",
-   "暖胃",
-   "养生"
-  ]
- },
- {
-  "id": "sungan-laoya-tang",
-  "name": "笋干老鸭汤",
-  "cat": "tanggeng",
-  "main": "老鸭半只、笋干、姜、料酒、盐",
-  "tags": [
-   "清淡",
-   "养生",
-   "暖胃"
-  ]
- },
- {
-  "id": "suanluobo-laoya-tang",
-  "name": "酸萝卜老鸭汤",
-  "cat": "tanggeng",
-  "main": "老鸭半只、酸萝卜、姜、料酒、盐",
-  "tags": [
-   "暖胃",
-   "家常",
-   "清淡"
-  ]
- },
- {
-  "id": "fanqie-niuwei-tang",
-  "name": "番茄牛尾汤",
-  "cat": "tanggeng",
-  "main": "牛尾、番茄、洋葱、姜、番茄酱",
-  "tags": [
-   "暖胃",
-   "家常"
-  ]
- },
- {
-  "id": "luobuo-yangrou-tang",
-  "name": "萝卜羊肉汤",
-  "cat": "tanggeng",
-  "main": "羊腿肉、白萝卜、姜、料酒、白胡椒粉",
-  "tags": [
-   "暖胃",
-   "养生",
-   "家常"
-  ]
- },
- {
-  "id": "shanyao-yangrou-tang",
-  "name": "山药羊肉汤",
-  "cat": "tanggeng",
-  "main": "羊腿肉、铁棍山药、姜、料酒、枸杞",
-  "tags": [
-   "暖胃",
-   "养生",
-   "家常"
-  ]
- },
- {
-  "id": "qingdun-yangrou-tang",
-  "name": "清炖羊肉汤",
-  "cat": "tanggeng",
-  "main": "羊排、姜、料酒、白胡椒粉、盐",
-  "tags": [
-   "暖胃",
-   "清淡",
-   "养生"
-  ]
- },
- {
-  "id": "suancai-yutou-tang",
-  "name": "酸菜鱼头汤",
-  "cat": "tanggeng",
-  "main": "胖鱼头、东北酸菜、姜、干辣椒、料酒",
-  "tags": [
-   "暖胃",
-   "家常",
-   "清淡"
-  ]
- },
- {
-  "id": "jiyu-doufu-tang",
-  "name": "鲫鱼豆腐汤",
-  "cat": "tanggeng",
-  "main": "鲫鱼、嫩豆腐、姜、小葱、料酒",
-  "tags": [
-   "暖胃",
-   "清淡",
-   "家常"
-  ]
- },
- {
-  "id": "fanqie-yupian-tang",
-  "name": "番茄鱼片汤",
-  "cat": "tanggeng",
-  "main": "草鱼片、番茄、姜、蛋清、淀粉",
-  "tags": [
-   "清淡",
-   "暖胃",
-   "低脂"
-  ]
- },
- {
-  "id": "xianxia-doufu-tang",
-  "name": "鲜虾豆腐汤",
-  "cat": "tanggeng",
-  "main": "鲜虾仁、嫩豆腐、姜、小葱、料酒",
-  "tags": [
-   "清淡",
-   "低脂",
-   "暖胃"
-  ]
- },
- {
-  "id": "gelu-donggua-tang",
-  "name": "蛤蜊冬瓜汤",
-  "cat": "tanggeng",
-  "main": "蛤蜊、冬瓜、姜、小葱、料酒",
-  "tags": [
-   "清淡",
-   "低脂",
-   "快手"
-  ]
- },
- {
-  "id": "zajun-tang",
-  "name": "杂菌汤",
-  "cat": "tanggeng",
-  "main": "香菇、平菇、金针菇、蟹味菇、姜",
-  "tags": [
-   "清淡",
-   "素食",
-   "低脂"
-  ]
- },
- {
-  "id": "xianggu-qingcai-tang",
-  "name": "香菇青菜汤",
-  "cat": "tanggeng",
-  "main": "干香菇、小油菜、姜、盐、香油",
-  "tags": [
-   "素食",
-   "清淡",
-   "快手"
-  ]
- },
- {
-  "id": "donggua-rouwan-tang",
-  "name": "冬瓜肉丸汤",
-  "cat": "tanggeng",
-  "main": "猪前腿肉、冬瓜、姜、淀粉、料酒",
-  "tags": [
-   "家常",
-   "暖胃",
-   "清淡"
-  ]
- },
- {
-  "id": "luobuo-si-tang",
-  "name": "萝卜丝汤",
-  "cat": "tanggeng",
-  "main": "白萝卜、虾皮、姜、小葱、盐",
-  "tags": [
-   "清淡",
-   "低脂",
-   "快手"
-  ]
- },
- {
-  "id": "fanqie-doufu-tang",
-  "name": "番茄豆腐汤",
-  "cat": "tanggeng",
-  "main": "番茄、嫩豆腐、小葱、盐、白糖",
-  "tags": [
-   "清淡",
-   "低脂",
-   "快手"
-  ]
- },
- {
-  "id": "bocai-doufu-tang",
-  "name": "菠菜豆腐汤",
-  "cat": "tanggeng",
-  "main": "菠菜、嫩豆腐、姜、盐、香油",
-  "tags": [
-   "清淡",
-   "素食",
-   "低脂"
-  ]
- },
- {
-  "id": "zicai-xiapi-tang",
-  "name": "紫菜虾皮汤",
-  "cat": "tanggeng",
-  "main": "免洗紫菜、虾皮、小葱、香油、盐",
-  "tags": [
-   "快手",
-   "清淡",
-   "低脂"
-  ]
- },
- {
-  "id": "qingcai-doufu-tang",
-  "name": "青菜豆腐汤",
-  "cat": "tanggeng",
-  "main": "小白菜、北豆腐、姜、盐、香油",
-  "tags": [
-   "素食",
-   "清淡",
-   "快手"
-  ]
- },
- {
-  "id": "huage-doufu-tang",
-  "name": "花蛤豆腐汤",
-  "cat": "tanggeng",
-  "main": "花蛤、嫩豆腐、姜、小葱、料酒",
-  "tags": [
-   "清淡",
-   "低脂",
-   "暖胃"
-  ]
- },
- {
-  "id": "sigua-egg-tang",
-  "name": "丝瓜蛋花汤",
-  "cat": "tanggeng",
-  "main": "丝瓜、鸡蛋、小葱、盐、香油",
-  "tags": [
-   "快手",
-   "清淡",
-   "素食"
-  ]
- },
- {
-  "id": "huanghuacai-egg-tang",
-  "name": "黄花菜蛋汤",
-  "cat": "tanggeng",
-  "main": "干黄花菜、鸡蛋、小葱、盐、香油",
-  "tags": [
-   "快手",
-   "清淡",
-   "素食"
-  ]
- },
- {
-  "id": "huanggua-egg-tang",
-  "name": "黄瓜蛋花汤",
-  "cat": "tanggeng",
-  "main": "黄瓜、鸡蛋、小葱、盐、香油",
-  "tags": [
-   "快手",
-   "清淡",
-   "低脂"
-  ]
- },
- {
-  "id": "xiapi-egg-tang",
-  "name": "虾皮蛋花汤",
-  "cat": "tanggeng",
-  "main": "虾皮、鸡蛋、小葱、盐、香油",
-  "tags": [
-   "快手",
-   "清淡",
-   "低脂"
-  ]
- },
- {
-  "id": "zhacai-rousi-tang",
-  "name": "榨菜肉丝汤",
-  "cat": "tanggeng",
-  "main": "榨菜、猪里脊、小葱、淀粉、盐",
-  "tags": [
-   "快手",
-   "家常",
-   "下饭"
-  ]
- },
- {
-  "id": "doufu-egg-tang",
-  "name": "豆腐蛋花汤",
-  "cat": "tanggeng",
-  "main": "嫩豆腐、鸡蛋、小葱、盐、香油",
-  "tags": [
-   "快手",
-   "清淡",
-   "素食"
-  ]
- },
- {
-  "id": "sumi-geng",
-  "name": "粟米羹",
-  "cat": "tanggeng",
-  "main": "玉米粒、鸡蛋、火腿肠、水淀粉、盐",
-  "tags": [
-   "快手",
-   "清淡",
-   "家常"
-  ]
- },
- {
-  "id": "haixian-geng",
-  "name": "海鲜羹",
-  "cat": "tanggeng",
-  "main": "鲜虾仁、鲜贝、嫩豆腐、香菇、蛋清",
-  "tags": [
-   "暖胃",
-   "清淡",
-   "家常"
-  ]
- },
- {
-  "id": "doufu-geng",
-  "name": "豆腐羹",
-  "cat": "tanggeng",
-  "main": "嫩豆腐、香菇、胡萝卜、水淀粉、盐",
-  "tags": [
-   "素食",
-   "清淡",
-   "低脂"
-  ]
- },
- {
-  "id": "roumo-doufu-geng",
-  "name": "肉末豆腐羹",
-  "cat": "tanggeng",
-  "main": "猪绞肉、嫩豆腐、香菇、水淀粉、生抽",
-  "tags": [
-   "下饭",
-   "家常",
-   "暖胃"
-  ]
- },
- {
-  "id": "yugeng",
-  "name": "鱼羹",
-  "cat": "tanggeng",
-  "main": "鲈鱼、嫩豆腐、香菇、蛋清、水淀粉",
-  "tags": [
-   "暖胃",
-   "清淡",
-   "家常"
-  ]
- },
- {
-  "id": "shanyao-geng",
-  "name": "山药羹",
-  "cat": "tanggeng",
-  "main": "铁棍山药、枸杞、水淀粉、盐、香油",
-  "tags": [
-   "养生",
-   "清淡",
-   "素食"
-  ]
- },
- {
-  "id": "nangua-geng",
-  "name": "南瓜羹",
-  "cat": "tanggeng",
-  "main": "南瓜、牛奶、冰糖、水淀粉",
-  "tags": [
-   "甜",
-   "养生",
-   "清淡"
-  ]
- },
- {
-  "id": "chongcao-jitang",
-  "name": "虫草花鸡汤",
-  "cat": "tanggeng",
-  "main": "土鸡半只、虫草花、红枣、枸杞、姜",
-  "tags": [
-   "养生",
-   "暖胃",
-   "家常"
-  ]
- },
- {
-  "id": "huasheng-jijiao-tang",
-  "name": "花生鸡脚汤",
-  "cat": "tanggeng",
-  "main": "鸡脚、花生、红枣、姜、料酒",
-  "tags": [
-   "养生",
-   "暖胃",
-   "家常"
-  ]
- },
- {
-  "id": "bawanghua-tang",
-  "name": "霸王花瘦肉汤",
-  "cat": "tanggeng",
-  "main": "猪瘦肉、干霸王花、南北杏、无花果、姜",
-  "tags": [
-   "养生",
-   "清淡",
-   "暖胃"
-  ]
- },
- {
-  "id": "xiyangcai-zhugu-tang",
-  "name": "西洋菜猪骨汤",
-  "cat": "tanggeng",
-  "main": "猪骨、西洋菜、蜜枣、姜、料酒",
-  "tags": [
-   "清淡",
-   "养生",
-   "暖胃"
-  ]
- },
- {
-  "id": "hongdou-sha",
-  "name": "红豆沙",
-  "cat": "tanggeng",
-  "main": "红豆、冰糖、陈皮",
-  "tags": [
-   "甜",
-   "养生",
-   "素食"
-  ]
- },
- {
-  "id": "guiyuan-lianzi-geng",
-  "name": "桂圆莲子羹",
-  "cat": "tanggeng",
-  "main": "干莲子、桂圆肉、红枣、冰糖、枸杞",
-  "tags": [
-   "甜",
-   "养生",
-   "暖胃"
-  ]
- },
- {
-  "id": "mugua-yiner-geng",
-  "name": "木瓜银耳羹",
-  "cat": "tanggeng",
-  "main": "干银耳、木瓜、红枣、冰糖、枸杞",
-  "tags": [
-   "甜",
-   "养生",
-   "清淡"
-  ]
- },
- {
-  "id": "guihua-jiuniang-geng",
-  "name": "桂花酒酿圆子羹",
-  "cat": "tanggeng",
-  "main": "小圆子、酒酿、干桂花、鸡蛋、冰糖",
-  "tags": [
-   "甜",
-   "暖胃",
-   "养生"
-  ]
- },
- {
-  "id": "lvdou-sha",
-  "name": "绿豆沙",
-  "cat": "tanggeng",
-  "main": "绿豆、冰糖、陈皮",
-  "tags": [
-   "甜",
-   "清淡",
-   "素食"
-  ]
- },
- {
-  "id": "jiangyou-chaofan",
-  "name": "酱油炒饭",
-  "cat": "zhushi",
-  "main": "隔夜米饭、鸡蛋、生抽、老抽、白糖",
-  "tags": [
-   "快手",
-   "家常"
-  ]
- },
- {
-  "id": "xiaren-chaofan",
-  "name": "虾仁炒饭",
-  "cat": "zhushi",
-  "main": "隔夜米饭、虾仁、胡萝卜、鸡蛋、生菜",
-  "tags": [
-   "快手",
-   "低脂"
-  ]
- },
- {
-  "id": "fanqie-jidan-mian",
-  "name": "番茄鸡蛋面",
-  "cat": "zhushi",
-  "main": "面条、番茄、鸡蛋、小葱、生抽",
-  "tags": [
-   "快手",
-   "家常",
-   "暖胃"
-  ]
- },
- {
-  "id": "zhajiang-mian",
-  "name": "炸酱面",
-  "cat": "zhushi",
-  "main": "手擀面或鲜面、猪肉馅、干黄酱、甜面酱、黄瓜",
-  "tags": [
-   "家常",
-   "硬菜"
-  ]
- },
- {
-  "id": "youpo-mian",
-  "name": "油泼面",
-  "cat": "zhushi",
-  "main": "宽面、秦椒面（辣椒面）、大蒜、小葱、生抽",
-  "tags": [
-   "快手",
-   "家常"
-  ]
- },
- {
-  "id": "regan-mian",
-  "name": "热干面",
-  "cat": "zhushi",
-  "main": "碱水面、芝麻酱、香油、辣萝卜丁、酸豆角",
-  "tags": [
-   "快手",
-   "家常"
-  ]
- },
- {
-  "id": "congyou-banmian",
-  "name": "葱油拌面",
-  "cat": "zhushi",
-  "main": "细面、小葱、生抽、老抽、白糖",
-  "tags": [
-   "快手",
-   "家常",
-   "甜"
-  ]
- },
- {
-  "id": "hongshao-niurou-mian",
-  "name": "红烧牛肉面",
-  "cat": "zhushi",
-  "main": "牛腩、鲜面、郫县豆瓣酱、番茄、姜蒜",
-  "tags": [
-   "硬菜",
-   "暖胃"
-  ]
- },
- {
-  "id": "xuecai-rousi-mian",
-  "name": "雪菜肉丝面",
-  "cat": "zhushi",
-  "main": "面条、雪菜、猪里脊、姜丝、生抽",
-  "tags": [
-   "快手",
-   "家常"
-  ]
- },
- {
-  "id": "liangban-mian",
-  "name": "凉拌面",
-  "cat": "zhushi",
-  "main": "细面、黄瓜、大蒜、生抽、香醋",
-  "tags": [
-   "快手",
-   "清爽"
-  ]
- },
- {
-  "id": "majiang-banmian",
-  "name": "麻酱拌面",
-  "cat": "zhushi",
-  "main": "面条、芝麻酱、生抽、香醋、白糖",
-  "tags": [
-   "快手",
-   "家常"
-  ]
- },
- {
-  "id": "doujiao-menmian",
-  "name": "豆角焖面",
-  "cat": "zhushi",
-  "main": "鲜面条、四季豆、五花肉、大蒜、生抽",
-  "tags": [
-   "家常",
-   "硬菜"
-  ]
- },
- {
-  "id": "suanla-fen",
-  "name": "酸辣粉",
-  "cat": "zhushi",
-  "main": "红薯粉条、花生碎、榨菜末、香醋、辣椒油",
-  "tags": [
-   "酸辣",
-   "开胃",
-   "快手"
-  ]
- },
- {
-  "id": "guilin-mifen",
-  "name": "桂林风味米粉",
-  "cat": "zhushi",
-  "main": "干米粉、猪肉末、酸豆角、花生米、蒜蓉辣酱",
-  "tags": [
-   "家常",
-   "酸辣"
-  ]
- },
- {
-  "id": "xianrou-huntun",
-  "name": "鲜肉馄饨",
-  "cat": "zhushi",
-  "main": "馄饨皮、猪肉馅、虾皮、紫菜、姜末",
-  "tags": [
-   "家常",
-   "暖胃"
-  ]
- },
- {
-  "id": "zhurou-dacong-jiaozi",
-  "name": "猪肉大葱饺子",
-  "cat": "zhushi",
-  "main": "饺子皮、猪肉馅、大葱、姜末、生抽",
-  "tags": [
-   "家常",
-   "硬菜"
-  ]
- },
- {
-  "id": "jiucai-jidan-jiaozi",
-  "name": "韭菜鸡蛋饺子",
-  "cat": "zhushi",
-  "main": "饺子皮、韭菜、鸡蛋、虾皮、香油",
-  "tags": [
-   "素食",
-   "家常"
-  ]
- },
- {
-  "id": "susanxian-shuijiao",
-  "name": "素三鲜水饺",
-  "cat": "zhushi",
-  "main": "饺子皮、韭菜、鸡蛋、干虾仁或虾皮、木耳",
-  "tags": [
-   "素食",
-   "清淡"
-  ]
- },
- {
-  "id": "guotie",
-  "name": "锅贴",
-  "cat": "zhushi",
-  "main": "饺子皮、猪肉馅、韭菜、面粉水、姜末",
-  "tags": [
-   "家常",
-   "硬菜"
-  ]
- },
- {
-  "id": "lachang-baozaifan",
-  "name": "腊肠煲仔饭",
-  "cat": "zhushi",
-  "main": "丝苗米、广式腊肠、鸡蛋、小油菜、生抽",
-  "tags": [
-   "硬菜",
-   "家常"
-  ]
- },
- {
-  "id": "paigu-menfan",
-  "name": "排骨焖饭",
-  "cat": "zhushi",
-  "main": "大米、猪肋排、香菇、胡萝卜、生抽",
-  "tags": [
-   "硬菜",
-   "家常"
-  ]
- },
- {
-  "id": "tudou-menfan",
-  "name": "土豆腊味焖饭",
-  "cat": "zhushi",
-  "main": "大米、土豆、腊肠、生抽、小葱",
-  "tags": [
-   "家常",
-   "快手"
-  ]
- },
- {
-  "id": "lurofan",
-  "name": "台湾卤肉饭",
-  "cat": "zhushi",
-  "main": "五花肉、红葱头（或洋葱）、大米、生抽、老抽",
-  "tags": [
-   "硬菜",
-   "下饭"
-  ]
- },
- {
-  "id": "xinjiang-zhuafan",
-  "name": "新疆羊肉抓饭",
-  "cat": "zhushi",
-  "main": "大米、羊腿肉、胡萝卜、洋葱、葡萄干",
-  "tags": [
-   "硬菜",
-   "家常"
-  ]
- },
- {
-  "id": "beef-chaofan",
-  "name": "牛肉炒饭",
-  "cat": "zhushi",
-  "main": "隔夜米饭、牛里脊、鸡蛋、洋葱、生抽",
-  "tags": [
-   "快手",
-   "家常",
-   "下饭"
-  ]
- },
- {
-  "id": "gali-jirou-chaofan",
-  "name": "咖喱鸡肉炒饭",
-  "cat": "zhushi",
-  "main": "隔夜米饭、鸡腿肉、土豆、胡萝卜、青豆",
-  "tags": [
-   "家常",
-   "下饭"
-  ]
- },
- {
-  "id": "peigen-jidan-chaofan",
-  "name": "培根蛋炒饭",
-  "cat": "zhushi",
-  "main": "隔夜米饭、培根、鸡蛋、玉米粒、小葱",
-  "tags": [
-   "快手",
-   "家常"
-  ]
- },
- {
-  "id": "xianggu-huaji-menfan",
-  "name": "香菇滑鸡焖饭",
-  "cat": "zhushi",
-  "main": "大米、鸡腿肉、干香菇、胡萝卜、生抽",
-  "tags": [
-   "家常",
-   "硬菜"
-  ]
- },
- {
-  "id": "fanqie-tudou-menfan",
-  "name": "番茄土豆焖饭",
-  "cat": "zhushi",
-  "main": "大米、番茄、土豆、香肠、青豆",
-  "tags": [
-   "家常",
-   "清淡"
-  ]
- },
- {
-  "id": "meicai-kourou-baozaifan",
-  "name": "梅菜扣肉煲仔饭",
-  "cat": "zhushi",
-  "main": "丝苗米、五花肉、梅干菜、生抽、老抽",
-  "tags": [
-   "硬菜",
-   "家常"
-  ]
- },
- {
-  "id": "huaji-baozaifan",
-  "name": "滑鸡煲仔饭",
-  "cat": "zhushi",
-  "main": "丝苗米、鸡腿肉、生姜、小油菜、生抽",
-  "tags": [
-   "硬菜",
-   "家常"
-  ]
- },
- {
-  "id": "haixian-chaofan",
-  "name": "海鲜炒饭",
-  "cat": "zhushi",
-  "main": "隔夜米饭、虾仁、鱿鱼、鸡蛋、青豆玉米",
-  "tags": [
-   "家常",
-   "下饭"
-  ]
- },
- {
-  "id": "yuxiang-rousi-gaijiaofan",
-  "name": "鱼香肉丝盖浇饭",
-  "cat": "zhushi",
-  "main": "大米、猪里脊、木耳、胡萝卜、泡椒",
-  "tags": [
-   "下饭",
-   "家常",
-   "重口"
-  ]
- },
- {
-  "id": "rousong-fantuan",
-  "name": "肉松饭团",
-  "cat": "zhushi",
-  "main": "温热米饭、肉松、海苔碎、熟芝麻、盐",
-  "tags": [
-   "快手",
-   "家常"
-  ]
- },
- {
-  "id": "yangchun-mian",
-  "name": "阳春面",
-  "cat": "zhushi",
-  "main": "细面、猪油、生抽、小葱、盐",
-  "tags": [
-   "快手",
-   "清淡",
-   "家常"
-  ]
- },
- {
-  "id": "lanzhou-niurou-mian",
-  "name": "兰州牛肉拉面",
-  "cat": "zhushi",
-  "main": "拉面或鲜面、牛腱子、白萝卜、香菜、蒜苗",
-  "tags": [
-   "硬菜",
-   "暖胃",
-   "家常"
-  ]
- },
- {
-  "id": "chongqing-xiaomian",
-  "name": "重庆小面",
-  "cat": "zhushi",
-  "main": "碱水面、辣椒油、生抽、花椒粉、芽菜",
-  "tags": [
-   "辣",
-   "重口",
-   "快手"
-  ]
- },
- {
-  "id": "dandan-mian",
-  "name": "担担面",
-  "cat": "zhushi",
-  "main": "细面、猪肉末、宜宾芽菜、芝麻酱、辣椒油",
-  "tags": [
-   "辣",
-   "重口",
-   "家常"
-  ]
- },
- {
-  "id": "fanqie-dalumian",
-  "name": "番茄打卤面",
-  "cat": "zhushi",
-  "main": "手擀面、番茄、鸡蛋、木耳、生抽",
-  "tags": [
-   "家常",
-   "暖胃"
-  ]
- },
- {
-  "id": "shanghai-chaomian",
-  "name": "上海炒面",
-  "cat": "zhushi",
-  "main": "粗碱面、卷心菜、瘦肉丝、生抽、老抽",
-  "tags": [
-   "快手",
-   "家常",
-   "下饭"
-  ]
- },
- {
-  "id": "xinjiang-chaomianpian",
-  "name": "新疆炒面片",
-  "cat": "zhushi",
-  "main": "面片、羊肉、番茄、青红椒、洋葱",
-  "tags": [
-   "硬菜",
-   "家常",
-   "重口"
-  ]
- },
- {
-  "id": "henan-huimian",
-  "name": "河南烩面",
-  "cat": "zhushi",
-  "main": "烩面坯、羊肉、羊骨汤、木耳、黄花菜",
-  "tags": [
-   "暖胃",
-   "家常",
-   "硬菜"
-  ]
- },
- {
-  "id": "sichuan-liangmian",
-  "name": "四川凉面",
-  "cat": "zhushi",
-  "main": "细面、黄瓜、大蒜、生抽、香醋",
-  "tags": [
-   "辣",
-   "快手",
-   "重口"
-  ]
- },
- {
-  "id": "hangzhou-pianerchuan",
-  "name": "杭州片儿川",
-  "cat": "zhushi",
-  "main": "面条、雪菜、猪里脊、笋片、生抽",
-  "tags": [
-   "家常",
-   "暖胃"
-  ]
- },
- {
-  "id": "qishan-saozi-mian",
-  "name": "岐山臊子面",
-  "cat": "zhushi",
-  "main": "细面、猪肉末、胡萝卜、木耳、黄花菜",
-  "tags": [
-   "辣",
-   "家常",
-   "硬菜"
-  ]
- },
- {
-  "id": "daoxiaomian",
-  "name": "刀削面",
-  "cat": "zhushi",
-  "main": "刀削面坯、番茄、鸡蛋、青菜、生抽",
-  "tags": [
-   "家常",
-   "硬菜",
-   "暖胃"
-  ]
- },
- {
-  "id": "niurou-hefen",
-  "name": "牛肉河粉",
-  "cat": "zhushi",
-  "main": "干河粉、牛里脊、豆芽、洋葱、生抽",
-  "tags": [
-   "家常",
-   "暖胃"
-  ]
- },
- {
-  "id": "ganchao-niuhe",
-  "name": "干炒牛河",
-  "cat": "zhushi",
-  "main": "干河粉、牛里脊、绿豆芽、小葱、生抽",
-  "tags": [
-   "下饭",
-   "家常",
-   "重口"
-  ]
- },
- {
-  "id": "guangdong-changfen",
-  "name": "广东肠粉",
-  "cat": "zhushi",
-  "main": "肠粉专用粉、水、鸡蛋、虾仁、生抽",
-  "tags": [
-   "清淡",
-   "快手",
-   "家常"
-  ]
- },
- {
-  "id": "yibin-ranmian",
-  "name": "宜宾燃面",
-  "cat": "zhushi",
-  "main": "细面、芽菜、花生碎、葱花、生抽",
-  "tags": [
-   "辣",
-   "重口",
-   "快手"
-  ]
- },
- {
-  "id": "liuzhou-luosifen",
-  "name": "柳州螺蛳粉",
-  "cat": "zhushi",
-  "main": "干米粉、螺蛳粉汤料包、酸笋、木耳、炸腐竹",
-  "tags": [
-   "辣",
-   "重口",
-   "暖胃"
-  ]
- },
- {
-  "id": "nanchang-banfen",
-  "name": "南昌拌粉",
-  "cat": "zhushi",
-  "main": "干米粉、萝卜干、炸花生、大蒜、生抽",
-  "tags": [
-   "快手",
-   "辣",
-   "家常"
-  ]
- },
- {
-  "id": "roumo-fensi",
-  "name": "肉末粉丝",
-  "cat": "zhushi",
-  "main": "红薯粉丝、猪肉末、郫县豆瓣酱、蒜末、生抽",
-  "tags": [
-   "下饭",
-   "家常",
-   "重口"
-  ]
- },
- {
-  "id": "niurou-fensibao",
-  "name": "牛肉粉丝煲",
-  "cat": "zhushi",
-  "main": "红薯粉丝、牛里脊、娃娃菜、生抽、老抽",
-  "tags": [
-   "暖胃",
-   "下饭",
-   "硬菜"
-  ]
- },
- {
-  "id": "zhushi-xiaolongbao",
-  "name": "鲜肉小笼包",
-  "cat": "zhushi",
-  "main": "中筋面粉、温水、猪肉馅、皮冻、姜末",
-  "tags": [
-   "硬菜",
-   "家常"
-  ]
- },
- {
-  "id": "jiangrou-baozi",
-  "name": "酱肉包子",
-  "cat": "zhushi",
-  "main": "中筋面粉、温水、五花肉、甜面酱、葱姜",
-  "tags": [
-   "硬菜",
-   "家常"
-  ]
- },
- {
-  "id": "dousha-bao",
-  "name": "豆沙包",
-  "cat": "zhushi",
-  "main": "中筋面粉、温水、酵母、红豆沙、白糖",
-  "tags": [
-   "甜",
-   "素食",
-   "家常"
-  ]
- },
- {
-  "id": "jiucai-zhurou-jiaozi",
-  "name": "韭菜猪肉饺子",
-  "cat": "zhushi",
-  "main": "饺子皮、猪肉馅、韭菜、姜末、生抽",
-  "tags": [
-   "家常",
-   "硬菜"
-  ]
- },
- {
-  "id": "sanxian-jiaozi",
-  "name": "三鲜饺子",
-  "cat": "zhushi",
-  "main": "饺子皮、猪肉馅、虾仁、鸡蛋、木耳",
-  "tags": [
-   "家常",
-   "硬菜"
-  ]
- },
- {
-  "id": "baicai-zhurou-jiaozi",
-  "name": "白菜猪肉饺子",
-  "cat": "zhushi",
-  "main": "饺子皮、猪肉馅、大白菜、姜末、生抽",
-  "tags": [
-   "家常",
-   "硬菜"
-  ]
- },
- {
-  "id": "xiaren-huntun",
-  "name": "虾仁馄饨",
-  "cat": "zhushi",
-  "main": "馄饨皮、虾仁、猪肉馅、虾皮、紫菜",
-  "tags": [
-   "家常",
-   "低脂",
-   "暖胃"
-  ]
- },
- {
-  "id": "jicai-huntun",
-  "name": "荠菜馄饨",
-  "cat": "zhushi",
-  "main": "馄饨皮、猪肉馅、荠菜、虾皮、紫菜",
-  "tags": [
-   "家常",
-   "清淡",
-   "暖胃"
-  ]
- },
- {
-  "id": "hongyou-chaoshou",
-  "name": "红油抄手",
-  "cat": "zhushi",
-  "main": "馄饨皮、猪肉馅、姜末、生抽、香醋",
-  "tags": [
-   "辣",
-   "重口",
-   "家常"
-  ]
- },
- {
-  "id": "jiachang-congyou-bing",
-  "name": "家常葱油饼",
-  "cat": "zhushi",
-  "main": "中筋面粉、温水、小葱、食用油、盐",
-  "tags": [
-   "快手",
-   "家常"
-  ]
- },
- {
-  "id": "tujia-jiangxiang-bing",
-  "name": "土家酱香饼",
-  "cat": "zhushi",
-  "main": "中筋面粉、温水、豆瓣酱、甜面酱、白糖",
-  "tags": [
-   "重口",
-   "快手",
-   "家常"
-  ]
- },
- {
-  "id": "tianjin-jianbing",
-  "name": "天津煎饼果子",
-  "cat": "zhushi",
-  "main": "绿豆面、面粉、水、鸡蛋、油条或薄脆",
-  "tags": [
-   "快手",
-   "家常"
-  ]
- },
- {
-  "id": "zhurou-xianbing",
-  "name": "猪肉馅饼",
-  "cat": "zhushi",
-  "main": "中筋面粉、温水、猪肉馅、大葱、生抽",
-  "tags": [
-   "硬菜",
-   "家常"
-  ]
- },
- {
-  "id": "niurou-xianbing",
-  "name": "牛肉馅饼",
-  "cat": "zhushi",
-  "main": "中筋面粉、温水、牛肉馅、洋葱、生抽",
-  "tags": [
-   "硬菜",
-   "家常"
-  ]
- },
- {
-  "id": "shouzhua-qianceng-bing",
-  "name": "手抓千层饼",
-  "cat": "zhushi",
-  "main": "中筋面粉、温水、食用油、盐、花椒粉",
-  "tags": [
-   "家常",
-   "快手"
-  ]
- },
- {
-  "id": "jinsha-nangua-bing",
-  "name": "金沙南瓜饼",
-  "cat": "zhushi",
-  "main": "糯米粉、南瓜泥、白糖、红豆沙、白芝麻",
-  "tags": [
-   "甜",
-   "素食",
-   "家常"
-  ]
- },
- {
-  "id": "xihulu-hutazi",
-  "name": "西葫芦糊塌子",
-  "cat": "zhushi",
-  "main": "西葫芦、面粉、鸡蛋、小葱、盐",
-  "tags": [
-   "清淡",
-   "素食",
-   "快手"
-  ]
- },
- {
-  "id": "chunbing",
-  "name": "春饼",
-  "cat": "zhushi",
-  "main": "中筋面粉、开水、冷水、食用油、盐",
-  "tags": [
-   "家常",
-   "清淡"
-  ]
- },
- {
-  "id": "shougong-mantou",
-  "name": "手工馒头",
-  "cat": "zhushi",
-  "main": "中筋面粉、温水、酵母、白糖",
-  "tags": [
-   "家常",
-   "素食"
-  ]
- },
- {
-  "id": "conxiang-huajuan",
-  "name": "香葱花卷",
-  "cat": "zhushi",
-  "main": "中筋面粉、温水、酵母、小葱、盐",
-  "tags": [
-   "家常",
-   "素食"
-  ]
- },
- {
-  "id": "nangua-mantou",
-  "name": "南瓜馒头",
-  "cat": "zhushi",
-  "main": "中筋面粉、南瓜泥、温水、酵母、白糖",
-  "tags": [
-   "甜",
-   "素食",
-   "养生"
-  ]
- },
- {
-  "id": "zishu-huajuan",
-  "name": "紫薯花卷",
-  "cat": "zhushi",
-  "main": "中筋面粉、紫薯泥、温水、酵母、白糖",
-  "tags": [
-   "甜",
-   "素食",
-   "养生"
-  ]
- },
- {
-  "id": "wowotou",
-  "name": "窝窝头",
-  "cat": "zhushi",
-  "main": "玉米面、黄豆面、温水、白糖",
-  "tags": [
-   "素食",
-   "养生"
-  ]
- },
- {
-  "id": "yumi-bing",
-  "name": "玉米饼",
-  "cat": "zhushi",
-  "main": "玉米面、面粉、鸡蛋、温水、白糖",
-  "tags": [
-   "素食",
-   "快手"
-  ]
- },
- {
-  "id": "babao-fan",
-  "name": "八宝饭",
-  "cat": "zhushi",
-  "main": "糯米、红豆沙、红枣、莲子、葡萄干",
-  "tags": [
-   "甜",
-   "硬菜",
-   "养生"
-  ]
- },
- {
-  "id": "pidan-doufu",
-  "name": "皮蛋豆腐",
-  "cat": "liangcai",
-  "main": "内酯豆腐、皮蛋、生抽、香油、小葱",
-  "tags": [
-   "快手",
-   "清淡",
-   "素食"
-  ]
- },
- {
-  "id": "laohu-cai",
-  "name": "老虎菜",
-  "cat": "liangcai",
-  "main": "香菜、青尖椒、大葱、黄瓜、生抽",
-  "tags": [
-   "快手",
-   "素食",
-   "开胃",
-   "辣"
-  ]
- },
- {
-  "id": "pai-huanggua",
-  "name": "拍黄瓜",
-  "cat": "liangcai",
-  "main": "黄瓜、大蒜、香醋、生抽、香油",
-  "tags": [
-   "快手",
-   "素食",
-   "开胃",
-   "低脂"
-  ]
- },
- {
-  "id": "baiqieji",
-  "name": "白切鸡",
-  "cat": "liangcai",
-  "main": "三黄鸡半只、姜、小葱、沙姜、生抽",
-  "tags": [
-   "清淡",
-   "硬菜",
-   "家常"
-  ]
- },
- {
-  "id": "jisi-lapi",
-  "name": "鸡丝拉皮",
-  "cat": "liangcai",
-  "main": "鸡胸肉、凉皮（拉皮）、黄瓜、芝麻酱、生抽",
-  "tags": [
-   "清爽",
-   "家常"
-  ]
- },
- {
-  "id": "suanni-bairou",
-  "name": "蒜泥白肉",
-  "cat": "liangcai",
-  "main": "带皮猪后腿肉、大蒜、黄瓜、生抽、辣椒油",
-  "tags": [
-   "硬菜",
-   "下饭",
-   "蒜香"
-  ]
- },
- {
-  "id": "jiang-niurou",
-  "name": "酱牛肉",
-  "cat": "liangcai",
-  "main": "牛腱子、黄豆酱、生抽、老抽、八角桂皮香叶",
-  "tags": [
-   "硬菜",
-   "下酒"
-  ]
- },
- {
-  "id": "liangban-muer",
-  "name": "凉拌木耳",
-  "cat": "liangcai",
-  "main": "干木耳、小米辣、香菜、香醋、生抽",
-  "tags": [
-   "快手",
-   "素食",
-   "低脂",
-   "开胃"
-  ]
- },
- {
-  "id": "youzha-huashengmi",
-  "name": "油炸花生米",
-  "cat": "liangcai",
-  "main": "生花生米、食用油、白酒、盐",
-  "tags": [
-   "快手",
-   "下酒",
-   "素食"
-  ]
- },
- {
-  "id": "tangban-xihongshi",
-  "name": "糖拌西红柿",
-  "cat": "liangcai",
-  "main": "熟透西红柿、白糖",
-  "tags": [
-   "快手",
-   "素食",
-   "甜",
-   "低脂"
-  ]
- },
- {
-  "id": "liangban-haidaisi",
-  "name": "凉拌海带丝",
-  "cat": "liangcai",
-  "main": "海带丝、大蒜、小米辣、香醋、生抽",
-  "tags": [
-   "快手",
-   "素食",
-   "低脂",
-   "酸辣"
-  ]
- },
- {
-  "id": "liangban-fuzhu",
-  "name": "凉拌腐竹",
-  "cat": "liangcai",
-  "main": "干腐竹、黑木耳、黄瓜、蒜泥、生抽",
-  "tags": [
-   "素食",
-   "清爽",
-   "快手"
-  ]
- },
- {
-  "id": "paojiao-fengzhao",
-  "name": "泡椒凤爪",
-  "cat": "liangcai",
-  "main": "鸡爪、泡椒（带汁）、姜、花椒、料酒",
-  "tags": [
-   "辣",
-   "开胃",
-   "下酒"
-  ]
- },
- {
-  "id": "liangban-qincai-huasheng",
-  "name": "芹菜拌花生",
-  "cat": "liangcai",
-  "main": "芹菜、生花生米、八角、香叶、盐",
-  "tags": [
-   "素食",
-   "清爽",
-   "下酒"
-  ]
- },
- {
-  "id": "liangban-ou",
-  "name": "凉拌藕片",
-  "cat": "liangcai",
-  "main": "莲藕、大蒜、香菜、生抽、香醋",
-  "tags": [
-   "素食",
-   "快手",
-   "清淡",
-   "低脂"
-  ]
- },
- {
-  "id": "liangban-bocai",
-  "name": "凉拌菠菜",
-  "cat": "liangcai",
-  "main": "菠菜、大蒜、生抽、香醋、香油",
-  "tags": [
-   "素食",
-   "快手",
-   "清淡",
-   "低脂"
-  ]
- },
- {
-  "id": "liangban-jinzhengu",
-  "name": "凉拌金针菇",
-  "cat": "liangcai",
-  "main": "金针菇、小米辣、大蒜、生抽、香醋",
-  "tags": [
-   "素食",
-   "快手",
-   "低脂",
-   "清淡"
-  ]
- },
- {
-  "id": "liangban-dougan",
-  "name": "凉拌豆干",
-  "cat": "liangcai",
-  "main": "白豆干、芹菜、胡萝卜、大蒜、生抽",
-  "tags": [
-   "素食",
-   "快手",
-   "下饭"
-  ]
- },
- {
-  "id": "liangban-xilanhua",
-  "name": "凉拌西兰花",
-  "cat": "liangcai",
-  "main": "西兰花、大蒜、生抽、香醋、香油",
-  "tags": [
-   "素食",
-   "快手",
-   "低脂",
-   "清淡"
-  ]
- },
- {
-  "id": "liangban-wosun",
-  "name": "凉拌莴笋",
-  "cat": "liangcai",
-  "main": "莴笋、大蒜、生抽、香醋、香油",
-  "tags": [
-   "素食",
-   "快手",
-   "清淡",
-   "低脂"
-  ]
- },
- {
-  "id": "liangban-kugua",
-  "name": "凉拌苦瓜",
-  "cat": "liangcai",
-  "main": "苦瓜、大蒜、生抽、香醋、香油",
-  "tags": [
-   "素食",
-   "快手",
-   "低脂",
-   "清淡"
-  ]
- },
- {
-  "id": "liangban-tudousi",
-  "name": "凉拌土豆丝",
-  "cat": "liangcai",
-  "main": "土豆、大蒜、干辣椒、花椒、香醋",
-  "tags": [
-   "素食",
-   "快手",
-   "辣",
-   "低脂"
-  ]
- },
- {
-  "id": "liangban-jiangdou",
-  "name": "凉拌豇豆",
-  "cat": "liangcai",
-  "main": "豇豆、大蒜、生抽、香醋、香油",
-  "tags": [
-   "素食",
-   "快手",
-   "下饭"
-  ]
- },
- {
-  "id": "liangban-qiezi",
-  "name": "凉拌茄子",
-  "cat": "liangcai",
-  "main": "长茄子、大蒜、生抽、香醋、香油",
-  "tags": [
-   "素食",
-   "快手",
-   "下饭"
-  ]
- },
- {
-  "id": "liangban-qiukui",
-  "name": "凉拌秋葵",
-  "cat": "liangcai",
-  "main": "秋葵、大蒜、生抽、香醋、香油",
-  "tags": [
-   "素食",
-   "快手",
-   "清淡",
-   "低脂"
-  ]
- },
- {
-  "id": "liangban-fenpi",
-  "name": "凉拌粉皮",
-  "cat": "liangcai",
-  "main": "干粉皮、黄瓜、大蒜、芝麻酱、生抽",
-  "tags": [
-   "素食",
-   "快手",
-   "家常"
-  ]
- },
- {
-  "id": "liangban-zheergen",
-  "name": "凉拌折耳根",
-  "cat": "liangcai",
-  "main": "折耳根、大蒜、小米辣、生抽、香醋",
-  "tags": [
-   "素食",
-   "快手",
-   "辣"
-  ]
- },
- {
-  "id": "liangban-gongcai",
-  "name": "凉拌贡菜",
-  "cat": "liangcai",
-  "main": "干贡菜、大蒜、小米辣、生抽、香醋",
-  "tags": [
-   "素食",
-   "快手",
-   "低脂",
-   "清淡"
-  ]
- },
- {
-  "id": "liangban-yiner",
-  "name": "凉拌银耳",
-  "cat": "liangcai",
-  "main": "干银耳、黄瓜、大蒜、生抽、香醋",
-  "tags": [
-   "素食",
-   "快手",
-   "清淡",
-   "养生"
-  ]
- },
- {
-  "id": "liangban-jisi",
-  "name": "凉拌鸡丝",
-  "cat": "liangcai",
-  "main": "鸡胸肉、黄瓜、大蒜、生抽、香醋",
-  "tags": [
-   "家常",
-   "快手",
-   "低脂"
-  ]
- },
- {
-  "id": "liangban-niurou",
-  "name": "凉拌牛肉",
-  "cat": "liangcai",
-  "main": "牛瘦肉、香菜、大蒜、生抽、香醋",
-  "tags": [
-   "硬菜",
-   "下饭",
-   "辣"
-  ]
- },
- {
-  "id": "liangban-tijin",
-  "name": "凉拌蹄筋",
-  "cat": "liangcai",
-  "main": "熟牛蹄筋、大蒜、香菜、生抽、香醋",
-  "tags": [
-   "硬菜",
-   "下饭",
-   "家常"
-  ]
- },
- {
-  "id": "liangban-dusi",
-  "name": "凉拌肚丝",
-  "cat": "liangcai",
-  "main": "熟猪肚、青红椒、大蒜、生抽、香醋",
-  "tags": [
-   "硬菜",
-   "下饭"
-  ]
- },
- {
-  "id": "liangban-yazhen",
-  "name": "凉拌鸭胗",
-  "cat": "liangcai",
-  "main": "鸭胗、小米辣、大蒜、香菜、生抽",
-  "tags": [
-   "硬菜",
-   "辣"
-  ]
- },
- {
-  "id": "liangban-jizhen",
-  "name": "凉拌鸡胗",
-  "cat": "liangcai",
-  "main": "鸡胗、香菜、大蒜、小米辣、生抽",
-  "tags": [
-   "家常",
-   "辣"
-  ]
- },
- {
-  "id": "liangban-zhuer",
-  "name": "凉拌猪耳",
-  "cat": "liangcai",
-  "main": "熟猪耳、大蒜、香菜、生抽、香醋",
-  "tags": [
-   "硬菜"
-  ]
- },
- {
-  "id": "liangban-haizhe",
-  "name": "凉拌海蜇",
-  "cat": "liangcai",
-  "main": "海蜇皮、黄瓜、大蒜、生抽、香醋",
-  "tags": [
-   "低脂",
-   "快手",
-   "清淡"
-  ]
- },
- {
-  "id": "baiqie-zhushou",
-  "name": "白切猪手",
-  "cat": "liangcai",
-  "main": "猪前蹄、姜、小葱、生抽、香醋",
-  "tags": [
-   "硬菜",
-   "家常",
-   "暖胃"
-  ]
- },
- {
-  "id": "fuqi-feipian",
-  "name": "夫妻肺片",
-  "cat": "liangcai",
-  "main": "牛肚、牛肉、牛心、花生碎、香菜",
-  "tags": [
-   "硬菜",
-   "辣",
-   "下饭"
-  ]
- },
- {
-  "id": "bobji",
-  "name": "钵钵鸡",
-  "cat": "liangcai",
-  "main": "鸡腿、熟白芝麻、辣椒油、生抽、香醋",
-  "tags": [
-   "硬菜",
-   "辣"
-  ]
- },
- {
-  "id": "chuanbei-liangfen",
-  "name": "川北凉粉",
-  "cat": "liangcai",
-  "main": "豌豆凉粉、大蒜、生抽、香醋、辣椒油",
-  "tags": [
-   "辣",
-   "快手",
-   "重口"
-  ]
- },
- {
-  "id": "liangban-juegenfen",
-  "name": "凉拌蕨根粉",
-  "cat": "liangcai",
-  "main": "蕨根粉、黄瓜、大蒜、小米辣、生抽",
-  "tags": [
-   "素食",
-   "快手",
-   "辣"
-  ]
- },
- {
-  "id": "dengying-niurou",
-  "name": "灯影牛肉",
-  "cat": "liangcai",
-  "main": "牛瘦肉、辣椒粉、花椒粉、生抽、白糖",
-  "tags": [
-   "硬菜",
-   "辣"
-  ]
- },
- {
-  "id": "dongbei-dabancai",
-  "name": "东北大拌菜",
-  "cat": "liangcai",
-  "main": "干豆腐、黄瓜、菠菜、粉丝、鸡蛋",
-  "tags": [
-   "家常",
-   "快手",
-   "下饭"
-  ]
- },
- {
-  "id": "zhanjiang-cai",
-  "name": "蘸酱菜",
-  "cat": "liangcai",
-  "main": "生菜、黄瓜、大葱、水萝卜、干豆腐",
-  "tags": [
-   "素食",
-   "快手",
-   "清淡",
-   "养生"
-  ]
- },
- {
-  "id": "liangban-lapi",
-  "name": "凉拌拉皮",
-  "cat": "liangcai",
-  "main": "拉皮、黄瓜、干豆腐、大蒜、芝麻酱",
-  "tags": [
-   "素食",
-   "快手",
-   "家常"
-  ]
- },
- {
-  "id": "liangban-mianjin",
-  "name": "凉拌面筋",
-  "cat": "liangcai",
-  "main": "水面筋、黄瓜、大蒜、生抽、香醋",
-  "tags": [
-   "素食",
-   "快手",
-   "下饭"
-  ]
- },
- {
-  "id": "qinzhen-mipi",
-  "name": "秦镇米皮",
-  "cat": "liangcai",
-  "main": "米皮、黄瓜、大蒜、生抽、香醋",
-  "tags": [
-   "辣",
-   "快手",
-   "重口"
-  ]
- },
- {
-  "id": "liangban-fensi",
-  "name": "凉拌粉丝",
-  "cat": "liangcai",
-  "main": "红薯粉丝、黄瓜、胡萝卜、大蒜、生抽",
-  "tags": [
-   "素食",
-   "快手",
-   "下饭"
-  ]
- },
- {
-  "id": "jiucai-hezi",
-  "name": "韭菜盒子",
-  "cat": "zaocan",
-  "main": "面粉、韭菜、鸡蛋、虾皮、香油",
-  "tags": [
-   "素食",
-   "家常"
-  ]
- },
- {
-  "id": "jidan-guanbing",
-  "name": "鸡蛋灌饼",
-  "cat": "zaocan",
-  "main": "面粉、鸡蛋、葱花、甜面酱或蒜蓉辣酱、生菜",
-  "tags": [
-   "快手",
-   "家常"
-  ]
- },
- {
-  "id": "shouzhuabing",
-  "name": "手抓饼",
-  "cat": "zaocan",
-  "main": "冷冻手抓饼坯、鸡蛋、生菜、甜辣酱、午餐肉或培根",
-  "tags": [
-   "快手"
-  ]
- },
- {
-  "id": "conghua-danbing",
-  "name": "葱花鸡蛋饼",
-  "cat": "zaocan",
-  "main": "面粉、鸡蛋、小葱、盐、白胡椒粉",
-  "tags": [
-   "快手",
-   "家常"
-  ]
- },
- {
-  "id": "xiaomi-nangua-zhou",
-  "name": "小米南瓜粥",
-  "cat": "zaocan",
-  "main": "小米、南瓜、清水",
-  "tags": [
-   "清淡",
-   "养生",
-   "素食"
-  ]
- },
- {
-  "id": "hongdou-yimi-zhou",
-  "name": "红豆薏米粥",
-  "cat": "zaocan",
-  "main": "红豆、薏米、冰糖",
-  "tags": [
-   "养生",
-   "素食",
-   "清淡"
-  ]
- },
- {
-  "id": "babao-zhou",
-  "name": "八宝粥",
-  "cat": "zaocan",
-  "main": "红豆、花生、莲子、桂圆肉、红枣",
-  "tags": [
-   "养生",
-   "家常"
-  ]
- },
- {
-  "id": "yandao-niunai-zhou",
-  "name": "牛奶燕麦粥",
-  "cat": "zaocan",
-  "main": "即食燕麦片、纯牛奶、香蕉、坚果碎",
-  "tags": [
-   "快手",
-   "低脂",
-   "养生"
-  ]
- },
- {
-  "id": "nongxiang-doujiang",
-  "name": "浓香豆浆",
-  "cat": "zaocan",
-  "main": "黄豆、清水、白糖",
-  "tags": [
-   "素食",
-   "养生",
-   "低脂"
-  ]
- },
- {
-  "id": "chayejidan",
-  "name": "茶叶蛋",
-  "cat": "zaocan",
-  "main": "鸡蛋、红茶包、八角、桂皮、生抽",
-  "tags": [
-   "快手",
-   "家常",
-   "低脂"
-  ]
- },
- {
-  "id": "niunai-dundan",
-  "name": "牛奶炖蛋",
-  "cat": "zaocan",
-  "main": "鸡蛋、纯牛奶、白糖",
-  "tags": [
-   "甜",
-   "快手",
-   "低脂"
-  ]
- },
- {
-  "id": "xihulu-danbing",
-  "name": "西葫芦鸡蛋饼",
-  "cat": "zaocan",
-  "main": "西葫芦、鸡蛋、面粉、盐、白胡椒粉",
-  "tags": [
-   "快手",
-   "素食",
-   "低脂"
-  ]
- },
- {
-  "id": "hongzao-fagao",
-  "name": "红枣发糕",
-  "cat": "zaocan",
-  "main": "普通面粉、红枣、酵母、白糖、温水",
-  "tags": [
-   "甜",
-   "素食"
-  ]
- },
- {
-  "id": "shengjianbao",
-  "name": "生煎包",
-  "cat": "zaocan",
-  "main": "面粉、酵母、猪肉馅、肉皮冻（或高汤冻）、姜末葱花",
-  "tags": [
-   "硬菜",
-   "家常"
-  ]
- },
- {
-  "id": "xiaomi-zhou",
-  "name": "小米粥",
-  "cat": "zaocan",
-  "main": "小米、清水、枸杞",
-  "tags": [
-   "清淡",
-   "养生",
-   "素食"
-  ]
- },
- {
-  "id": "zaliang-zhou",
-  "name": "杂粮粥",
-  "cat": "zaocan",
-  "main": "糙米、燕麦米、红豆、薏米、莲子",
-  "tags": [
-   "养生",
-   "素食",
-   "清淡"
-  ]
- },
- {
-  "id": "chaoshan-shaguo-zhou",
-  "name": "潮汕砂锅粥",
-  "cat": "zaocan",
-  "main": "大米、鲜虾、干贝、姜丝、芹菜粒",
-  "tags": [
-   "暖胃",
-   "家常",
-   "清淡"
-  ]
- },
- {
-  "id": "qingcai-xianggu-zhou",
-  "name": "青菜香菇粥",
-  "cat": "zaocan",
-  "main": "大米、小油菜、干香菇、姜丝、盐",
-  "tags": [
-   "清淡",
-   "素食",
-   "养生"
-  ]
- },
- {
-  "id": "shanyao-gouqi-zhou",
-  "name": "山药枸杞粥",
-  "cat": "zaocan",
-  "main": "大米、铁棍山药、枸杞、清水、盐",
-  "tags": [
-   "养生",
-   "暖胃",
-   "素食"
-  ]
- },
- {
-  "id": "zishu-zhou",
-  "name": "紫薯粥",
-  "cat": "zaocan",
-  "main": "大米、紫薯、清水、冰糖",
-  "tags": [
-   "甜",
-   "素食",
-   "养生"
-  ]
- },
- {
-  "id": "ganbei-zhourou-zhou",
-  "name": "干贝瘦肉粥",
-  "cat": "zaocan",
-  "main": "大米、干贝、猪瘦肉、姜丝、盐 · 白胡椒",
-  "tags": [
-   "暖胃",
-   "家常",
-   "养生"
-  ]
- },
- {
-  "id": "pidan-zhigan-zhou",
-  "name": "皮蛋猪肝粥",
-  "cat": "zaocan",
-  "main": "大米、皮蛋、猪肝、姜丝、盐 · 白胡椒",
-  "tags": [
-   "暖胃",
-   "家常",
-   "清淡"
-  ]
- },
- {
-  "id": "shuibo-dan",
-  "name": "水波蛋",
-  "cat": "zaocan",
-  "main": "鸡蛋、白醋、清水、生抽、葱花",
-  "tags": [
-   "快手",
-   "低脂",
-   "清淡"
-  ]
- },
- {
-  "id": "houdan-shao",
-  "name": "厚蛋烧",
-  "cat": "zaocan",
-  "main": "鸡蛋、牛奶、盐、白糖、食用油",
-  "tags": [
-   "快手",
-   "家常"
-  ]
- },
- {
-  "id": "jiangyou-tangxin-dan",
-  "name": "酱油溏心蛋",
-  "cat": "zaocan",
-  "main": "鸡蛋、生抽、老抽、冰糖、清水",
-  "tags": [
-   "家常",
-   "低脂",
-   "清淡"
-  ]
- },
- {
-  "id": "zhengdan-geng",
-  "name": "蒸蛋羹",
-  "cat": "zaocan",
-  "main": "鸡蛋、温水、盐、生抽、香油",
-  "tags": [
-   "快手",
-   "低脂",
-   "清淡"
-  ]
- },
- {
-  "id": "ludan",
-  "name": "卤蛋",
-  "cat": "zaocan",
-  "main": "鸡蛋、生抽、老抽、冰糖、八角",
-  "tags": [
-   "家常",
-   "低脂"
-  ]
- },
- {
-  "id": "xihongshi-chaodan-juanbing",
-  "name": "西红柿炒蛋卷饼",
-  "cat": "zaocan",
-  "main": "西红柿、鸡蛋、单饼或春饼、白糖、盐",
-  "tags": [
-   "快手",
-   "家常",
-   "下饭"
-  ]
- },
- {
-  "id": "jiangrou-bao",
-  "name": "酱肉包",
-  "cat": "zaocan",
-  "main": "面粉、酵母、猪肉馅、甜面酱、葱姜水",
-  "tags": [
-   "硬菜",
-   "家常"
-  ]
- },
- {
-  "id": "hongdousha-bao",
-  "name": "红豆沙包",
-  "cat": "zaocan",
-  "main": "面粉、酵母、红豆沙馅、白糖、温水",
-  "tags": [
-   "甜",
-   "素食",
-   "家常"
-  ]
- },
- {
-  "id": "naihuang-baozi",
-  "name": "奶黄包",
-  "cat": "zaocan",
-  "main": "面粉、酵母、鸡蛋、黄油、牛奶",
-  "tags": [
-   "甜",
-   "家常"
-  ]
- },
- {
-  "id": "naixiang-mantou",
-  "name": "奶香馒头",
-  "cat": "zaocan",
-  "main": "面粉、酵母、白糖、温水",
-  "tags": [
-   "素食",
-   "家常",
-   "清淡"
-  ]
- },
- {
-  "id": "conghua-huajuan",
-  "name": "葱油花卷",
-  "cat": "zaocan",
-  "main": "面粉、酵母、小葱、盐、食用油",
-  "tags": [
-   "素食",
-   "家常",
-   "清淡"
-  ]
- },
- {
-  "id": "nuomi-shaomai",
-  "name": "糯米烧麦",
-  "cat": "zaocan",
-  "main": "糯米、烧麦皮、猪肉末、香菇、生抽",
-  "tags": [
-   "硬菜",
-   "家常"
-  ]
- },
- {
-  "id": "xianrou-xiaolong",
-  "name": "鲜肉小笼",
-  "cat": "zaocan",
-  "main": "面粉、猪肉馅、皮冻、姜末、生抽",
-  "tags": [
-   "硬菜",
-   "家常"
-  ]
- },
- {
-  "id": "sanxian-huntun",
-  "name": "三鲜馄饨",
-  "cat": "zaocan",
-  "main": "馄饨皮、猪肉馅、虾仁、香菇、生抽",
-  "tags": [
-   "家常",
-   "暖胃"
-  ]
- },
- {
-  "id": "jicai-rou-huntun",
-  "name": "荠菜肉馄饨",
-  "cat": "zaocan",
-  "main": "馄饨皮、猪肉馅、荠菜、姜末、盐",
-  "tags": [
-   "家常",
-   "清淡"
-  ]
- },
- {
-  "id": "jianbing-gz",
-  "name": "煎饼果子",
-  "cat": "zaocan",
-  "main": "杂粮面糊、鸡蛋、油条或薄脆、甜面酱、葱花香菜",
-  "tags": [
-   "快手",
-   "家常"
-  ]
- },
- {
-  "id": "xiangcong-youbing",
-  "name": "香葱油饼",
-  "cat": "zaocan",
-  "main": "面粉、小葱、盐、食用油、温水",
-  "tags": [
-   "快手",
-   "家常"
-  ]
- },
- {
-  "id": "huangjin-nangua-bing",
-  "name": "黄金南瓜饼",
-  "cat": "zaocan",
-  "main": "南瓜、糯米粉、白糖、面包糠、食用油",
-  "tags": [
-   "甜",
-   "素食"
-  ]
- },
- {
-  "id": "famian-bing",
-  "name": "发面饼",
-  "cat": "zaocan",
-  "main": "面粉、酵母、温水、盐、食用油",
-  "tags": [
-   "家常",
-   "素食"
-  ]
- },
- {
-  "id": "qianceng-subing",
-  "name": "千层酥饼",
-  "cat": "zaocan",
-  "main": "面粉、温水、盐、花椒粉、食用油",
-  "tags": [
-   "家常"
-  ]
- },
- {
-  "id": "jiucai-jidan-bing",
-  "name": "韭菜鸡蛋饼",
-  "cat": "zaocan",
-  "main": "面粉、韭菜、鸡蛋、盐、清水",
-  "tags": [
-   "快手",
-   "素食",
-   "家常"
-  ]
- },
- {
-  "id": "tudousi-bing",
-  "name": "土豆丝饼",
-  "cat": "zaocan",
-  "main": "土豆、面粉、鸡蛋、盐、葱花",
-  "tags": [
-   "快手",
-   "素食"
-  ]
- },
- {
-  "id": "jiangxiang-bing",
-  "name": "酱香饼",
-  "cat": "zaocan",
-  "main": "面粉、温水、豆瓣酱、甜面酱、白糖",
-  "tags": [
-   "重口",
-   "家常"
-  ]
- },
- {
-  "id": "heizhima-hu",
-  "name": "黑芝麻糊",
-  "cat": "zaocan",
-  "main": "黑芝麻、糯米粉、冰糖、清水",
-  "tags": [
-   "甜",
-   "养生",
-   "素食"
-  ]
- },
- {
-  "id": "wugu-doujiang",
-  "name": "五谷豆浆",
-  "cat": "zaocan",
-  "main": "黄豆、黑豆、红豆、薏米、清水",
-  "tags": [
-   "养生",
-   "素食",
-   "低脂"
-  ]
- },
- {
-  "id": "zhenzhu-naicha",
-  "name": "珍珠奶茶",
-  "cat": "zaocan",
-  "main": "木薯珍珠、红茶包、纯牛奶、白糖、清水",
-  "tags": [
-   "甜",
-   "快手"
-  ]
- },
- {
-  "id": "shanyao-hongzao-mihu",
-  "name": "山药红枣米糊",
-  "cat": "zaocan",
-  "main": "铁棍山药、红枣、大米、清水、冰糖",
-  "tags": [
-   "养生",
-   "素食",
-   "甜"
-  ]
- },
- {
-  "id": "kaolengmian",
-  "name": "烤冷面",
-  "cat": "yexiao",
-  "main": "烤冷面片、鸡蛋、洋葱、香菜、火腿肠",
-  "tags": [
-   "快手",
-   "家常",
-   "酸甜"
-  ]
- },
- {
-  "id": "tieban-youyu",
-  "name": "铁板鱿鱼",
-  "cat": "yexiao",
-  "main": "鲜鱿鱼、洋葱、蒜蓉辣酱、孜然粉、辣椒面",
-  "tags": [
-   "辣",
-   "下酒",
-   "硬菜"
-  ]
- },
- {
-  "id": "malatang",
-  "name": "家庭麻辣烫",
-  "cat": "yexiao",
-  "main": "火锅底料、牛奶、丸子、午餐肉、土豆片 · 藕片",
-  "tags": [
-   "辣",
-   "家常"
-  ]
- },
- {
-  "id": "guandongzhu",
-  "name": "关东煮",
-  "cat": "yexiao",
-  "main": "白萝卜、昆布（干海带结）、鱼丸 · 虾丸、福袋（鱼豆腐包蛋）、魔芋丝",
-  "tags": [
-   "清淡",
-   "暖胃",
-   "家常"
-  ]
- },
- {
-  "id": "mizhi-kaochi",
-  "name": "蜜汁烤翅",
-  "cat": "yexiao",
-  "main": "鸡中翅、蜂蜜、生抽、蚝油、蒜末",
-  "tags": [
-   "甜",
-   "硬菜",
-   "家常"
-  ]
- },
- {
-  "id": "hanshi-chaoniangao",
-  "name": "韩式炒年糕",
-  "cat": "yexiao",
-  "main": "年糕条、韩式辣酱、白糖、洋葱、鱼饼（或午餐肉）",
-  "tags": [
-   "甜辣",
-   "快手"
-  ]
- },
- {
-  "id": "gali-wudongmian",
-  "name": "咖喱乌冬面",
-  "cat": "yexiao",
-  "main": "乌冬面、咖喱块、虾仁或鸡肉、洋葱、青椒",
-  "tags": [
-   "快手",
-   "暖胃"
-  ]
- },
- {
-  "id": "kaoshenghao",
-  "name": "烤生蚝",
-  "cat": "yexiao",
-  "main": "生蚝、大蒜、小米辣、生抽、蚝油",
-  "tags": [
-   "蒜香",
-   "下酒",
-   "硬菜"
-  ]
- },
- {
-  "id": "jiating-kaochuan",
-  "name": "家庭烤串",
-  "cat": "yexiao",
-  "main": "鸡腿肉、羊肉、青红椒、洋葱、孜然粒",
-  "tags": [
-   "下酒",
-   "硬菜",
-   "家常"
-  ]
- },
- {
-  "id": "niuroujiang-banmian",
-  "name": "牛肉酱拌面",
-  "cat": "yexiao",
-  "main": "鲜面、牛肉末、黄豆酱、甜面酱、蒜末",
-  "tags": [
-   "快手",
-   "下饭"
-  ]
- },
- {
-  "id": "jiuniang-yuanzi",
-  "name": "酒酿圆子",
-  "cat": "yexiao",
-  "main": "酒酿（醪糟）、小圆子、鸡蛋、枸杞、白糖",
-  "tags": [
-   "甜",
-   "快手",
-   "养生"
-  ]
- },
- {
-  "id": "tieban-doufu",
-  "name": "铁板豆腐",
-  "cat": "yexiao",
-  "main": "老豆腐、孜然粉、辣椒面、生抽、白糖",
-  "tags": [
-   "素食",
-   "快手",
-   "辣"
-  ]
- },
- {
-  "id": "suanrong-fensi-shanbei",
-  "name": "蒜蓉粉丝蒸扇贝",
-  "cat": "yexiao",
-  "main": "扇贝、龙口粉丝、大蒜、生抽、蚝油",
-  "tags": [
-   "蒜香",
-   "下酒",
-   "硬菜"
-  ]
- },
- {
-  "id": "huajia-fensibao",
-  "name": "花甲粉丝煲",
-  "cat": "yexiao",
-  "main": "花甲、龙口粉丝、金针菇、蒜蓉辣酱、蒜蓉",
-  "tags": [
-   "辣",
-   "硬菜",
-   "下酒"
-  ]
- },
- {
-  "id": "kao-yangrouchuan",
-  "name": "烤羊肉串",
-  "cat": "yexiao",
-  "main": "羊腿肉、羊尾油、洋葱、孜然粒、辣椒面",
-  "tags": [
-   "硬菜",
-   "下酒",
-   "重口"
-  ]
- },
- {
-  "id": "kao-wuhuarou",
-  "name": "烤五花肉",
-  "cat": "yexiao",
-  "main": "五花肉、生菜、韩式辣酱、生抽、蒜片",
-  "tags": [
-   "硬菜",
-   "重口",
-   "下酒"
-  ]
- },
- {
-  "id": "kao-jinzhengu",
-  "name": "烤金针菇",
-  "cat": "yexiao",
-  "main": "金针菇、蒜蓉、小米辣、生抽、蚝油",
-  "tags": [
-   "素食",
-   "辣",
-   "快手"
-  ]
- },
- {
-  "id": "kao-qiezi",
-  "name": "烤茄子",
-  "cat": "yexiao",
-  "main": "长茄子、大蒜、小米辣、生抽、蚝油",
-  "tags": [
-   "素食",
-   "辣",
-   "下酒"
-  ]
- },
- {
-  "id": "kao-yumi",
-  "name": "烤玉米",
-  "cat": "yexiao",
-  "main": "水果玉米、黄油、盐、孜然粉、辣椒面",
-  "tags": [
-   "甜",
-   "快手",
-   "素食"
-  ]
- },
- {
-  "id": "kao-daxia",
-  "name": "烤大虾",
-  "cat": "yexiao",
-  "main": "基围虾、大蒜、生抽、蚝油、黑胡椒",
-  "tags": [
-   "硬菜",
-   "下酒",
-   "蒜香"
-  ]
- },
- {
-  "id": "aoliang-kaochi",
-  "name": "奥尔良烤翅",
-  "cat": "yexiao",
-  "main": "鸡中翅、奥尔良腌料、清水、食用油、白芝麻",
-  "tags": [
-   "甜",
-   "硬菜",
-   "家常"
-  ]
- },
- {
-  "id": "kao-jiucai",
-  "name": "烤韭菜",
-  "cat": "yexiao",
-  "main": "韭菜、孜然粉、辣椒面、生抽、食用油",
-  "tags": [
-   "素食",
-   "快手",
-   "辣"
-  ]
- },
- {
-  "id": "kao-tudoupian",
-  "name": "烤土豆片",
-  "cat": "yexiao",
-  "main": "土豆、孜然粉、辣椒面、盐、食用油",
-  "tags": [
-   "素食",
-   "快手",
-   "重口"
-  ]
- },
- {
-  "id": "kao-youyuxu",
-  "name": "烤鱿鱼须",
-  "cat": "yexiao",
-  "main": "鱿鱼须、洋葱、孜然粉、辣椒面、蒜蓉辣酱",
-  "tags": [
-   "辣",
-   "下酒",
-   "重口"
-  ]
- },
- {
-  "id": "kao-mianjin",
-  "name": "烤面筋",
-  "cat": "yexiao",
-  "main": "水面筋、孜然粉、辣椒面、甜面酱、生抽",
-  "tags": [
-   "素食",
-   "辣",
-   "重口"
-  ]
- },
- {
-  "id": "luwei-pinpan",
-  "name": "卤味拼盘",
-  "cat": "yexiao",
-  "main": "鸡翅根、鹌鹑蛋、藕片、豆干、卤料包",
-  "tags": [
-   "下酒",
-   "硬菜",
-   "重口"
-  ]
- },
- {
-  "id": "zha-chuan",
-  "name": "炸串",
-  "cat": "yexiao",
-  "main": "鸡肉、菜花、香菇、香肠、孜然粉",
-  "tags": [
-   "重口",
-   "辣",
-   "下酒"
-  ]
- },
- {
-  "id": "langya-tudou",
-  "name": "狼牙土豆",
-  "cat": "yexiao",
-  "main": "土豆、折耳根、香菜、蒜末、辣椒面",
-  "tags": [
-   "辣",
-   "快手",
-   "重口"
-  ]
- },
- {
-  "id": "chou-doufu",
-  "name": "臭豆腐",
-  "cat": "yexiao",
-  "main": "臭豆腐生坯、蒜蓉、辣椒酱、生抽、香菜",
-  "tags": [
-   "重口",
-   "辣",
-   "硬菜"
-  ]
- },
- {
-  "id": "zha-jiliu",
-  "name": "炸鸡柳",
-  "cat": "yexiao",
-  "main": "鸡胸肉、鸡蛋、淀粉、面包糠、盐",
-  "tags": [
-   "快手",
-   "硬菜",
-   "下酒"
-  ]
- },
- {
-  "id": "jiebian-chaofen",
-  "name": "街边炒粉",
-  "cat": "yexiao",
-  "main": "米粉（干）、鸡蛋、包菜丝、豆芽、蒜末",
-  "tags": [
-   "快手",
-   "辣",
-   "重口"
-  ]
- },
- {
-  "id": "kao-shaopi",
-  "name": "烤苕皮",
-  "cat": "yexiao",
-  "main": "红薯淀粉皮、酸豆角、剁辣椒、蒜蓉、生抽",
-  "tags": [
-   "辣",
-   "重口",
-   "素食"
-  ]
- },
- {
-  "id": "tieban-liangfen",
-  "name": "铁板炒凉粉",
-  "cat": "yexiao",
-  "main": "豌豆凉粉、蒜末、豆瓣酱、生抽、辣椒面",
-  "tags": [
-   "辣",
-   "重口",
-   "快手"
-  ]
- },
- {
-  "id": "zha-pinggu",
-  "name": "炸平菇",
-  "cat": "yexiao",
-  "main": "平菇、鸡蛋、面粉、淀粉、盐",
-  "tags": [
-   "素食",
-   "快手",
-   "下酒"
-  ]
- },
- {
-  "id": "baochao-huajia",
-  "name": "爆炒花甲",
-  "cat": "yexiao",
-  "main": "花甲、蒜末、姜末、干辣椒、花椒",
-  "tags": [
-   "辣",
-   "下酒",
-   "重口"
-  ]
- },
- {
-  "id": "la-chao-niangao",
-  "name": "辣炒年糕",
-  "cat": "yexiao",
-  "main": "年糕条、培根、包菜、韩式辣酱、番茄酱",
-  "tags": [
-   "辣",
-   "重口",
-   "快手"
-  ]
- },
- {
-  "id": "xiangla-xie",
-  "name": "香辣蟹",
-  "cat": "yexiao",
-  "main": "肉蟹、干辣椒、花椒、姜蒜、郫县豆瓣酱",
-  "tags": [
-   "辣",
-   "硬菜",
-   "下酒"
-  ]
- },
- {
-  "id": "chao-hefen",
-  "name": "炒河粉",
-  "cat": "yexiao",
-  "main": "河粉、牛肉片、豆芽、韭黄、生抽",
-  "tags": [
-   "快手",
-   "下饭",
-   "重口"
-  ]
- },
- {
-  "id": "la-chaofan",
-  "name": "辣炒饭",
-  "cat": "yexiao",
-  "main": "隔夜米饭、鸡蛋、火腿肠、青豆、老干妈",
-  "tags": [
-   "快手",
-   "辣",
-   "下饭"
-  ]
- },
- {
-  "id": "maodou-huasheng",
-  "name": "毛豆花生",
-  "cat": "yexiao",
-  "main": "带壳毛豆、花生、花椒、八角、干辣椒",
-  "tags": [
-   "下酒",
-   "快手",
-   "素食"
-  ]
- },
- {
-  "id": "lu-niurou",
-  "name": "卤牛肉",
-  "cat": "yexiao",
-  "main": "牛腱子、卤料包、生抽、老抽、冰糖",
-  "tags": [
-   "硬菜",
-   "下酒",
-   "家常"
-  ]
- },
- {
-  "id": "hanshi-zhaji",
-  "name": "韩式炸鸡",
-  "cat": "yexiao",
-  "main": "鸡翅中、牛奶、炸鸡粉、韩式辣酱、番茄酱",
-  "tags": [
-   "硬菜",
-   "甜辣",
-   "下酒"
-  ]
- },
- {
-  "id": "xiangla-xiaoyugan",
-  "name": "香辣小鱼干",
-  "cat": "yexiao",
-  "main": "小鱼干、干辣椒、花椒、蒜末、生抽",
-  "tags": [
-   "辣",
-   "下酒",
-   "重口"
-  ]
- },
- {
-  "id": "lu-jizhua",
-  "name": "卤鸡爪",
-  "cat": "yexiao",
-  "main": "鸡爪、卤料包、生抽、老抽、冰糖",
-  "tags": [
-   "下酒",
-   "重口",
-   "硬菜"
-  ]
- },
- {
-  "id": "chongqing-suanlafen",
-  "name": "重庆酸辣粉",
-  "cat": "yexiao",
-  "main": "红薯粉、酥黄豆、香菜、蒜末、生抽",
-  "tags": [
-   "辣",
-   "重口",
-   "快手"
-  ]
- },
- {
-  "id": "lanzhou-niuroumian",
-  "name": "兰州牛肉面",
-  "cat": "yexiao",
-  "main": "拉面、牛腱子、白萝卜、香菜、蒜苗",
-  "tags": [
-   "硬菜",
-   "暖胃",
-   "下饭"
-  ]
- },
- {
-  "id": "shaguo-mixian",
-  "name": "砂锅米线",
-  "cat": "yexiao",
-  "main": "干米线、火腿片、鹌鹑蛋、青菜、蒜末",
-  "tags": [
-   "暖胃",
-   "辣",
-   "快手"
-  ]
- },
- {
-  "id": "hongyou-huntun",
-  "name": "红油馄饨",
-  "cat": "yexiao",
-  "main": "馄饨皮、猪肉末、生抽、香醋、辣椒油",
-  "tags": [
-   "辣",
-   "快手",
-   "重口"
-  ]
- },
- {
-  "id": "chenpi-hongdou-sha",
-  "name": "陈皮红豆沙",
-  "cat": "yexiao",
-  "main": "红豆、冰糖、陈皮、清水",
-  "tags": [
-   "甜",
-   "暖胃",
-   "养生"
   ]
  }
 ]

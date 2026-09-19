@@ -87,6 +87,9 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
   });
   iconOk.every(Boolean) ? ok('图标文件（180/192/512）都能取到') : bad('有图标文件缺失：' + JSON.stringify(iconOk));
 
+  const onlineCount = await page.evaluate(() => ((window.MANIFEST || {}).items || []).length);
+  onlineCount > 0 ? ok(`在线载入 ${onlineCount} 道菜谱`) : bad('在线 manifest 为空');
+
   /* ---------- 2. Service Worker 注册 ---------- */
   console.log('\n[2] Service Worker');
   let reg = null;
@@ -154,7 +157,9 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
       ? document.querySelector('.screen.is-active').dataset.screen : null,
     title: (document.querySelector('.hello__title') || {}).textContent || ''
   }));
-  offline.dishes === 500 ? ok(`断网后仍载入 ${offline.dishes} 道菜谱`) : bad(`断网后 manifest 只有 ${offline.dishes} 道`);
+  offline.dishes === onlineCount
+    ? ok(`断网后仍载入 ${offline.dishes} 道菜谱（与在线一致）`)
+    : bad(`断网后 manifest ${offline.dishes} 道，在线是 ${onlineCount} 道`);
   offline.screen === 'home' ? ok('断网后首页正常渲染') : bad('断网后首页异常：' + offline.screen);
 
   /* 断网下抽菜 → 详情，看已缓存的图能否显示 */

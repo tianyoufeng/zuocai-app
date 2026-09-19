@@ -18,7 +18,10 @@ const CATS = [
   { key: 'zhushi',      label: '主食' },
   { key: 'liangcai',    label: '凉菜' },
   { key: 'zaocan',      label: '早餐' },
-  { key: 'yexiao',      label: '夜宵' }
+  { key: 'yexiao',      label: '夜宵' },
+  { key: 'yuecai',      label: '粤菜' },
+  { key: 'chuancai',    label: '川菜' },
+  { key: 'xiangcai',    label: '湘菜' }
 ];
 
 function loadCat(file) {

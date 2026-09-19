@@ -1,4 +1,4 @@
-# 今天吃什么 · 本地做菜 App（v3.0）
+# 今天吃什么 · 本地做菜 App（v3.1）
 
 > GitHub：https://github.com/tianyoufeng/zuocai-app
 > 一个**纯本地运行**的家常菜菜谱 App：随机抽菜、分类浏览、搜索、收藏、一页做菜。
@@ -10,10 +10,11 @@
 
 | 项目 | 值 |
 |---|---|
-| 版本 | v3.0.0（versionCode 30） |
-| 菜谱数量 | **500 道**（家常菜 200 / 主食 80 / 汤羹 70 / 凉菜 50 / 早餐 50 / 夜宵 50） |
-| 图片 | **500 张，覆盖率 100%**（无占位块）。WebP，长边 800 / 单张 30~50KB，共 20.3MB |
-| 安装包 | **Android**：[Releases](https://github.com/tianyoufeng/zuocai-app/releases) 下载 APK（24MB）<br>**iPhone / iPad**：Safari 打开 <https://tianyoufeng.github.io/zuocai-app/> → 分享 → 添加到主屏幕 |
+| 版本 | v3.1.0（versionCode 31） |
+| 菜谱数量 | **680 道**（家常菜 200 / 主食 80 / 汤羹 70 / 早餐 50 / 凉菜 50 / 夜宵 50 / **粤菜 60 / 川菜 60 / 湘菜 60**） |
+| 选购数据 | **680 条** —— 每道菜的主要食材都有「怎么挑」，另配 2~4 条新手提示 |
+| 图片 | **680 张，覆盖率 100%**（无占位块）。WebP，长边 800 / 单张 30~50KB，共 28.7MB |
+| 安装包 | **Android**：[Releases](https://github.com/tianyoufeng/zuocai-app/releases) 下载 APK（33MB）<br>**iPhone / iPad**：Safari 打开 <https://tianyoufeng.github.io/zuocai-app/> → 分享 → 添加到主屏幕 |
 | 权限 | **零权限**（Manifest 不含 INTERNET 等任何权限） |
 | 存储 | 菜谱数据打包内置；收藏 / 历史 / 偏好 / 份量用 IndexedDB，仅存本机 |
 | 最低系统 | Android 8.0 (API 26) / iOS 14 |
@@ -31,21 +32,32 @@
 - **重新打包 APK**：见 `docs/apk-build-guide.md`（可复制即用）。
 - **编 iOS 原生 App**：见 `docs/ios-build-guide.md` 路线二（需 Mac；免费 Apple ID 签名 7 天过期）。
 
-## 三、v3.0 三处交互改动
+## 三、能帮上忙的地方
 
-**1. 详情页可直接改份量**
+**1. 每道菜都写了「怎么挑」和「新手提示」**
+食材清单里，主要食材下方直接写着选购要点 —— 买菜时能对着看：
+
+> 五花肉：挑三层肥两层瘦、层数分明的；手指按下去能弹回来，表面发黏或渗水的不要
+
+卡片下方是「新手小技巧」，把术语翻译成能上手判断的说法：
+
+> 「油温七成热」= 筷子插进油里周围冒小泡。油面开始冒青烟就是过头了，蛋会发苦
+
+做菜页动火之前还有一条「下锅前先看这几条」。**680 道菜全覆盖**。
+
+**2. 详情页可直接改份量**
 食材配料区右侧是 `− N 人份 +` 步进器（范围 1~8）。点一下，食材用量按比例实时换算，
 顶部摘要行的「N 人份 / 热量」同步更新。
 份量**按道记忆**（`state.serveOf`，写进 IndexedDB）：这道菜设过 4 人份，
 下次进来还是 4 人份；没设过的菜沿用「我的 → 默认份量」。
 「适量 / 少许 / 几滴」这类不可量化的用量不参与换算。
 
-**2. 开始做菜一页到底**
+**3. 开始做菜一页到底**
 点「开始做菜」后不再逐步翻页，整页纵向铺开全部步骤与细节，
 顶部粘性进度条随滚动推进（「第 N 步 / 共 M 步」），中间有同页备料清单方便对照，
 底部一键「做完收工 · 记入记录」，记完自动回首页。
 
-**3. 厨师头像**
+**4. 厨师头像**
 「我的」页的「小厨日记」与首页右上角换成手绘厨师形象（内联 SVG，暖橙圆底 + 白厨师帽 + 笑脸），
 深浅色模式下都正常显示。
 
@@ -63,7 +75,8 @@ zuocai-app/                        （本目录，GitHub 仓库根）
 │   ├── css/                       tokens（设计令牌+深色）/ base（骨架）/ screens（组件）
 │   ├── js/                        icons · db(IndexedDB) · data(懒加载) · random(加权随机)
 │   │   · ui · app(路由/事件) · screens/×7（home/result/detail/steps/library/records/profile）
-│   ├── data/                      manifest.js（摘要索引）+ 6 个分类 .js（唯一数据源，共 500 道）
+│   ├── data/                      manifest.js（摘要索引）+ 9 个分类 .js（唯一数据源，共 680 道）
+│   │                              + 9 个 pick-{分类}.js（食材选购要点与新手提示）
 │   └── assets/
 │       ├── icons/                 App 图标 480/96/64/40
 │       └── images/{分类}/         菜谱图 {id}.webp，按分类存放，共 500 张
@@ -120,7 +133,7 @@ python tools/build_img_map.py                        # 菜名 → 菜谱 id 映�
 python tools/compress_images.py                      # → src/assets/images/{分类}/{id}.webp
 
 # 5. 全量校验
-node tools/validate-data.js                          # 500 道全配图应 0 错误
+node tools/validate-data.js                          # 680 道全配图 + 选购数据覆盖应 0 错误
 ```
 
 ## 七、开发进度
@@ -128,9 +141,9 @@ node tools/validate-data.js                          # 500 道全配图应 0 错
 | 阶段 | 状态 |
 |---|---|
 | P0 工程骨架（令牌/路由/IndexedDB/懒加载） | ✅ |
-| P1 数据管线（500 道菜谱文本 + 校验脚本） | ✅ v3.0 |
-| P2 图片管线（500 张全配图） | ✅ v3.0 |
-| P3 功能（随机/库/详情/份量步进/一页做菜/搜索/收藏/记录/忌口） | ✅ v3.0 |
+| P1 数据管线（680 道菜谱 + 680 条选购数据 + 校验脚本） | ✅ v3.1 |
+| P2 图片管线（680 张全配图） | ✅ v3.1 |
+| P3 功能（随机/库/详情/份量步进/一页做菜/选购要点/搜索/收藏/记录/忌口） | ✅ v3.1 |
 | P4 响应式（safe-area/dvh/深色/平板断点/键盘） | ✅ |
 | P5 图标 + APK 手工打包（零权限验证） | ✅ |
 | P6 文档（本文件 / 打包指南 / 撰写规范 / 生图规范） | ✅ |
@@ -152,8 +165,9 @@ node tools/validate-data.js                          # 500 道全配图应 0 错
 
 ```bash
 node _dev/static-check.js   # 跨文件一致性 6 项，全通过
-node _dev/browser.js        # 真实浏览器端到端 38 项 → 38/38，真实控制台错误 0
-node tools/validate-data.js # 500 道 · 有图 500 道 · 0 错误
+node _dev/browser.js        # 真实浏览器端到端 42 项 → 42/42，真实控制台错误 0
+node _dev/pwa-check.js      # PWA 离线 12 项（可传网址验证线上）
+node tools/validate-data.js # 680 道 · 有图 680 道 · 选购数据 680 条 · 0 错误
 ```
 
 > `_dev/browser.js` 依赖 `puppeteer-core` 与 Edge，运行时需指定 NODE_PATH：
@@ -175,7 +189,8 @@ node tools/validate-data.js # 500 道 · 有图 500 道 · 0 错误
 
 ## 十一、已知限制
 
-- **APK 24MB**：完全离线 + 500 张内置图，体积是必然代价（无网络请求，图只能打进包）。
+- **APK 33MB**：完全离线 + 680 张内置图，体积是必然代价（无网络请求，图只能打进包）。
+  想压体积可把图降到长边 640 / 质量 60（预计省 40%），代价是清晰度下降。
 - 极少数国产 ROM 上理论可能触发 WebView 资源拦截异常；已内置三级降级
   （重试 → 内存喂入 → 可读诊断页）。若真机白屏，回退方案是在 Manifest 加回
   INTERNET 权限（一行）重新打包，其余不变。

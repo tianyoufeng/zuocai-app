@@ -21,6 +21,7 @@
     step: 0,
     recipeSteps: null,
     recipeIngs: null,
+    recipePicks: null,
     libShown: 0       /* 菜谱库已展开的条数（0 = 用默认第一批） */
   };
   const TAB_SCREENS = ['home', 'library', 'records', 'profile'];
@@ -148,14 +149,14 @@
     if (d.roll !== undefined) {
       const p = RANDOM.pick(st);
       if (!p) { APP.toast('当前筛选与忌口下没有可抽的菜，先放宽一点'); return; }
-      st.current = p.id; st.step = 0; st.recipeSteps = null; st.recipeIngs = null;
+      st.current = p.id; st.step = 0; st.recipeSteps = null; st.recipeIngs = null; st.recipePicks = null;
       if (stack[stack.length - 1] === 'result') APP.render();
       else APP.go('result', 'push');
       return;
     }
 
     if (d.open !== undefined) {
-      st.current = d.open; st.step = 0; st.recipeSteps = null; st.recipeIngs = null;
+      st.current = d.open; st.step = 0; st.recipeSteps = null; st.recipeIngs = null; st.recipePicks = null;
       if (stack[stack.length - 1] === 'detail') APP.render('push');
       else APP.go('detail', 'push');
       return;

@@ -32,14 +32,21 @@
     </div>`;
   }
 
-  function ingHtml(r, serve) {
+  function ingHtml(r, serve, picks) {
     if (!r || !r.ings || !r.ings.length) {
       return '<div class="ing-row"><div class="ing-row__n">暂无食材数据</div></div>';
     }
-    return r.ings.map(([n, v]) => `<div class="ing-row">
-      <div class="ing-row__n">${UI.esc(n)}</div>
-      <div class="ing-row__v">${UI.esc(RANDOM.scaledAmount(v, serve))}</div>
-    </div>`).join('');
+    /* 选购要点按食材名对齐（pick 只给主要食材与关键调料，配不上的就只显示用量） */
+    const pickMap = {};
+    ((picks && picks.pick) || []).forEach(([n, v]) => { pickMap[n] = v; });
+    return r.ings.map(([n, v]) => {
+      const tip = pickMap[n];
+      return `<div class="ing-row${tip ? ' ing-row--pick' : ''}">
+        <div class="ing-row__n">${UI.esc(n)}</div>
+        <div class="ing-row__v">${UI.esc(RANDOM.scaledAmount(v, serve))}</div>
+        ${tip ? `<div class="ing-row__tip">${UI.esc(tip)}</div>` : ''}
+      </div>`;
+    }).join('');
   }
 
   function render(st) {
@@ -76,6 +83,8 @@
       <div class="ing-card" id="ing-card">
         <div class="ing-row"><div class="ing-row__n">食材加载中…</div></div>
       </div>
+
+      <div class="tips-card" id="tips-card"></div>
     </div>
     <div class="bottom">
       <div class="bottom__row">
@@ -94,11 +103,23 @@
   function hydrate(st) {
     const card = document.getElementById('ing-card');
     if (!card) return Promise.resolve();
-    return DATA.get(st.current).then(r => {
+    /* 菜谱与选购数据并行取 */
+    return Promise.all([DATA.get(st.current), DATA.picksOf(st.current)]).then(([r, picks]) => {
       if (!card.isConnected) return;
       st.recipeIngs = (r && r.ings) ? r.ings : null;
-      card.innerHTML = ingHtml(r, curServe(st, st.current));
+      st.recipePicks = picks || null;
+      card.innerHTML = ingHtml(r, curServe(st, st.current), picks);
+      renderTips(picks);
     });
+  }
+
+  /* 新手小技巧卡片（选购数据里没有就整块不显示） */
+  function renderTips(picks) {
+    const box = document.getElementById('tips-card');
+    if (!box || !picks || !picks.tips || !picks.tips.length) return;
+    const c = ICONS.colors();
+    box.innerHTML = `<div class="tips-card__head">${ICONS.ICON.spark(c)}新手小技巧</div>
+      ${picks.tips.map(t => `<div class="tips-card__item">${UI.esc(t)}</div>`).join('')}`;
   }
 
   /* 只刷新跟份量有关的 DOM，整页不重绘（保留滚动位置与图片） */
@@ -113,7 +134,7 @@
     if (meta && item) meta.textContent = UI.metaOf(item, serve);
 
     const card = document.getElementById('ing-card');
-    if (card && st.recipeIngs) card.innerHTML = ingHtml({ ings: st.recipeIngs }, serve);
+    if (card && st.recipeIngs) card.innerHTML = ingHtml({ ings: st.recipeIngs }, serve, st.recipePicks);
   }
 
   window.SCREENS = window.SCREENS || {};

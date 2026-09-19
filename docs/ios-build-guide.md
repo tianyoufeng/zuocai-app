@@ -93,7 +93,7 @@ npx cap sync ios
    - Display Name：`今天吃什么`
    - Bundle Identifier：`com.tianyoufeng.chishenme`（与 capacitor.config.json 的 appId 一致）
    - Minimum Deployments：**iOS 14.0**（需求下限）
-   - Version：`3.0.0` / Build：`30`
+   - Version：`3.1.0` / Build：`31`
 2. **Signing & Capabilities**：
    - 勾选 `Automatically manage signing`
    - Team：选你的 Apple ID（个人团队）

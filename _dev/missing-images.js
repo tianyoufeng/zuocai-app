@@ -12,7 +12,7 @@ const vm = require('vm');
 const ROOT = path.resolve(__dirname, '..');
 const DATA = path.join(ROOT, 'src', 'data');
 const IMG = path.join(ROOT, 'src', 'assets', 'images');
-const CATS = ['jiachangcai', 'tanggeng', 'zhushi', 'liangcai', 'zaocan', 'yexiao'];
+const CATS = ['jiachangcai', 'tanggeng', 'zhushi', 'liangcai', 'zaocan', 'yexiao', 'yuecai', 'chuancai', 'xiangcai'];
 
 const out = [];
 const byCat = {};

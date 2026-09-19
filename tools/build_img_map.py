@@ -8,7 +8,7 @@ import re
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RAW = os.path.join(ROOT, '_raw')
 DATA = os.path.join(ROOT, 'src', 'data')
-CATS = ['jiachangcai', 'tanggeng', 'zhushi', 'liangcai', 'zaocan', 'yexiao']
+CATS = ['jiachangcai', 'tanggeng', 'zhushi', 'liangcai', 'zaocan', 'yexiao', 'yuecai', 'chuancai', 'xiangcai']
 
 name2id = {}
 for cat in CATS:

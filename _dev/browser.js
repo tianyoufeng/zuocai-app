@@ -121,6 +121,19 @@ const bad = m => { failed++; console.error('  ✗ ' + m); };
   serveBack === serveKept
     ? ok(`份量按道记忆（退出重进仍为 ${serveBack} 人份）`) : bad(`份量未记忆：设 ${serveKept} 回来 ${serveBack}`);
 
+  /* ---------- 2.3 v3.1 选购要点 + 新手提示 ---------- */
+  const pickInfo = await page.evaluate(async () => {
+    const p = await window.DATA.picksOf(window.APP.state.current);
+    return { has: !!p, pick: p ? p.pick.length : 0, tips: p ? p.tips.length : 0 };
+  });
+  (pickInfo.has && pickInfo.pick >= 2 && pickInfo.tips >= 2)
+    ? ok(`选购数据已加载（${pickInfo.pick} 条挑选要点 + ${pickInfo.tips} 条新手提示）`)
+    : bad('选购数据缺失: ' + JSON.stringify(pickInfo));
+  const tipRows = await page.$$eval('#ing-card .ing-row__tip', els => els.length);
+  tipRows > 0 ? ok(`详情页食材行显示选购要点（${tipRows} 条）`) : bad('详情页没显示选购要点');
+  const tipsCard = await page.$$eval('#tips-card .tips-card__item', els => els.length);
+  tipsCard > 0 ? ok(`新手小技巧卡片已渲染（${tipsCard} 条）`) : bad('小技巧卡片为空');
+
   /* ---------- 2.2 需求③ 开始做菜一页到底 ---------- */
   await page.click('[data-cook]');
   await page.waitForFunction(() => document.querySelector('.screen.is-active')?.dataset.screen === 'steps');
@@ -133,6 +146,9 @@ const bad = m => { failed++; console.error('  ✗ ' + m); };
   (await page.$('[data-finish]')) !== null ? ok('底部为「做完收工」一键按钮') : bad('缺少做完收工按钮');
   const briefItems = await page.$$eval('.ing-brief__item', els => els.length);
   briefItems > 0 ? ok(`备料清单同页显示（${briefItems} 项）`) : bad('备料清单为空');
+  await sleep(600);
+  const cookTips = await page.$$eval('#cook-tips .cook-tips__item', els => els.length);
+  cookTips > 0 ? ok(`「下锅前先看这几条」已渲染（${cookTips} 条）`) : bad('做菜页未渲染新手提示');
   const pctBefore = await page.$eval('#stepbar-fill', el => el.style.width);
   await page.evaluate(() => { const s = document.getElementById('cook-scroll'); s.scrollTop = s.scrollHeight; });
   await sleep(300);

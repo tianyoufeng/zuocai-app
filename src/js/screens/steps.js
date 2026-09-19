@@ -43,6 +43,7 @@
       </div>
 
       <div class="ing-brief" id="ing-brief"></div>
+      <div class="cook-tips" id="cook-tips"></div>
 
       <div class="sec-head">
         <div class="sec-title">烹饪步骤</div>
@@ -125,6 +126,16 @@
 
       const brief = document.getElementById('ing-brief');
       if (brief) brief.innerHTML = ingBrief(r.ings, SCREENS.detail.curServe(st, st.current));
+
+      /* v3.1：下锅前先看这几条（选购数据懒加载，晚到就晚填） */
+      const pre = document.getElementById('cook-tips');
+      if (pre) {
+        DATA.picksOf(st.current).then(p => {
+          if (!pre.isConnected || !p || !p.tips || !p.tips.length) return;
+          pre.innerHTML = '<div class="cook-tips__head">下锅前先看这几条</div>' +
+            p.tips.map(t => `<div class="cook-tips__item">${UI.esc(t)}</div>`).join('');
+        });
+      }
 
       bindScroll(r.steps.length);
     });

@@ -56,7 +56,8 @@ def main():
     total_bytes = 0
     for rid, src in mapping.items():
         cat_file = None
-        for cat in ('jiachangcai', 'tanggeng', 'zhushi', 'liangcai', 'zaocan', 'yexiao'):
+        for cat in ('jiachangcai', 'tanggeng', 'zhushi', 'liangcai', 'zaocan', 'yexiao',
+                    'yuecai', 'chuancai', 'xiangcai'):
             text = open(os.path.join(ROOT, 'src', 'data', f'{cat}.js'), encoding='utf-8').read()
             # 必须精确匹配 id 字面量：子串匹配会让 jiangrou-bao 命中 jiangrou-baozi
             if re.search(r"id:\s*'%s'" % re.escape(rid), text):

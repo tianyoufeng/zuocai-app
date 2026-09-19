@@ -21,8 +21,8 @@ KS="$BASEW/keys/chishenme.keystore"
 KS_PASS="chishenme2026"
 KEY_ALIAS="chishenme"
 
-VERSION_NAME="3.0.0"
-VERSION_CODE=30
+VERSION_NAME="3.1.0"
+VERSION_CODE=31
 
 PROJ="$(cd "$(dirname "$0")/.." && pwd -W)"
 WORKROOT="$BASEW/work-chishenme"
