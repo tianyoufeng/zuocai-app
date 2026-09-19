@@ -37,6 +37,8 @@
 - **重新打包 APK**：见 `docs/apk-build-guide.md`（可复制即用）。
 - **自己重编 iOS 包**：改了 `src/` 后 push 到 main，GitHub 会自动在**免费 macOS 机器**上重编
   （`.github/workflows/ios.yml`）—— 不需要 Mac。
+- **更新菜谱**：见 [`docs/update-recipes.md`](docs/update-recipes.md) —— 改哪个文件、
+  怎么加一道新菜（含配图与选购数据）、改完怎么发布。
 
 ## 三、能帮上忙的地方
 
