@@ -4,4 +4,5 @@ dist/*.idsig
 dist/*.apk
 dist/*.ipa
 archive/
+_dev/library-docs/
 *.log
