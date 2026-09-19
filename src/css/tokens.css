@@ -1,0 +1,89 @@
+/* ============================================================
+   tokens.css — 设计令牌（与设计稿「设计规范」页逐项对应）
+   v2.0：新增 safe-area 变量、根字号响应式、深色模式令牌组
+   ============================================================ */
+
+:root {
+  /* 安全区（需求六.3） */
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+
+  /* 背景层 */
+  --bg: #F8F5F0;             /* 屏幕底色（奶油白） */
+  --card: #FFFFFF;           /* 卡片面 */
+  --warm-tint: #F3EDE3;      /* 次级面 / 暖灰底 */
+
+  /* 主色 · 番茄橙 —— 每屏只出现一次，仅用于唯一主动作按钮 */
+  --brand: #E8703A;
+  --brand-deep: #C9552A;
+  --brand-tint: #FDEDE3;
+  --brand-tint-line: #F5C4A8;
+
+  /* 辅色 · 鼠尾草绿 —— 清淡 / 素食 / 少油语义 */
+  --sage: #87A878;
+  --sage-tint: #EAEFE4;
+  --sage-text: #5C7350;
+  --sage-text-deep: #4A5C42;
+
+  /* 文字 */
+  --ink: #1F1E1B;
+  --t2: #5C5A55;
+  --t3: #8C877E;
+  --muted: #9A948A;
+  --ph: #A9A29A;
+
+  /* 描边 */
+  --border: #EDE6D9;
+  --chev: #C4BDB2;
+
+  /* 圆角 */
+  --r-card: 1.25rem;         /* 20px @375 */
+  --r-img: 1rem;             /* 16px */
+  --r-btn: 1rem;
+  --r-pill: 100px;
+
+  /* 阴影：暖色调，不用中性黑 */
+  --sh-card: 0 0.125rem 0.5rem rgba(232, 112, 58, .10);
+  --sh-cta: 0 0.5rem 1.25rem -0.25rem rgba(232, 112, 58, .30);
+
+  /* 字体：菜名走宋体，界面走黑体（设计规范纪律） */
+  --font: "PingFang SC", "HarmonyOS Sans SC", "Microsoft YaHei UI", "Microsoft YaHei",
+          "Source Han Sans SC", "Noto Sans SC", system-ui, -apple-system, sans-serif;
+  --font-serif: "Source Han Serif CN", "Source Han Serif SC", "Noto Serif SC",
+                "Songti SC", "STSong", "SimSun", serif;
+}
+
+/* ============================================================
+   深色模式（需求六.9：暖深色映射，保证文字对比度）
+   ============================================================ */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1C1A17;
+    --card: #262320;
+    --warm-tint: #2E2A25;
+
+    --brand: #E8703A;
+    --brand-deep: #F08A5C;
+    --brand-tint: #3A2A1F;
+    --brand-tint-line: #5C3E28;
+
+    --sage: #87A878;
+    --sage-tint: #272E22;
+    --sage-text: #A3BD93;
+    --sage-text-deep: #C2D4B2;
+
+    --ink: #F0EBE3;
+    --t2: #B8B2A8;
+    --t3: #8C867C;
+    --muted: #7A746A;
+    --ph: #6B655C;
+
+    --border: #35302A;
+    --chev: #57524A;
+
+    --sh-card: 0 0.125rem 0.5rem rgba(0, 0, 0, .30);
+    --sh-cta: 0 0.5rem 1.25rem -0.25rem rgba(232, 112, 58, .25);
+  }
+}

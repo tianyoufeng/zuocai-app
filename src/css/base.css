@@ -1,0 +1,142 @@
+/* ============================================================
+   base.css — 重置 / 应用骨架 / 响应式（需求六逐条落实）
+   基准 375px：html 根字号 = clamp(14px, 4.267vw, 18px)
+   （375px 时恰为 16px，1rem = 设计稿 16px；尺寸一律用 rem / % / clamp）
+   ============================================================ */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  /* 375px 基准：4.267vw = 16px；平板/折叠屏封顶 18px */
+  font-size: clamp(14px, 4.267vw, 18px);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  height: 100%;
+  font-family: var(--font);
+  color: var(--ink);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+img { max-width: 100%; }
+button { font-family: inherit; }
+input, button { font-size: inherit; }
+
+/* 视口高度：100dvh 优先，JS 兜底写 --vh（老 WebView） */
+.app {
+  position: relative;
+  width: 100%;
+  max-width: 48rem;              /* 768px：平板 / 折叠屏居中（需求六.7） */
+  height: 100vh;
+  height: 100dvh;
+  margin: 0 auto;
+  overflow: hidden;
+  background: var(--bg);
+}
+@supports (height: 100dvh) {
+  .app { height: 100dvh; }
+}
+
+/* ---------- 屏幕容器 ---------- */
+.screen {
+  position: absolute;
+  inset: 0;
+  display: none;
+  flex-direction: column;
+  background: var(--bg);
+  padding-top: var(--safe-top);          /* 顶部安全区（需求六.3） */
+}
+.screen.is-active { display: flex; }
+
+@keyframes pushIn { from { transform: translateX(1.625rem); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes popIn  { from { transform: translateX(-1.25rem); opacity: 0; } to { transform: none; opacity: 1; } }
+.screen.anim-push { animation: pushIn .24s cubic-bezier(.32, .72, 0, 1); }
+.screen.anim-pop  { animation: popIn  .24s cubic-bezier(.32, .72, 0, 1); }
+
+/* ---------- 内容滚动区 ---------- */
+.content {
+  flex: 1 1 auto;
+  min-height: 0;                        /* 关键：否则超长内容撑破容器 */
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem;
+  padding-left: calc(1.25rem + var(--safe-left));
+  padding-right: calc(1.25rem + var(--safe-right));
+  gap: 1rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.content::-webkit-scrollbar { display: none; }
+.content > * { flex-shrink: 0; }        /* 禁止子项被压扁 */
+.content--home { gap: 1.125rem; }
+.content--plain { gap: 1rem; }
+
+/* ---------- 底部导航（固定 + 底部安全区，需求六.4） ---------- */
+.tabbar {
+  flex: 0 0 auto;
+  padding: 0.75rem 1.3125rem;
+  padding-bottom: calc(0.75rem + var(--safe-bottom));
+}
+.tabbar__pill {
+  height: 3.875rem;
+  border-radius: 2.25rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 0.25rem;
+  display: flex;
+}
+.tab {
+  flex: 1 1 0;
+  min-width: 0;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  border-radius: 1.625rem;
+  cursor: pointer;
+  color: var(--muted);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  -webkit-tap-highlight-color: transparent;
+}
+.tab.is-active { background: var(--ink); color: var(--bg); }
+.tab svg { display: block; }
+.tab span { font-size: 0.625rem; line-height: 0.875rem; font-weight: 500; }
+
+/* ---------- 底部动作栏 ---------- */
+.bottom {
+  flex: 0 0 auto;
+  padding: 0.25rem 1.25rem;
+  padding-bottom: calc(1rem + var(--safe-bottom));
+}
+.bottom__row { display: flex; gap: 0.625rem; }
+
+/* ---------- Toast ---------- */
+.toast {
+  position: absolute;
+  left: 50%;
+  bottom: calc(7.5rem + var(--safe-bottom));
+  transform: translate(-50%, 0.625rem);
+  max-width: 18.75rem;
+  padding: 0.6875rem 1.125rem;
+  border-radius: var(--r-pill);
+  background: rgba(31, 30, 27, .93);
+  color: #fff;
+  font-size: 0.8125rem;
+  line-height: 1.125rem;
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .22s ease, transform .22s ease;
+  z-index: 60;
+}
+.toast.is-on { opacity: 1; transform: translate(-50%, 0); }

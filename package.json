@@ -1,0 +1,17 @@
+{
+  "name": "zuocai-app",
+  "version": "2.0.0",
+  "description": "今天吃什么 · 本地离线菜谱 App（Capacitor 打包）",
+  "private": true,
+  "scripts": {
+    "gen-manifest": "node tools/gen-manifest.js",
+    "validate": "node tools/validate-data.js"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^6.2.0"
+  },
+  "dependencies": {
+    "@capacitor/android": "^6.2.0",
+    "@capacitor/core": "^6.2.0"
+  }
+}
