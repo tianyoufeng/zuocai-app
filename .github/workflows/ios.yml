@@ -42,10 +42,24 @@ jobs:
         run: npx cap add ios
 
       - name: 生成图标与启动图
-        run: npx @capacitor/assets generate --ios || echo "::warning::assets 生成失败，改用 Capacitor 默认图标继续"
+        run: |
+          npx @capacitor/assets generate --ios || echo "::warning::assets 生成失败，改用 Capacitor 默认图标继续"
+          echo "--- AppIcon 目录抽查 ---"
+          ls ios/App/App/Assets.xcassets/AppIcon.appiconset/ 2>/dev/null | head -20 || echo "没有 AppIcon.appiconset"
 
       - name: 同步 web 资源到 ios/App/App/public
         run: npx cap sync ios
+
+      - name: 对齐版本号与屏幕方向（与 Android 保持一致）
+        run: |
+          PLIST=ios/App/App/Info.plist
+          plutil -replace CFBundleShortVersionString -string "3.1.0" "$PLIST"
+          plutil -replace CFBundleVersion -string "31" "$PLIST"
+          plutil -replace CFBundleDisplayName -string "今天吃什么" "$PLIST"
+          plutil -replace UISupportedInterfaceOrientations -json '["UIInterfaceOrientationPortrait"]' "$PLIST"
+          plutil -replace 'UISupportedInterfaceOrientations~ipad' -json '["UIInterfaceOrientationPortrait"]' "$PLIST" || true
+          echo "--- 结果 ---"
+          plutil -p "$PLIST" | grep -E "CFBundle|Orientation" || true
 
       - name: 编译（禁用签名）
         run: |
@@ -56,6 +70,8 @@ jobs:
             -configuration Release \
             -sdk iphoneos \
             -derivedDataPath build \
+            MARKETING_VERSION=3.1.0 \
+            CURRENT_PROJECT_VERSION=31 \
             CODE_SIGNING_ALLOWED=NO \
             CODE_SIGNING_REQUIRED=NO \
             CODE_SIGN_IDENTITY="" \
