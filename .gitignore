@@ -2,5 +2,6 @@ node_modules/
 _raw/
 dist/*.idsig
 dist/*.apk
+dist/*.ipa
 archive/
 *.log
