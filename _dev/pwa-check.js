@@ -47,7 +47,10 @@ const bad = m => { failed++; console.error('  ✗ ' + m); };
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
 (async () => {
-  const srv = await serve();
+  const REMOTE = (process.argv[2] || '').trim();
+  const srv = REMOTE ? null : await serve();
+  const base = REMOTE || `http://127.0.0.1:${PORT}/`;
+  console.log(REMOTE ? `目标：${REMOTE}（线上）` : `目标：${base}（本地服务）`);
   const browser = await puppeteer.launch({
     executablePath: 'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe',
     headless: true,
@@ -60,7 +63,7 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
   page.on('pageerror', e => errors.push('pageerror: ' + e.message));
 
   /* 先真正打开页面（否则页面在 about:blank，相对路径 fetch 会失败） */
-  await page.goto(`http://127.0.0.1:${PORT}/`, { waitUntil: 'domcontentloaded' });
+  await page.goto(base, { waitUntil: 'domcontentloaded' });
   await sleep(900);
 
   /* ---------- 1. manifest ---------- */
@@ -100,7 +103,7 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
   if (!reg || !reg.supported) bad('浏览器不支持 Service Worker');
   else if (reg.error) bad('SW 未在 15s 内就绪：' + reg.error);
   else {
-    ok(`SW 已激活（scope ${reg.scope.replace(`http://127.0.0.1:${PORT}`, '')}，state=${reg.state}）`);
+    ok('SW 已激活（scope ' + reg.scope.replace(base, '/') + '，state=' + reg.state + '）');
   }
 
   /* ---------- 3. 核心资源入缓存 ---------- */
@@ -173,6 +176,6 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
   errors.slice(0, 5).forEach(e => console.error('  ' + e));
 
   await browser.close();
-  srv.close();
+  if (srv) srv.close();
   process.exit(failed || errors.length ? 1 : 0);
 })().catch(e => { console.error('FATAL', e); process.exit(2); });

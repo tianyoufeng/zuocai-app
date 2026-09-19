@@ -1,7 +1,70 @@
-# iOS 打包指南（在 Mac 上执行，约 30 分钟）
+# iOS 安装指南
 
-> 本机为 Windows，无法运行 Xcode，iOS 工程需在任意一台 Mac 上生成。
+iOS 装不了安卓那种双击就装的 APK —— 没有 Apple 开发者账号就签不出可分发的安装包。
+所以这里给两条路：**路线一 PWA 装到主屏（推荐，零成本）** 与 **路线二 Mac 上编译原生 App**。
+
+---
+
+## 路线一（推荐）：装到主屏 —— PWA
+
+**不需要 Mac、不需要开发者账号、不花钱**；以后代码更新会自动生效，不用重装。
+
+线上地址（GitHub Pages 自动部署，push 到 main 就更新）：
+
+```
+https://tianyoufeng.github.io/zuocai-app/
+```
+
+### iPhone 上的操作
+
+1. 用 **Safari** 打开上面的地址（必须 Safari —— 微信内置浏览器、Chrome 都不支持「添加到主屏幕」）
+2. 等首页出来。**首次需要联网**：20MB 菜谱图会在后台分批缓存，放着别关一会儿
+3. 点底部「分享」按钮 → 往下翻 → **「添加到主屏幕」**
+4. 起个名字点「添加」，桌面上就出现「今天吃什么」的图标
+5. 以后从那图标打开：**全屏、无地址栏**，观感跟原生 App 一致
+6. **验证离线**：开飞行模式，再点图标 —— 应该照常能抽菜、看菜谱、看图
+
+### Android 也能用同一份
+
+Chrome 打开同一地址 → 右上角菜单 → **「安装应用」**。
+（Android 更推荐直接装 APK，体积和体验都更好。）
+
+### 已知限制（先说清楚，别装完觉得被坑）
+
+| 限制 | 说明 |
+|---|---|
+| 首次要联网 | 20MB 图片要下载缓存；缓存完（实测 25 秒内可完成大部分）之后完全离线可用 |
+| 数据存在 Safari 里 | 收藏 / 历史 / 份量存在浏览器本地存储，**「设置 → Safari → 清除历史记录与网站数据」会一并清掉** |
+| 系统可能回收缓存 | iPhone 存储极度紧张时 iOS 可能清掉站点数据；重新联网打开一次即可恢复 |
+| 无系统级推送 | PWA 拿不到 iOS 通知（本项目本来也不需要） |
+
+> 想要「数据绝对不丢、离线绝对可靠」，走路线二编原生 App。
+
+### 本地自检（改完前端用这个验）
+
+```bash
+# 验本地
+NODE_PATH="C:/Users/q2764/.workbuddy/binaries/node/workspace/node_modules" node _dev/pwa-check.js
+# 验线上
+NODE_PATH="C:/Users/q2764/.workbuddy/binaries/node/workspace/node_modules" node _dev/pwa-check.js https://tianyoufeng.github.io/zuocai-app/
+```
+
+覆盖 12 项：manifest 合法性 / SW 注册 / 核心资源入缓存 / 图片渐进预热 / 断网后仍能打开与浏览。
+
+### 部署是怎么配的
+
+- `.github/workflows/pages.yml`：push 到 `main` 且改了 `src/**` → 自动把 **`src/` 作为站点根**发布
+- 站点根发布的好处：URL 不带 `/src/` 前缀，Service Worker 作用域覆盖整站
+- 图标：`tools/make_pwa_icons.py` 从 `icon-480.png` 生成 180 / 192 / 512 三个尺寸
+
+---
+
+## 路线二：Mac 上编译原生 App（Capacitor + Xcode）
+
+> 本机为 Windows，跑不了 Xcode，此路线需要一台 Mac（或云 Mac）。
 > 前端代码（src/）与 Android 完全同一份，无需改动。
+> ⚠️ 用免费 Apple ID 签名的话，App **每 7 天过期**，要重新连 Mac 装一次；
+> 想长期用要么买开发者账号（$99/年），要么走上面的 PWA。
 
 ## 前提
 

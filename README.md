@@ -13,7 +13,7 @@
 | 版本 | v3.0.0（versionCode 30） |
 | 菜谱数量 | **500 道**（家常菜 200 / 主食 80 / 汤羹 70 / 凉菜 50 / 早餐 50 / 夜宵 50） |
 | 图片 | **500 张，覆盖率 100%**（无占位块）。WebP，长边 800 / 单张 30~50KB，共 20.3MB |
-| 安装包 | **Android APK 24MB** —— [Releases](https://github.com/tianyoufeng/zuocai-app/releases) 下载（本机也留一份 `dist/chishenme-v3.0.0.apk`） |
+| 安装包 | **Android**：[Releases](https://github.com/tianyoufeng/zuocai-app/releases) 下载 APK（24MB）<br>**iPhone / iPad**：Safari 打开 <https://tianyoufeng.github.io/zuocai-app/> → 分享 → 添加到主屏幕 |
 | 权限 | **零权限**（Manifest 不含 INTERNET 等任何权限） |
 | 存储 | 菜谱数据打包内置；收藏 / 历史 / 偏好 / 份量用 IndexedDB，仅存本机 |
 | 最低系统 | Android 8.0 (API 26) / iOS 14 |
@@ -21,11 +21,15 @@
 ## 二、快速开始
 
 - **浏览器预览**：直接双击 `src/index.html`（file:// 下同样可用，IndexedDB 正常）。
-- **手机安装**：从 [Releases](https://github.com/tianyoufeng/zuocai-app/releases) 下载
-  `chishenme-v3.0.0.apk`（或直接用本机 `dist/chishenme-v3.0.0.apk`）传到 Android 手机安装
+- **在线试用（任何浏览器）**：<https://tianyoufeng.github.io/zuocai-app/>
+- **Android 安装**：从 [Releases](https://github.com/tianyoufeng/zuocai-app/releases) 下载
+  `chishenme-v3.0.0.apk`（或直接用本机 `dist/chishenme-v3.0.0.apk`）传到手机安装
   （需允许「安装未知应用」，Play Protect 提示点「仍然安装」）。
-- **重新打包**：见 `docs/apk-build-guide.md`（可复制即用）。
-- **iOS**：见 `docs/ios-build-guide.md`（需在 Mac 上执行）。
+- **iPhone / iPad 安装**：用 **Safari** 打开上面的在线地址 → 点「分享」→
+  「添加到主屏幕」。全屏无地址栏、观感与原生一致；首次联网缓存后即可离线使用。
+  详见 `docs/ios-build-guide.md` 路线一（含已知限制）。
+- **重新打包 APK**：见 `docs/apk-build-guide.md`（可复制即用）。
+- **编 iOS 原生 App**：见 `docs/ios-build-guide.md` 路线二（需 Mac；免费 Apple ID 签名 7 天过期）。
 
 ## 三、v3.0 三处交互改动
 
@@ -54,6 +58,8 @@ zuocai-app/                        （本目录，GitHub 仓库根）
 ├── design/                        UI 设计稿 + 设计规范
 ├── src/                           ★ 可直接浏览器打开的前端
 │   ├── index.html
+│   ├── manifest.webmanifest       PWA 清单（装到手机主屏用）
+│   ├── sw.js                      Service Worker（离线缓存；图片清单从 manifest 自动推导）
 │   ├── css/                       tokens（设计令牌+深色）/ base（骨架）/ screens（组件）
 │   ├── js/                        icons · db(IndexedDB) · data(懒加载) · random(加权随机)
 │   │   · ui · app(路由/事件) · screens/×7（home/result/detail/steps/library/records/profile）
@@ -76,6 +82,7 @@ zuocai-app/                        （本目录，GitHub 仓库根）
 ├── dist/                          chishenme-v3.0.0.apk + 中文名副本
 │                                  （*.apk 不入库 —— 安装包走 GitHub Releases）
 ├── docs/                          APK / iOS 打包文档
+├── .github/workflows/pages.yml    push 到 main 时自动把 src/ 发布到 GitHub Pages
 ├── package.json · capacitor.config.json
 ├── _raw/                          ImageGen 原图 435 张（本轮新增图，构建时压缩入库）
 └── archive/v2.0/                  v2.0 完整快照（含当时的 65 张原图）

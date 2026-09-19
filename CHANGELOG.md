@@ -21,6 +21,15 @@
 - **菜谱库分批渲染**：500 道规模下首批渲染 60 道 + 「加载更多」按钮，
   避免一次性铺 500 个卡片拖慢首屏；切分类 / 搜索自动回到第一批。
 - 结果页「份量」改为显示该道菜自己的份量，与详情页联动。
+- **支持装到手机主屏（PWA）**：新增 `src/manifest.webmanifest` 与 `src/sw.js`
+  —— 核心资源预缓存 + **500 张菜谱图后台分批预热** + cache-first 回源；
+  菜谱图清单从 `data/manifest.js` 推导，新增菜谱不用改 SW。
+  iPhone 用 Safari 打开 <https://tianyoufeng.github.io/zuocai-app/> →「分享」→
+  「添加到主屏幕」，全屏无地址栏，缓存完即可离线；Android Chrome 同样支持。
+  APK 内的 WebView 壳（`app.local`）不注册 SW，两条路互不影响。
+- 新增 `tools/make_pwa_icons.py`（从 icon-480 生成 180/192/512）、
+  `_dev/pwa-check.js`（PWA 离线自检 12 项）、
+  `.github/workflows/pages.yml`（push 到 main 自动把 `src/` 发布到 GitHub Pages）。
 
 ### 变更
 - `tools/compress_images.py`：入库时裁掉图片底部 10% —— ImageGen 出图右下角带平台
@@ -49,7 +58,10 @@
   每轮迭代都要推 24MB 二进制，仓库会迅速膨胀；本地 `dist/` 仍保留产物。
 - 数据校验：500 道 · 有图 500 道 · 0 错误
 - 静态一致性：6/6 · 端到端浏览器自检：**38/38**（真实控制台错误 0）
+- PWA 离线自检：**12/12**（线上实测：SW 激活后 25 秒内预热完 500 张图，
+  断网重载仍载入 500 道菜谱、首页正常渲染、图片命中缓存）
 - APK 逐字节核对通过 · 包内菜谱图片 500 张
+- 线上（PWA）：<https://tianyoufeng.github.io/zuocai-app/> —— push 到 main 自动部署
 
 ### 已知限制
 - APK 体积从 3.2MB 增至 24MB —— 完全离线 + 500 张内置图，这是必然代价。
