@@ -1,0 +1,29 @@
+{
+  "name": "今天吃什么",
+  "short_name": "今天吃什么",
+  "description": "纯本地的家常菜菜谱：500 道菜、随机抽菜、一页做菜，断网可用",
+  "lang": "zh-CN",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
+  "orientation": "portrait",
+  "background_color": "#F8F5F0",
+  "theme_color": "#F8F5F0",
+  "categories": ["food", "lifestyle"],
+  "icons": [
+    {
+      "src": "assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
