@@ -61,7 +61,7 @@ else ok(`ICON 键核对通过（${iconKeys.size} 个图标，${iconRefs.size} �
 
 /* ---------- 3. data-* 处理分支核对 ---------- */
 const handled = new Set(['roll', 'open', 'back', 'tab', 'filter', 'cat', 'pref', 'fav', 'cook',
-  'step', 'serve', 'goal', 'share', 'reset-filter', 'edit-avoid', 'clear-history',
+  'finish', 'dserve', 'more', 'serve', 'goal', 'share', 'reset-filter', 'edit-avoid', 'clear-history',
   'avoid-chip', 'sheet-close', 'sheet-save', 'screen']);
 const used = new Set();
 for (const m of allText.matchAll(/data-([a-zA-Z-]+)/g)) used.add(m[1]);
@@ -80,7 +80,7 @@ if (!dupVb) ok('SVG viewBox 无重复');
 
 /* ---------- 5. 状态字段核对 ---------- */
 const stateFields = new Set(['prefs', 'avoid', 'history', 'favs', 'filter', 'cat', 'query',
-  'serve', 'goal', 'current', 'step', 'recipeSteps']);
+  'serve', 'serveOf', 'goal', 'current', 'step', 'recipeSteps', 'recipeIngs']);
 const stRefs = new Set();
 for (const m of allText.matchAll(/st(?:ate)?\.([a-zA-Z_]\w*)/g)) {
   if (stateFields.has(m[1]) || ['favs'].includes(m[1])) stRefs.add(m[1]);

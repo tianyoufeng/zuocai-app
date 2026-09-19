@@ -6,14 +6,14 @@
 ## 一、一键打包（本机已配好环境）
 
 ```bash
-cd C:/Users/q2764/WorkBuddy/开发做菜app/app-v2
+cd C:/Users/q2764/WorkBuddy/zuocai-app-更新
 bash tools/build-apk.sh
-bash tools/verify_apk.py dist/chishenme-v2.0.0.apk \
+bash tools/verify_apk.py dist/chishenme-v3.0.0.apk \
   "C:/Users/q2764/.workbuddy/binaries/android-build/work-chishenme/build/dex/classes.dex" \
   src/index.html
 ```
 
-产物：`dist/chishenme-v2.0.0.apk`（约 3.2MB）+ 中文名副本。
+产物：`dist/chishenme-v3.0.0.apk`（约 3.2MB）+ 中文名副本。
 改了前端代码后重跑脚本即可（版本号在脚本头部 `VERSION_NAME/VERSION_CODE`）。
 
 ## 二、从零安装环境（一次性，约 350MB 下载）
@@ -59,7 +59,7 @@ BUILD="$BASEW/work-chishenme/build"
 "$BT/aapt2.exe" link -o "$BUILD/base.apk" -I "$PLATFORM" \
   --manifest "$WORKSRC/_android/AndroidManifest.xml" -A "$BUILD/assets" \
   --java "$BUILD/gen" --min-sdk-version 26 --target-sdk-version 34 \
-  --version-code 20 --version-name "2.0.0" "$BUILD/res.zip"
+  --version-code 30 --version-name "3.0.0" "$BUILD/res.zip"
 
 # 3) Java 编译 → dex
 "$BASEW/jdk/bin/javac.exe" -source 8 -target 8 -nowarn -encoding UTF-8 \
@@ -86,16 +86,16 @@ python tools/merge_dex.py "$BUILD/base.apk" "$BUILD/unsigned.apk" "$BUILD/dex/cl
 "$BT/apksigner.bat" sign --ks "$BASEW/keys/chishenme.keystore" \
   --ks-pass pass:chishenme2026 --key-pass pass:chishenme2026 --ks-key-alias chishenme \
   --v1-signing-enabled true --v2-signing-enabled true --v3-signing-enabled true \
-  --v4-signing-enabled false --out chishenme-v2.0.0.apk "$BUILD/aligned.apk"
+  --v4-signing-enabled false --out chishenme-v3.0.0.apk "$BUILD/aligned.apk"
 ```
 
 ## 四、验证
 
 ```bash
-"$BT/apksigner.bat" verify --verbose chishenme-v2.0.0.apk   # 期望 v2/v3 = true
-"$BT/zipalign.exe" -c 4 chishenme-v2.0.0.apk                # 期望无输出
-"$BT/aapt2.exe" dump badging chishenme-v2.0.0.apk | grep uses-permission   # 期望无输出（零权限）
-python tools/verify_apk.py chishenme-v2.0.0.apk <dex> <src/index.html>
+"$BT/apksigner.bat" verify --verbose chishenme-v3.0.0.apk   # 期望 v2/v3 = true
+"$BT/zipalign.exe" -c 4 chishenme-v3.0.0.apk                # 期望无输出
+"$BT/aapt2.exe" dump badging chishenme-v3.0.0.apk | grep uses-permission   # 期望无输出（零权限）
+python tools/verify_apk.py chishenme-v3.0.0.apk <dex> <src/index.html>
 ```
 
 ## 五、Capacitor 标准工程（Gradle 路线，可选）

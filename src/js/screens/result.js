@@ -31,7 +31,7 @@
         ${[[`${item.time} 分钟`, '耗时'],
            [item.diff, '难度'],
            [`${item.kcal} 千卡`, '热量'],
-           [`${st.serve} 人份`, '份量']]
+           [`${SCREENS.detail.curServe(st, item.id)} 人份`, '份量']]
           .map(([v, l]) => `<div class="meta-card__col">
             <div class="meta-card__v">${v}</div><div class="meta-card__l">${l}</div></div>`).join('')}
       </div>

@@ -163,6 +163,63 @@ img.cover { width: 100%; height: 100%; object-fit: cover; display: block; }
 .step__t { font-size: 0.875rem; line-height: 1.375rem; font-weight: 600; }
 .step__d { font-size: 0.8125rem; line-height: 1.3125rem; color: var(--t2); }
 
+/* ---------- v3.0：详情页份量步进器 ---------- */
+.serv {
+  display: flex; align-items: center; gap: 0.375rem;
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--r-pill); padding: 0.1875rem 0.25rem;
+  flex: 0 0 auto;
+}
+.serv__btn {
+  width: 1.75rem; height: 1.75rem; flex: 0 0 1.75rem;
+  border: 0; padding: 0; border-radius: 50%;
+  background: var(--brand-tint); color: var(--brand-deep);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; -webkit-tap-highlight-color: transparent;
+}
+.serv__btn:active { transform: scale(.92); }
+.serv__btn svg { display: block; }
+.serv__btn.is-off { opacity: .32; pointer-events: none; }
+.serv__v {
+  font-size: 0.8125rem; line-height: 1.25rem; font-weight: 600;
+  white-space: nowrap; min-width: 3rem; text-align: center;
+}
+.serv__hint { font-size: 0.75rem; line-height: 1.125rem; color: var(--t3); width: 100%; }
+
+/* ---------- v3.0：开始做菜（一页到底） ---------- */
+.cook-head { display: flex; flex-direction: column; gap: 0.3125rem; width: 100%; }
+.cook-head__t { font-family: var(--font-serif); font-size: 1.375rem; line-height: 1.875rem; font-weight: 700; }
+.cook-head__m { font-size: 0.8125rem; line-height: 1.25rem; color: var(--t2); }
+.cook-head__n { font-size: 0.75rem; line-height: 1.125rem; color: var(--t3); }
+
+.stepbar {
+  position: sticky; top: 0; z-index: 5;
+  display: flex; flex-direction: column; gap: 0.375rem;
+  background: var(--bg); padding: 0.5rem 0 0.625rem; width: 100%;
+}
+.stepbar__track { height: 0.375rem; border-radius: 0.1875rem; background: var(--border); overflow: hidden; }
+.stepbar__fill { height: 100%; border-radius: 0.1875rem; background: var(--brand); transition: width .18s ease; }
+.stepbar__label { font-size: 0.75rem; line-height: 1.125rem; font-weight: 500; color: var(--brand-deep); }
+
+.ing-brief {
+  background: var(--warm-tint); border-radius: 1.125rem;
+  padding: 0.875rem; display: flex; flex-direction: column; gap: 0.5rem; width: 100%;
+}
+.ing-brief:empty { display: none; }
+.ing-brief__head { font-size: 0.75rem; line-height: 1.125rem; font-weight: 600; color: var(--t2); }
+.ing-brief__list { display: flex; flex-wrap: wrap; gap: 0.375rem 0.875rem; }
+.ing-brief__item { font-size: 0.75rem; line-height: 1.125rem; color: var(--t3); }
+.ing-brief__item b { font-weight: 600; color: var(--t2); }
+
+.steps--full { gap: 1.125rem; }
+.steps--full .step__no { flex: 0 0 1.875rem; width: 1.875rem; height: 1.875rem; font-size: 0.8125rem; }
+.steps--full .step__t { font-size: 0.9375rem; line-height: 1.4375rem; }
+.steps--full .step__d { font-size: 0.875rem; line-height: 1.4375rem; }
+.cook-foot {
+  font-size: 0.75rem; line-height: 1.125rem; color: var(--t3);
+  background: var(--warm-tint); border-radius: 0.875rem; padding: 0.875rem; width: 100%;
+}
+
 /* ---------- S5 菜谱库 ---------- */
 .search {
   display: flex; align-items: center; gap: 0.5rem; height: 2.75rem;
@@ -192,6 +249,7 @@ img.cover { width: 100%; height: 100%; object-fit: cover; display: block; }
   text-align: center; font-size: 0.8125rem; line-height: 1.25rem; color: var(--t3);
   background: var(--warm-tint); border-radius: 0.875rem; padding: 1.375rem 1rem; width: 100%;
 }
+.grid__end { text-align: center; font-size: 0.75rem; line-height: 1.125rem; color: var(--t3); width: 100%; padding: 0.375rem 0; }
 
 /* ---------- S7 我的 ---------- */
 .profile {

@@ -58,6 +58,8 @@ const bad = m => { failed++; console.error('  ✗ ' + m); };
   (await activeScreen()) === 'home' ? ok('默认进入首页') : bad('默认屏不是 home');
   (await page.$eval('.hello__title', el => el.textContent)) === '今天吃什么'
     ? ok('标题正确') : bad('标题不对');
+  const homeAvatar = await page.$eval('.avatar svg', el => el.getAttribute('viewBox'));
+  homeAvatar === '0 0 48 48' ? ok('首页头像为厨师形象') : bad('首页头像未替换: ' + homeAvatar);
   const dishCount = await page.evaluate(() => window.MANIFEST.items.length);
   ok(`manifest 共 ${dishCount} 道`);
 
@@ -71,24 +73,76 @@ const bad = m => { failed++; console.error('  ✗ ' + m); };
 
   await page.click('[data-open]');
   await page.waitForFunction(() => document.querySelector('.screen.is-active')?.dataset.screen === 'detail');
-  await page.waitForFunction(() => document.querySelectorAll('#ing-card .ing-row').length > 0, { timeout: 5000 });
+  await page.waitForFunction(() => {
+    const rows = document.querySelectorAll('#ing-card .ing-row');
+    return rows.length > 1 && !rows[0].textContent.includes('加载中');
+  }, { timeout: 8000 });
   const ingRows = await page.$$eval('#ing-card .ing-row', els => els.length);
-  ok(`详情页食材清单已懒加载（${ingRows} 项）`);
+  ingRows >= 2 ? ok(`详情页食材清单已懒加载（${ingRows} 项）`) : bad(`食材清单只有 ${ingRows} 项，疑似仍在加载态`);
 
+  /* ---------- 2.1 需求② 详情页手动改份量 ---------- */
+  const serve0 = await page.$eval('#serv-num', el => el.textContent);
+  const amount0 = await page.$eval('#ing-card .ing-row:first-child .ing-row__v', el => el.textContent);
+  await page.click('[data-dserve="1"]');
+  await sleep(200);
+  const serve1 = await page.$eval('#serv-num', el => el.textContent);
+  const amount1 = await page.$eval('#ing-card .ing-row:first-child .ing-row__v', el => el.textContent);
+  Number(serve1) === Number(serve0) + 1
+    ? ok(`份量可在详情页手动调整（${serve0} → ${serve1} 人份）`) : bad(`份量未变：${serve0} → ${serve1}`);
+  amount0 !== amount1
+    ? ok(`食材用量同步换算（${amount0} → ${amount1}）`) : bad('食材用量未换算');
+  /* 换算要连括号里的数字一起走（v3.0 修：「2 个（约 400 g）」→「4 个（约 800 g）」） */
+  const conv = await page.evaluate(() => ({
+    a: window.RANDOM.scaledAmount('2 个（约 400 g）', 4),
+    b: window.RANDOM.scaledAmount('适量', 4),
+    c: window.RANDOM.scaledAmount('半茶匙', 4)
+  }));
+  (conv.a === '4 个（约 800 g）' && conv.b === '适量' && conv.c === '半茶匙')
+    ? ok(`用量换算含括号内数字（${conv.a}）`)
+    : bad('用量换算异常: ' + JSON.stringify(conv));
+  const metaServe = await page.$eval('#meta-line', el => el.textContent);
+  metaServe.includes(serve1 + ' 人份') ? ok('摘要行份量同步更新') : bad('摘要行未同步: ' + metaServe);
+  await page.click('[data-dserve="-1"]');
+  await sleep(180);
+  const serveDown = await page.$eval('#serv-num', el => el.textContent);
+  Number(serveDown) === Number(serve0) ? ok('减少份量生效') : bad(`减少份量异常：${serveDown}`);
+  /* 连点两次上调，验证按菜单独记忆 */
+  await page.click('[data-dserve="1"]');
+  await sleep(150);
+  await page.click('[data-dserve="1"]');
+  await sleep(200);
+  const serveKept = await page.$eval('#serv-num', el => el.textContent);
+  await page.evaluate(() => { document.querySelector('[data-back]').click(); });
+  await sleep(250);
+  await page.evaluate(() => { document.querySelector('[data-open]').click(); });
+  await page.waitForFunction(() => document.querySelector('.screen.is-active')?.dataset.screen === 'detail');
+  await sleep(400);
+  const serveBack = await page.$eval('#serv-num', el => el.textContent);
+  serveBack === serveKept
+    ? ok(`份量按道记忆（退出重进仍为 ${serveBack} 人份）`) : bad(`份量未记忆：设 ${serveKept} 回来 ${serveBack}`);
+
+  /* ---------- 2.2 需求③ 开始做菜一页到底 ---------- */
   await page.click('[data-cook]');
   await page.waitForFunction(() => document.querySelector('.screen.is-active')?.dataset.screen === 'steps');
   await page.waitForFunction(() => document.querySelectorAll('#steps-list .step').length > 0, { timeout: 5000 });
   const stepCount = await page.$$eval('#steps-list .step', els => els.length);
-  ok(`步骤页已懒加载（${stepCount} 步）`);
+  const recipeSteps = await page.evaluate(() => (window.APP.state.recipeSteps || []).length);
+  stepCount === recipeSteps && stepCount > 0
+    ? ok(`一页到底：${stepCount} 步全部同屏铺开`) : bad(`步骤只显示 ${stepCount} / 共 ${recipeSteps} 步`);
+  (await page.$('[data-step]')) === null ? ok('已无「上一步 / 下一步」按钮') : bad('仍存在分页按钮');
+  (await page.$('[data-finish]')) !== null ? ok('底部为「做完收工」一键按钮') : bad('缺少做完收工按钮');
+  const briefItems = await page.$$eval('.ing-brief__item', els => els.length);
+  briefItems > 0 ? ok(`备料清单同页显示（${briefItems} 项）`) : bad('备料清单为空');
+  const pctBefore = await page.$eval('#stepbar-fill', el => el.style.width);
+  await page.evaluate(() => { const s = document.getElementById('cook-scroll'); s.scrollTop = s.scrollHeight; });
+  await sleep(300);
+  const pctAfter = await page.$eval('#stepbar-fill', el => el.style.width);
+  const posAfter = await page.$eval('#stepbar-label', el => el.textContent);
+  (pctAfter === '100%' && posAfter.includes(`第 ${stepCount} 步`))
+    ? ok(`滚动进度随滚动推进（${pctBefore || '0%'} → ${pctAfter}，${posAfter}）`)
+    : bad(`滚动进度异常：${pctBefore || '0%'} → ${pctAfter}，标签「${posAfter}」`);
 
-  /* 下一步直到收工 */
-  for (let i = 0; i < stepCount; i++) {
-    await page.evaluate(() => {
-      const b = document.querySelector('[data-step="1"]');
-      b && b.click();
-    });
-    await sleep(120);
-  }
+  await page.evaluate(() => { document.querySelector('[data-finish]').click(); });
   await page.waitForFunction(() => document.querySelector('.screen.is-active')?.dataset.screen === 'home', { timeout: 5000 });
   ok('做完收工回到首页');
   const histCount = await page.evaluate(() => window.APP.state.history.length);
@@ -98,24 +152,35 @@ const bad = m => { failed++; console.error('  ✗ ' + m); };
   console.log('\n[3] 菜谱库');
   await page.evaluate(() => { document.querySelector('[data-tab="library"]').click(); });
   await page.waitForFunction(() => document.querySelector('.screen.is-active')?.dataset.screen === 'library');
+  const PAGE = await page.evaluate(() => window.SCREENS.library.PAGE);
   const libCount = await page.$$eval('.recipe', els => els.length);
-  libCount === dishCount ? ok(`菜谱库显示全部 ${libCount} 道`) : bad(`菜谱库 ${libCount} != ${dishCount}`);
+  libCount === Math.min(PAGE, dishCount)
+    ? ok(`菜谱库首批渲染 ${libCount} 道（共 ${dishCount} 道，分批）`)
+    : bad(`首批 ${libCount} != ${Math.min(PAGE, dishCount)}`);
+  (await page.$('[data-more]')) !== null ? ok('提供「加载更多」') : bad('缺少加载更多按钮');
+  await page.evaluate(() => { document.querySelector('[data-more]').click(); });
+  await sleep(350);
+  const libCount2 = await page.$$eval('.recipe', els => els.length);
+  libCount2 === Math.min(PAGE * 2, dishCount)
+    ? ok(`加载更多后 ${libCount2} 道`) : bad(`加载更多后 ${libCount2} != ${Math.min(PAGE * 2, dishCount)}`);
 
   await page.type('#q', '西兰花');
-  await sleep(200);
+  await sleep(250);
   const searchCount = await page.$$eval('.recipe', els => els.length);
-  searchCount === 1 ? ok('搜索「西兰花」命中 1 道') : bad(`搜索命中 ${searchCount} 道`);
+  searchCount >= 1 ? ok(`搜索「西兰花」命中 ${searchCount} 道`) : bad('搜索无结果');
   await page.evaluate(() => { const q = document.getElementById('q'); q.value = ''; q.dispatchEvent(new Event('input')); });
-  await sleep(150);
+  await sleep(200);
 
   await page.evaluate(() => { document.querySelector('[data-cat="zaocan"]').click(); });
-  await sleep(150);
+  await sleep(250);
   const zaocanTotal = await page.evaluate(() =>
     window.MANIFEST.items.filter(i => i.cat === 'zaocan').length);
   const catCount = await page.$$eval('.recipe', els => els.length);
-  catCount === zaocanTotal ? ok(`分类「早餐」显示 ${catCount} 道`) : bad(`分类过滤得 ${catCount} != ${zaocanTotal}`);
+  catCount === Math.min(PAGE, zaocanTotal)
+    ? ok(`分类「早餐」显示 ${catCount} 道（共 ${zaocanTotal} 道）`)
+    : bad(`分类过滤得 ${catCount} != ${Math.min(PAGE, zaocanTotal)}`);
   await page.evaluate(() => { document.querySelector('[data-cat="全部"]').click(); });
-  await sleep(120);
+  await sleep(200);
 
   /* ---------- 4. 收藏 + 持久化 ---------- */
   console.log('\n[4] 收藏与 IndexedDB 持久化');
@@ -151,6 +216,8 @@ const bad = m => { failed++; console.error('  ✗ ' + m); };
   console.log('\n[6] 我的口味 + 忌口弹层');
   await page.evaluate(() => { document.querySelector('[data-tab="profile"]').click(); });
   await page.waitForFunction(() => document.querySelector('.screen.is-active')?.dataset.screen === 'profile');
+  const chefBox = await page.$eval('.profile__av svg', el => el.getAttribute('viewBox'));
+  chefBox === '0 0 48 48' ? ok('「小厨日记」已换成厨师头像') : bad('厨师头像未替换: ' + chefBox);
   const skipBefore = await page.evaluate(() => window.RANDOM.skippedCount(window.APP.state));
   await page.evaluate(() => { document.querySelector('[data-edit-avoid]').click(); });
   await page.waitForFunction(() => !!document.getElementById('sheet-mask'));

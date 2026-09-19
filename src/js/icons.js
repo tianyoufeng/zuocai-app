@@ -9,12 +9,14 @@
   const C = {
     ink: '#1F1E1B', bg: '#F8F5F0', white: '#FFFFFF',
     mut: '#9A948A', t3: '#8C877E', chev: '#C4BDB2',
-    brand: '#E8703A', sage: '#5C7350', ph: '#A9A29A'
+    brand: '#E8703A', brandDeep: '#C9552A', sage: '#5C7350',
+    ph: '#A9A29A', tint: '#FDEDE3', warmTint: '#F3EDE3'
   };
   const DARK = {
     ink: '#F0EBE3', bg: '#1C1A17', white: '#FFFFFF',
     mut: '#7A746A', t3: '#8C867C', chev: '#57524A',
-    brand: '#E8703A', sage: '#A3BD93', ph: '#6B655C'
+    brand: '#E8703A', brandDeep: '#F08A5C', sage: '#A3BD93',
+    ph: '#6B655C', tint: '#3A2A1F', warmTint: '#2E2A25'
   };
 
   const svgV = (vb, w, h, inner) =>
@@ -42,8 +44,28 @@
     gear: c => ic(24, `<circle cx="12" cy="12" r="3" stroke="${c.ink}" stroke-width="1.8"/><path d="M12 3.5V6.5M12 17.5V20.5M20.5 12H17.5M6.5 12H3.5M18 6L16 8M8 16L6 18M18 18L16 16M8 8L6 6" stroke="${c.ink}" stroke-width="1.8" stroke-linecap="round"/>`),
     spark: c => ic(24, `<circle cx="12" cy="12" r="4" stroke="${c.sage}" stroke-width="1.8"/><path d="M12 2.5V5M12 19V21.5M3.2 3.2L5 5M19 19L20.8 20.8M20.8 3.2L19 5M5 19L3.2 20.8" stroke="${c.sage}" stroke-width="1.8" stroke-linecap="round"/>`),
     user: (col, size, c) => ic(size || 24, `<circle cx="12" cy="8.5" r="3.8" stroke="${col || c.mut}" stroke-width="1.6"/><path d="M4.8 20.5C4.8 17 8 14.6 12 14.6C16 14.6 19.2 17 19.2 20.5" stroke="${col || c.mut}" stroke-width="1.6" stroke-linecap="round"/>`),
+    /* 厨师头像（「我的」页 / 首页通用）：暖橙圆底 + 白色厨师帽 + 笑脸 */
+    chef: (size, c) => svgV('0 0 48 48', size || '100%', size || '100%',
+      `<circle cx="24" cy="24" r="24" fill="${c.tint}"/>` +
+      `<circle cx="13.8" cy="32" r="2.2" fill="#EEC094"/>` +
+      `<circle cx="34.2" cy="32" r="2.2" fill="#EEC094"/>` +
+      `<circle cx="24" cy="31.4" r="10.4" fill="#F6CFA8"/>` +
+      `<circle cx="16.6" cy="35" r="2.3" fill="#EFA98C" fill-opacity="0.42"/>` +
+      `<circle cx="31.4" cy="35" r="2.3" fill="#EFA98C" fill-opacity="0.42"/>` +
+      `<circle cx="20.2" cy="30.8" r="1.6" fill="#3A332C"/>` +
+      `<circle cx="27.8" cy="30.8" r="1.6" fill="#3A332C"/>` +
+      `<path d="M21 35.6C21.8 37.2 22.8 38 24 38C25.2 38 26.2 37.2 27 35.6" stroke="#3A332C" stroke-width="1.7" stroke-linecap="round" fill="none"/>` +
+      `<circle cx="17.2" cy="15" r="5.7" fill="#FFFFFF"/>` +
+      `<circle cx="24" cy="12.4" r="6.7" fill="#FFFFFF"/>` +
+      `<circle cx="30.8" cy="15" r="5.7" fill="#FFFFFF"/>` +
+      `<rect x="12.2" y="15" width="23.6" height="6.6" rx="3.3" fill="#FFFFFF"/>` +
+      `<rect x="14.4" y="20.8" width="19.2" height="4.6" rx="2.3" fill="#EDE6DC"/>`
+    ),
     chevron: c => ic(24, `<path d="M9 6L15 12L9 18" stroke="${c.chev}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>`),
     plus: c => ic(24, `<path d="M12 5V19M5 12H19" stroke="${c.ink}" stroke-width="1.8" stroke-linecap="round"/>`),
+    minus: (col, c) => ic(24, `<path d="M5 12H19" stroke="${col || (c && c.ink) || C.ink}" stroke-width="2" stroke-linecap="round"/>`),
+    plusLine: (col, c) => ic(24, `<path d="M12 5V19M5 12H19" stroke="${col || (c && c.ink) || C.ink}" stroke-width="2" stroke-linecap="round"/>`),
+    check: (col, c) => ic(24, `<path d="M5 12.8L9.6 17.4L19 8" stroke="${col || (c && c.bg) || C.bg}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>`),
     trash: c => ic(24, `<path d="M4.5 6.5H19.5M9 6V4.5C9 3.9 9.4 3.5 10 3.5H14C14.6 3.5 15 3.9 15 4.5V6M6.5 6.5L7.3 19C7.35 19.6 7.8 20 8.4 20H15.6C16.2 20 16.65 19.6 16.7 19L17.5 6.5" stroke="${c.ink}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>`),
 
     /* 底部导航 */

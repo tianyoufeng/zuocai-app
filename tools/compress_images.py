@@ -7,6 +7,7 @@
 """
 import json
 import os
+import re
 import sys
 from io import BytesIO
 
@@ -19,10 +20,14 @@ MAP = os.path.join(ROOT, 'tools', 'img-map.json')
 TARGET_MAX = 800
 QUALITY = 72
 MIN_KB, MAX_KB = 30, 50
+CROP_BOTTOM = 0.10   # 裁掉底部 10%（去平台「AI 生成」水印），构图不受影响
 
 
 def compress_one(src_path):
     img = Image.open(src_path).convert('RGB')
+    # ImageGen 出图右下角带平台「AI 生成」水印，先裁掉底部一条再压缩
+    w0, h0 = img.size
+    img = img.crop((0, 0, w0, round(h0 * (1 - CROP_BOTTOM))))
     w, h = img.size
     if max(w, h) > TARGET_MAX:
         scale = TARGET_MAX / max(w, h)
@@ -52,7 +57,9 @@ def main():
     for rid, src in mapping.items():
         cat_file = None
         for cat in ('jiachangcai', 'tanggeng', 'zhushi', 'liangcai', 'zaocan', 'yexiao'):
-            if rid in open(os.path.join(ROOT, 'src', 'data', f'{cat}.js'), encoding='utf-8').read():
+            text = open(os.path.join(ROOT, 'src', 'data', f'{cat}.js'), encoding='utf-8').read()
+            # 必须精确匹配 id 字面量：子串匹配会让 jiangrou-bao 命中 jiangrou-baozi
+            if re.search(r"id:\s*'%s'" % re.escape(rid), text):
                 cat_file = cat
                 break
         if not cat_file:

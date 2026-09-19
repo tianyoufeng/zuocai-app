@@ -88,15 +88,17 @@
     return out.slice(0, 2).join('；') + tail + '。';
   }
 
-  /* 份数换算（BASE_SERVE = 2 基准，自 v1 移植） */
+  /* 份数换算（BASE_SERVE = 2 基准）
+     v3.0：从「只换算开头那个数字」改为换算用量里**所有**数字 ——
+     否则「2 个（约 400 g）」在 4 人份下会变成「4 个（约 400 g）」，括号里的重量没跟上。 */
   const BASE_SERVE = 2;
+  const niceNum = n => String(n >= 10 ? Math.round(n) : Math.round(n * 10) / 10);
   function scaledAmount(raw, serve) {
     const f = (serve || 2) / BASE_SERVE;
-    const m = /^([\d.]+)(.*)$/.exec(String(raw).trim());
-    if (!m || f === 1) return raw;
-    const n = parseFloat(m[1]) * f;
-    const nice = n >= 10 ? Math.round(n) : Math.round(n * 10) / 10;
-    return `${nice}${m[2]}`;
+    const s = String(raw);
+    if (f === 1) return s;
+    if (!/\d/.test(s)) return s;              /* 「适量 / 少许 / 几滴 / 半只」这类不换算 */
+    return s.replace(/\d+(?:\.\d+)?/g, m => niceNum(parseFloat(m) * f));
   }
 
   window.RANDOM = { PREFS, AVOID_SUGGEST, TAG_FILTERS, CATS_ALL, avoidList, skippedCount,

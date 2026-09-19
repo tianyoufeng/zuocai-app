@@ -1,5 +1,7 @@
 /* ============================================================
    app.js — 应用编排：状态 / 路由 / 事件 / 启动
+   v3.0：新增 state.serveOf（每道菜单独的份量记忆）；
+        做菜页改一页到底，事件由「上一步/下一步」改为「做完收工」。
    ============================================================ */
 (function () {
   'use strict';
@@ -12,21 +14,26 @@
     filter: '全部',
     cat: '全部',
     query: '',
-    serve: 2,
+    serve: 2,          /* 「我的」页的全局默认份量 */
+    serveOf: {},       /* 每道菜单独设过的份量 { id: n } */
     goal: 4,
     current: '',
-    step: 0
+    step: 0,
+    recipeSteps: null,
+    recipeIngs: null,
+    libShown: 0       /* 菜谱库已展开的条数（0 = 用默认第一批） */
   };
   const TAB_SCREENS = ['home', 'library', 'records', 'profile'];
   let stack = ['home'];
   let toastTimer = null;
 
   const APP = {
-    state: Object.assign({}, DEFAULTS),
+    state: Object.assign({}, DEFAULTS, { serveOf: {} }),
 
     save() { return DB.prefsSet({
       prefs: this.state.prefs, avoid: this.state.avoid, serve: this.state.serve,
-      goal: this.state.goal, filter: this.state.filter, cat: this.state.cat
+      goal: this.state.goal, filter: this.state.filter, cat: this.state.cat,
+      serveOf: this.state.serveOf
     }); },
 
     load() {
@@ -41,6 +48,15 @@
           st.goal = clamp(prefs.goal, 1, 14, 4);
           if (typeof prefs.filter === 'string' && RANDOM.TAG_FILTERS.includes(prefs.filter)) st.filter = prefs.filter;
           if (typeof prefs.cat === 'string') st.cat = prefs.cat;
+          /* 每道菜的份量记忆：只保留仍然存在的菜谱 id */
+          if (prefs.serveOf && typeof prefs.serveOf === 'object') {
+            const out = {};
+            Object.keys(prefs.serveOf).forEach(k => {
+              const n = Math.round(Number(prefs.serveOf[k]));
+              if (n >= 1 && n <= 8 && DATA.summary(k)) out[k] = n;
+            });
+            st.serveOf = out;
+          }
         }
         st.history = (history || []).filter(h => h && typeof h.id === 'string' && typeof h.at === 'number' && DATA.summary(h.id));
         st.favs = (favs || []).map(f => f.id).filter(id => !!DATA.summary(id));
@@ -80,6 +96,21 @@
       el.classList.add('is-on');
       clearTimeout(toastTimer);
       toastTimer = setTimeout(() => el.classList.remove('is-on'), 1900);
+    },
+
+    /* 「做完收工」：记入下厨记录并回首页 */
+    finishCook(st) {
+      const id = st.current;
+      const name = (DATA.summary(id) || {}).name || '';
+      const last = st.history[st.history.length - 1];
+      if (!last || last.id !== id) st.history.push({ id, at: Date.now() });
+      DB.historyPush(id).then(list => { if (Array.isArray(list)) st.history = list; });
+      st.step = 0;
+      st.recipeSteps = null;
+      st.recipeIngs = null;
+      stack = ['home'];
+      this.render();
+      this.toast(`「${name}」已记入下厨记录，辛苦啦`);
     }
   };
 
@@ -91,8 +122,8 @@
   /* ---------- 事件委托 ---------- */
   document.addEventListener('click', e => {
     const t = e.target.closest('[data-roll],[data-open],[data-back],[data-tab],[data-filter],' +
-      '[data-cat],[data-pref],[data-fav],[data-cook],[data-step],[data-serve],[data-goal],' +
-      '[data-share],[data-reset-filter],[data-edit-avoid],[data-clear-history]');
+      '[data-cat],[data-pref],[data-fav],[data-cook],[data-finish],[data-dserve],[data-more],' +
+      '[data-serve],[data-goal],[data-share],[data-reset-filter],[data-edit-avoid],[data-clear-history]');
     if (!t) return;
     const d = t.dataset;
     const st = APP.state;
@@ -101,12 +132,12 @@
     if (d.back !== undefined) { APP.back(); return; }
 
     if (d.filter !== undefined) {
-      st.filter = d.filter; APP.save();
+      st.filter = d.filter; st.libShown = 0; APP.save();
       APP.render();
       if (RANDOM.pool(st).length === 0) APP.toast('这个筛选下暂时没有可抽的菜');
       return;
     }
-    if (d.cat !== undefined) { st.cat = d.cat; APP.save(); APP.render(); return; }
+    if (d.cat !== undefined) { st.cat = d.cat; st.libShown = 0; APP.save(); APP.render(); return; }
 
     if (d.pref !== undefined) {
       const i = st.prefs.indexOf(d.pref);
@@ -117,14 +148,14 @@
     if (d.roll !== undefined) {
       const p = RANDOM.pick(st);
       if (!p) { APP.toast('当前筛选与忌口下没有可抽的菜，先放宽一点'); return; }
-      st.current = p.id; st.step = 0; st.recipeSteps = [];
+      st.current = p.id; st.step = 0; st.recipeSteps = null; st.recipeIngs = null;
       if (stack[stack.length - 1] === 'result') APP.render();
       else APP.go('result', 'push');
       return;
     }
 
     if (d.open !== undefined) {
-      st.current = d.open; st.step = 0; st.recipeSteps = [];
+      st.current = d.open; st.step = 0; st.recipeSteps = null; st.recipeIngs = null;
       if (stack[stack.length - 1] === 'detail') APP.render('push');
       else APP.go('detail', 'push');
       return;
@@ -138,51 +169,45 @@
         APP.toast(added ? '已收藏，去「记录」里能找到' : '已取消收藏');
         /* 就地翻转本按钮图标，避免整屏重绘打断滚动 */
         const c = ICONS.colors();
-        const svgHolder = t;
-        svgHolder.innerHTML = ICONS.ICON.star(c.ink, added ? c.brand : 'none', c);
+        t.innerHTML = ICONS.ICON.star(c.ink, added ? c.brand : 'none', c);
       });
       return;
     }
 
-    if (d.cook !== undefined) { st.step = 0; st.recipeSteps = []; APP.go('steps', 'push'); return; }
+    if (d.cook !== undefined) {
+      st.step = 0; st.recipeSteps = null; st.recipeIngs = null;
+      APP.go('steps', 'push');
+      return;
+    }
 
-    if (d.step !== undefined) {
-      const dir = Number(d.step);
-      const steps = st.recipeSteps || [];
-      const next = st.step + dir;
-      if (next < 0) return;
-      if (next >= steps.length) {
-        const cur = st.current;
-        DB.historyPush(cur).then(() => { st.history.push({ id: cur, at: Date.now() }); });
-        APP.toast(`「${(DATA.summary(cur) || {}).name || ''}」已记入下厨记录`);
-        st.step = 0; stack = ['home']; APP.render();
-        return;
-      }
-      st.step = next; APP.render();
-      /* 轻量更新进度与高亮，不整屏重绘 */
-      const list = document.getElementById('steps-list');
-      if (list && steps.length) {
-        list.innerHTML = steps.map((s, n) => `<div class="step ${n === st.step ? 'is-cur' : ''}">
-          <div class="step__no">${n + 1}</div>
-          <div class="step__col"><div class="step__t">${UI.esc(s.t)}</div><div class="step__d">${UI.esc(s.d)}</div></div>
-        </div>`).join('');
-        const pct = Math.round((st.step + 1) / steps.length * 100);
-        const fill = document.querySelector('.progress__fill');
-        if (fill) fill.style.width = pct + '%';
-        const label = document.querySelector('.progress__label');
-        if (label) label.textContent = `第 ${st.step + 1} 步 / 共 ${steps.length} 步`;
-        const prev = document.querySelector('[data-step="-1"]');
-        if (prev) prev.classList.toggle('is-disabled', st.step === 0);
-        const nextBtn = document.querySelector('[data-step="1"] span');
-        if (nextBtn) nextBtn.textContent = st.step >= steps.length - 1 ? '做完收工' : '下一步';
-      }
+    /* 详情页份量步进（只影响当前这道菜） */
+    if (d.dserve !== undefined) {
+      const dir = Number(d.dserve);
+      const id = st.current;
+      const cur = SCREENS.detail.curServe(st, id);
+      const next = Math.min(SCREENS.detail.MAX_SERVE, Math.max(SCREENS.detail.MIN_SERVE, cur + dir));
+      if (next === cur) return;
+      st.serveOf = st.serveOf || {};
+      st.serveOf[id] = next;
+      APP.save();
+      SCREENS.detail.applyServe(st);
+      return;
+    }
+
+    if (d.finish !== undefined) { APP.finishCook(st); return; }
+
+    /* 菜谱库：加载更多（每批 PAGE 道） */
+    if (d.more !== undefined) {
+      const page = SCREENS.library.PAGE;
+      st.libShown = (Number(st.libShown) > 0 ? Number(st.libShown) : page) + page;
+      SCREENS.library.softRefresh(st);
       return;
     }
 
     if (d.serve !== undefined) {
       st.serve = st.serve >= 6 ? 1 : st.serve + 1;
       APP.save(); APP.render();
-      APP.toast(`食材用量已按 ${st.serve} 人份换算`);
+      APP.toast(`新菜默认按 ${st.serve} 人份换算`);
       return;
     }
     if (d.goal !== undefined) {

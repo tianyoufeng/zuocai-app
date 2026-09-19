@@ -15,7 +15,7 @@
       <div class="page-title">我的口味</div>
 
       <div class="profile">
-        <div class="profile__av">${ICONS.ICON.user(c.brand, 26, c)}</div>
+        <div class="profile__av">${ICONS.ICON.chef(null, c)}</div>
         <div class="profile__col">
           <div class="profile__name">小厨日记</div>
           <div class="profile__sub">收录 ${total} 道菜 · 数据只保存在这台设备上</div>

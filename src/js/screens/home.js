@@ -34,7 +34,7 @@
           <div class="hello__date">${UI.dateLine()}</div>
           <div class="hello__title">今天吃什么</div>
         </div>
-        <div class="avatar">${ICONS.ICON.user(c.chev, 22, c)}</div>
+        <div class="avatar">${ICONS.ICON.chef(null, c)}</div>
       </div>
 
       ${h ? `<article class="hero" data-open="${h.id}">
@@ -49,7 +49,7 @@
             ${h.time <= 20 ? UI.tagHtml('20 分钟快手', 'sage') : ''}
             ${UI.tagHtml(`约 ${h.kcal} 千卡`, 'warm')}
           </div>
-          <div class="hero__hint">共 ${total} 道家常菜，等你翻牌</div>
+          <div class="hero__hint">共 ${total} 道菜谱，等你翻牌</div>
         </div>
       </article>` : `<div class="empty">菜谱库加载中…</div>`}
 
