@@ -1,0 +1,14 @@
+# 操作系统 / 编辑器产生的杂物
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*~
+
+# 编辑器配置
+.vscode/
+.idea/
+
+# 本地临时文件
+*.log
+tmp/

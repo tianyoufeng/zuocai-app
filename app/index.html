@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F8F5F0">
+<title>今天吃什么</title>
+<style>
+/* ============================================================
+   设计令牌 — 与设计稿「设计规范」页完全一致
+   ============================================================ */
+:root{
+  /* 背景层 */
+  --bg:#F8F5F0;            /* 底色 */
+  --card:#FFFFFF;          /* 卡片 */
+  --warm-tint:#F3EDE3;     /* 暖灰底（次级面） */
+  /* 主色：番茄橙 —— 只用于每屏唯一主行动点 */
+  --brand:#E8703A;
+  --brand-deep:#C9552A;
+  --brand-tint:#FDEDE3;
+  --brand-tint-line:#F5C4A8;
+  /* 辅色：鼠尾草绿 —— 清淡 / 素材类语义 */
+  --sage:#87A878;
+  --sage-tint:#EAEFE4;
+  --sage-text:#5C7350;
+  --sage-text-deep:#4A5C42;
+  /* 文字 */
+  --ink:#1F1E1B;
+  --t2:#5C5A55;
+  --t3:#8C877E;
+  --muted:#9A948A;
+  --ph:#A9A29A;
+  /* 描边 */
+  --border:#EDE6D9;
+  --chev:#C4BDB2;
+  /* 圆角 */
+  --r-screen:44px;
+  --r-card:20px;
+  --r-img:16px;
+  --r-btn:16px;
+  --r-pill:100px;
+  /* 阴影：暖色调，而非中性黑 */
+  --sh-card:0 2px 8px rgba(232,112,58,.10);
+  --sh-cta:0 8px 20px -4px rgba(232,112,58,.30);
+  /* 字体：菜名走宋体，界面走黑体 */
+  --font:"PingFang SC","HarmonyOS Sans SC","Microsoft YaHei UI","Microsoft YaHei",
+         "Source Han Sans SC","Noto Sans SC",system-ui,-apple-system,sans-serif;
+  --font-serif:"Source Han Serif CN","Source Han Serif SC","Noto Serif SC",
+               "Songti SC","STSong","SimSun",serif;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:var(--font);
+  color:var(--ink);
+  background:
+    radial-gradient(120% 90% at 50% 0%, #F3EDE3 0%, #E8E1D5 60%, #E2DACD 100%);
+  -webkit-font-smoothing:antialiased;
+  overflow:hidden;
+}
+
+/* ============================================================
+   舞台与手机画布：固定 390×844，等比缩放居中
+   ============================================================ */
+.stage{
+  position:fixed; inset:0;
+  display:flex; align-items:center; justify-content:center;
+}
+.phone{
+  position:relative;
+  width:390px; height:844px;
+  flex:0 0 auto;
+  background:var(--bg);
+  border-radius:var(--r-screen);
+  overflow:hidden;
+  box-shadow:0 30px 70px -20px rgba(70,44,22,.38), 0 0 0 1px rgba(255,255,255,.55) inset;
+  transform-origin:center center;
+}
+/* 窄屏（真机）：去掉机身圆角与投影，同色同底，无边框感 */
+body.is-narrow .phone{border-radius:0;box-shadow:none}
+body.is-narrow{background:var(--bg)}
+
+/* ============================================================
+   页面容器
+   ============================================================ */
+.screen{
+  position:absolute; inset:0;
+  display:none; flex-direction:column;
+  background:var(--bg);
+}
+.screen.is-active{display:flex}
+@keyframes pushIn{from{transform:translateX(26px);opacity:0}to{transform:none;opacity:1}}
+@keyframes popIn{from{transform:translateX(-20px);opacity:0}to{transform:none;opacity:1}}
+.screen.anim-push{animation:pushIn .24s cubic-bezier(.32,.72,0,1)}
+.screen.anim-pop{animation:popIn .24s cubic-bezier(.32,.72,0,1)}
+
+/* ============================================================
+   状态栏（62px，与设计稿一致）
+   ============================================================ */
+.status-bar{
+  flex:0 0 62px; height:62px;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:0 24px 0 28px;
+}
+.status-bar__time{font-size:17px;line-height:22px;font-weight:600;letter-spacing:.2px}
+.status-bar__icons{display:flex;align-items:center;gap:6px}
+.status-bar__icons svg{display:block}
+
+/* ============================================================
+   内容区
+   ============================================================ */
+.content{
+  flex:1 1 auto; min-height:0;
+  display:flex; flex-direction:column;
+  padding:20px;
+  overflow-y:auto; overflow-x:hidden;
+  scrollbar-width:none;
+  -webkit-overflow-scrolling:touch;
+}
+.content::-webkit-scrollbar{display:none}
+.content > *{flex-shrink:0}          /* 关键：禁止子项被压扁 */
+.content--home{gap:18px}
+.content--plain{gap:16px}
+.content--lib{gap:12px}
+.content--me{gap:14px}
+
+/* ============================================================
+   通用：区块标题 / 卡片 / 标签
+   ============================================================ */
+.sec-head{display:flex;align-items:center;justify-content:space-between;width:100%}
+.sec-title{font-size:16px;line-height:24px;font-weight:600}
+.sec-note{font-size:12px;line-height:18px;color:var(--t3)}
+.page-title{font-size:20px;line-height:28px;font-weight:600;flex:1}
+
+.card{background:var(--card);border-radius:var(--r-card)}
+.card--pad{padding:16px}
+
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{
+  display:inline-flex;align-items:center;
+  padding:4px 10px;border-radius:var(--r-pill);
+  font-size:11px;line-height:16px;font-weight:500;white-space:nowrap;
+}
+.tag--brand{background:var(--brand-tint);color:var(--brand-deep)}
+.tag--sage{background:var(--sage-tint);color:var(--sage-text)}
+.tag--warm{background:var(--warm-tint);color:var(--t2)}
+
+/* 圆形图标按钮 40×40 */
+.icon-btn{
+  width:40px;height:40px;flex:0 0 40px;border:0;padding:0;
+  border-radius:50%;background:var(--card);cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  -webkit-tap-highlight-color:transparent;
+}
+.icon-btn:active{transform:scale(.94)}
+.icon-btn svg{display:block}
+
+/* 横滑条 */
+.strip{display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+.strip::-webkit-scrollbar{display:none}
+.strip__item{flex:0 0 106px;display:flex;flex-direction:column;gap:6px;cursor:pointer}
+.strip__thumb{width:100%;height:72px;border-radius:14px;overflow:hidden;background:var(--warm-tint)}
+.strip__name{font-size:12px;line-height:17px;font-weight:500;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.thumb-ph{background:linear-gradient(135deg,var(--brand-tint),var(--warm-tint))}
+img.cover{width:100%;height:100%;object-fit:cover;display:block}
+
+/* 筛选 chip */
+.chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding-bottom:1px}
+.chips::-webkit-scrollbar{display:none}
+.chips--wrap{flex-wrap:wrap;overflow:visible;row-gap:8px}
+.chip{
+  flex:0 0 auto;
+  padding:8px 16px;border-radius:var(--r-pill);
+  font-size:13px;line-height:18px;font-weight:500;
+  background:var(--card);color:var(--t2);
+  border:1px solid var(--border);cursor:pointer;
+  -webkit-tap-highlight-color:transparent;font-family:inherit;
+}
+.chip.is-on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.chip--pref.is-on{background:var(--brand-tint);color:var(--brand-deep);border-color:var(--brand-tint-line)}
+
+/* ============================================================
+   主按钮 / 次按钮
+   ============================================================ */
+.btn{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  height:56px;border-radius:var(--r-btn);border:0;cursor:pointer;
+  font-family:inherit;font-size:16px;line-height:24px;font-weight:600;
+  -webkit-tap-highlight-color:transparent;
+}
+.btn:active{transform:scale(.985)}
+.btn--primary{background:var(--brand);color:#fff;box-shadow:var(--sh-cta)}
+.btn--ghost{background:var(--card);color:var(--ink);border:1px solid var(--border)}
+.btn--w128{flex:0 0 128px;font-size:15px;line-height:22px;font-weight:500}
+.btn--lg{height:54px;border-radius:var(--r-btn);width:100%}
+.btn svg{display:block;flex:0 0 auto}
+.btn.is-disabled{opacity:.4;pointer-events:none}
+
+/* 底部栏 */
+.bottom{flex:0 0 auto;padding:4px 20px 28px}
+.bottom__row{display:flex;gap:10px}
+
+/* ============================================================
+   底部导航（胶囊，与设计稿一致）
+   ============================================================ */
+.tabbar{flex:0 0 auto;padding:12px 21px 21px}
+.tabbar__pill{
+  height:62px;border-radius:36px;background:var(--card);
+  border:1px solid var(--border);padding:4px;display:flex;
+}
+.tab{
+  flex:1 1 0;min-width:0;border:0;padding:0;background:transparent;
+  border-radius:26px;cursor:pointer;color:var(--muted);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;
+  font-family:inherit;-webkit-tap-highlight-color:transparent;
+}
+.tab.is-active{background:var(--ink);color:#fff}
+.tab svg{display:block}
+.tab span{font-size:10px;line-height:14px;font-weight:500}
+
+/* ============================================================
+   S1 首页
+   ============================================================ */
+.hello{display:flex;align-items:center;justify-content:space-between;width:100%}
+.hello__col{display:flex;flex-direction:column;gap:2px}
+.hello__date{font-size:12px;line-height:18px;color:var(--t3)}
+.hello__title{font-size:20px;line-height:28px;font-weight:600}
+.avatar{
+  width:40px;height:40px;flex:0 0 40px;border-radius:50%;
+  background:var(--warm-tint);display:flex;align-items:center;justify-content:center;
+}
+.avatar svg{display:block}
+
+.hero{background:var(--card);border-radius:24px;overflow:hidden;
+  box-shadow:var(--sh-card);cursor:pointer;width:100%}
+.hero__img{width:100%;height:180px}
+.hero__body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:10px}
+.hero__row{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.hero__name{font-family:var(--font-serif);font-size:22px;line-height:30px;font-weight:700}
+.hero__time{font-size:12px;line-height:18px;font-weight:500;color:var(--brand);white-space:nowrap}
+.hero__hint{font-size:12px;line-height:18px;color:var(--t3)}
+
+.recent{display:flex;flex-direction:column;gap:12px;width:100%}
+.recent__empty{
+  font-size:12px;line-height:18px;color:var(--t3);
+  background:var(--warm-tint);border-radius:14px;padding:14px;
+}
+
+/* ============================================================
+   S2 结果
+   ============================================================ */
+.nav{display:flex;align-items:center;gap:12px;width:100%}
+.result__img{width:100%;height:288px;border-radius:24px;overflow:hidden;background:var(--warm-tint);
+  animation:popIn .3s cubic-bezier(.32,.72,0,1)}
+.name-block{display:flex;flex-direction:column;gap:6px;width:100%}
+.dish-name{font-family:var(--font-serif);font-size:28px;line-height:38px;font-weight:700}
+.dish-sub{font-size:13px;line-height:20px;color:var(--t3)}
+.meta-card{display:flex;align-items:center;justify-content:space-between;
+  background:var(--card);border-radius:var(--r-card);padding:16px;width:100%}
+.meta-card__col{display:flex;flex-direction:column;align-items:center;gap:4px}
+.meta-card__v{font-size:16px;line-height:24px;font-weight:600;white-space:nowrap}
+.meta-card__l{font-size:11px;line-height:16px;color:var(--t3);white-space:nowrap}
+.reason{display:flex;gap:10px;align-items:flex-start;
+  background:var(--sage-tint);border-radius:18px;padding:14px;width:100%}
+.reason svg{flex:0 0 18px;margin-top:2px}
+.reason__text{font-size:13px;line-height:20px;color:var(--sage-text-deep)}
+
+/* ============================================================
+   S3 详情 / S6 步骤
+   ============================================================ */
+.detail__img{width:100%;height:200px;border-radius:24px;overflow:hidden;background:var(--warm-tint)}
+.dish-name--sm{font-size:26px;line-height:36px}
+.meta-line{font-size:13px;line-height:20px;color:var(--t3)}
+.ing-card{background:var(--card);border-radius:var(--r-card);padding:16px;
+  display:flex;flex-direction:column;gap:12px;width:100%}
+.ing-row{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.ing-row__n{font-size:14px;line-height:22px}
+.ing-row__v{font-size:14px;line-height:22px;font-weight:500;color:var(--t2);white-space:nowrap}
+
+.progress{display:flex;align-items:center;gap:10px;width:100%}
+.progress__label{flex:0 0 100px;font-size:12px;line-height:18px;font-weight:500;color:var(--brand-deep)}
+.progress__track{flex:1 1 auto;height:6px;border-radius:3px;background:var(--border);overflow:hidden}
+.progress__fill{height:100%;border-radius:3px;background:var(--brand);transition:width .25s ease}
+.steps{display:flex;flex-direction:column;gap:14px;width:100%}
+.step{display:flex;gap:12px;align-items:flex-start}
+.step__no{
+  flex:0 0 26px;width:26px;height:26px;border-radius:13px;background:var(--brand-tint);
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;line-height:16px;font-weight:600;color:var(--brand-deep);
+  transition:background .2s ease,color .2s ease;
+}
+.step.is-cur .step__no{background:var(--brand);color:#fff}
+.step__col{flex:1 1 auto;min-width:0;display:flex;flex-direction:column;gap:8px}
+.step__t{font-size:14px;line-height:22px;font-weight:600}
+.step__d{font-size:13px;line-height:21px;color:var(--t2)}
+.step__img{width:100%;height:72px;border-radius:var(--r-img);overflow:hidden;background:var(--warm-tint)}
+
+/* ============================================================
+   S5 菜谱库
+   ============================================================ */
+.search{
+  display:flex;align-items:center;gap:8px;height:44px;
+  border-radius:14px;background:var(--card);padding:0 14px;
+}
+.search input{
+  flex:1 1 auto;min-width:0;border:0;outline:0;background:transparent;
+  font-family:inherit;font-size:14px;line-height:22px;color:var(--ink);
+}
+.search input::placeholder{color:var(--ph)}
+.search svg{flex:0 0 18px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;width:100%}
+.recipe{
+  background:var(--card);border-radius:var(--r-card);overflow:hidden;
+  box-shadow:var(--sh-card);cursor:pointer;
+  display:flex;flex-direction:column;height:160px;
+}
+.recipe__img{width:100%;height:90px;background:var(--warm-tint)}
+.recipe__body{padding:12px;display:flex;flex-direction:column;gap:6px}
+.recipe__name{font-size:15px;line-height:22px;font-weight:600;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.recipe__meta{font-size:12px;line-height:18px;color:var(--t3)}
+.empty{
+  text-align:center;font-size:13px;line-height:20px;color:var(--t3);
+  background:var(--warm-tint);border-radius:14px;padding:22px 16px;width:100%;
+}
+
+/* ============================================================
+   S7 我的
+   ============================================================ */
+.profile{display:flex;align-items:center;gap:14px;background:var(--card);
+  border-radius:var(--r-card);padding:16px;width:100%}
+.profile__av{width:56px;height:56px;flex:0 0 56px;border-radius:50%;background:var(--brand-tint);
+  display:flex;align-items:center;justify-content:center}
+.profile__col{display:flex;flex-direction:column;gap:4px;min-width:0}
+.profile__name{font-size:16px;line-height:24px;font-weight:600}
+.profile__sub{font-size:12px;line-height:18px;color:var(--t3)}
+.stats{display:flex;align-items:center;justify-content:space-between;
+  background:var(--card);border-radius:var(--r-card);padding:16px;width:100%}
+.stats__col{display:flex;flex-direction:column;align-items:center;gap:4px}
+.stats__v{font-size:18px;line-height:26px;font-weight:600}
+.stats__v.is-brand{color:var(--brand)}
+.stats__l{font-size:11px;line-height:16px;color:var(--t3);white-space:nowrap}
+.rows-card{background:var(--card);border-radius:var(--r-card);padding:16px;
+  display:flex;flex-direction:column;gap:12px;width:100%}
+.row{display:flex;align-items:center;justify-content:space-between;gap:12px;
+  width:100%;border:0;background:transparent;padding:0;font-family:inherit;text-align:left}
+.row__n{font-size:14px;line-height:22px;color:var(--ink)}
+.row__v{font-size:14px;line-height:22px;font-weight:500;color:var(--t2)}
+button.row{cursor:pointer}
+button.row:active .row__v{color:var(--brand)}
+.avoid-text{font-size:14px;line-height:22px;font-weight:500}
+.avoid-note{font-size:12px;line-height:18px;color:var(--t3)}
+
+/* 历史 / 记录行 */
+.list{display:flex;flex-direction:column;gap:10px;width:100%}
+.hrow{display:flex;align-items:center;gap:12px;background:var(--card);
+  border-radius:var(--r-img);padding:10px;width:100%;border:0;font-family:inherit;
+  text-align:left;cursor:pointer}
+.hrow__thumb{width:52px;height:52px;flex:0 0 52px;border-radius:14px;overflow:hidden;background:var(--warm-tint)}
+.hrow__col{flex:1 1 auto;min-width:0;display:flex;flex-direction:column;gap:3px}
+.hrow__n{font-size:15px;line-height:22px;font-weight:500;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.hrow__m{font-size:12px;line-height:18px;color:var(--t3)}
+.hrow svg{flex:0 0 18px}
+
+/* ============================================================
+   Toast
+   ============================================================ */
+.toast{
+  position:absolute;left:50%;bottom:118px;transform:translate(-50%,10px);
+  max-width:300px;padding:11px 18px;border-radius:var(--r-pill);
+  background:rgba(31,30,27,.93);color:#fff;
+  font-size:13px;line-height:18px;text-align:center;
+  opacity:0;pointer-events:none;transition:opacity .22s ease,transform .22s ease;
+  z-index:60;
+}
+.toast.is-on{opacity:1;transform:translate(-50%,0)}
+</style>
+</head>
+<body>
+
+<div class="stage" id="stage">
+  <div class="phone" id="phone"></div>
+</div>
+
+<script>
+/* ============================================================
+   1. 图标（全部为内联 SVG，不使用 emoji / 图标字体）
+   ============================================================ */
+const C = {
+  ink:'#1F1E1B', white:'#FFFFFF', mut:'#9A948A', t3:'#8C877E',
+  chev:'#C4BDB2', brand:'#E8703A', sage:'#5C7350', ph:'#A9A29A'
+};
+/* 统一 SVG 构造器：图形一律画在 24×24 坐标系里，再按需要的像素尺寸渲染。
+   这样任何一个图标换尺寸都不会被裁切，也不会出现重复的 viewBox 属性。 */
+const svgV = (vb, w, h, inner) =>
+  `<svg width="${w}" height="${h}" viewBox="${vb}" fill="none" xmlns="http://www.w3.org/2000/svg">${inner}</svg>`;
+const ic = (size, inner) => svgV('0 0 24 24', size, size, inner);
+
+const ICON = {
+  /* 状态栏图标：非正方形，与设计稿 1:1 */
+  signal: svgV('0 0 18 12', 18, 12, `<rect x="0" y="8" width="3" height="4" rx="1" fill="${C.ink}"/><rect x="5" y="5.5" width="3" height="6.5" rx="1" fill="${C.ink}"/><rect x="10" y="3" width="3" height="9" rx="1" fill="${C.ink}"/><rect x="15" y="0" width="3" height="12" rx="1" fill="${C.ink}"/>`),
+  wifi: svgV('0 0 17 12', 17, 12, `<path d="M1 4.2C3.2 2.2 5.9 1 8.5 1C11.1 1 13.8 2.2 16 4.2" stroke="${C.ink}" stroke-width="1.8" stroke-linecap="round"/><path d="M4 7.2C5.3 6.1 6.8 5.5 8.5 5.5C10.2 5.5 11.7 6.1 13 7.2" stroke="${C.ink}" stroke-width="1.8" stroke-linecap="round"/><path d="M6.8 10C7.3 9.6 7.9 9.4 8.5 9.4C9.1 9.4 9.7 9.6 10.2 10" stroke="${C.ink}" stroke-width="1.8" stroke-linecap="round"/>`),
+  battery: svgV('0 0 25 12', 25, 12, `<rect x="0.5" y="0.5" width="21" height="11" rx="3.5" stroke="#1F1E1B" stroke-opacity="0.35"/><rect x="2" y="2" width="15" height="8" rx="2" fill="#1F1E1B"/><path d="M23 4.2V7.8C23.9 7.5 24.5 6.9 24.5 6C24.5 5.1 23.9 4.5 23 4.2Z" fill="#1F1E1B" fill-opacity="0.4"/>`),
+
+  back: (col=C.ink) => ic(24, `<path d="M15.5 5L8.5 12L15.5 19" stroke="${col}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>`),
+  heart: (col=C.ink, fill='none') => ic(24, `<path d="M12 19.5C12 19.5 3.5 14.4 3.5 8.8C3.5 5.9 5.8 4 8.2 4C9.9 4 11.3 5 12 6.3C12.7 5 14.1 4 15.8 4C18.2 4 20.5 5.9 20.5 8.8C20.5 14.4 12 19.5 12 19.5Z" stroke="${col}" stroke-width="1.8" stroke-linejoin="round" fill="${fill}"/>`),
+  share: ic(24, `<path d="M6 13.5V19C6 19.6 6.4 20 7 20H17C17.6 20 18 19.6 18 19V13.5" stroke="${C.ink}" stroke-width="1.8" stroke-linecap="round"/><path d="M12 15.5V3.5" stroke="${C.ink}" stroke-width="1.8" stroke-linecap="round"/><path d="M8 7.5L12 3.5L16 7.5" stroke="${C.ink}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>`),
+  star: (col=C.ink, fill='none') => ic(24, `<path d="M12 3.5L14.6 9L20.5 9.8L16.2 13.9L17.3 19.7L12 16.9L6.7 19.7L7.8 13.9L3.5 9.8L9.4 9L12 3.5Z" stroke="${col}" stroke-width="1.8" stroke-linejoin="round" fill="${fill}"/>`),
+  dice: (col=C.white) => ic(24, `<rect x="3" y="3" width="18" height="18" rx="5" stroke="${col}" stroke-width="2"/><circle cx="8.5" cy="8.5" r="1.6" fill="${col}"/><circle cx="15.5" cy="15.5" r="1.6" fill="${col}"/><circle cx="15.5" cy="8.5" r="1.6" fill="${col}"/><circle cx="8.5" cy="15.5" r="1.6" fill="${col}"/>`),
+  refresh: ic(24, `<path d="M20 12C20 16.4 16.4 20 12 20C7.6 20 4 16.4 4 12C4 7.6 7.6 4 12 4C14.8 4 17.2 5.4 18.6 7.5" stroke="${C.ink}" stroke-width="1.8" stroke-linecap="round"/><path d="M19 3.5V7.8H14.7" stroke="${C.ink}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>`),
+  list: ic(24, `<path d="M8 6H20M8 12H20M8 18H20" stroke="${C.white}" stroke-width="2" stroke-linecap="round"/><circle cx="4" cy="6" r="1.5" fill="${C.white}"/><circle cx="4" cy="12" r="1.5" fill="${C.white}"/><circle cx="4" cy="18" r="1.5" fill="${C.white}"/>`),
+  timer: ic(24, `<circle cx="12" cy="13" r="7.5" stroke="${C.white}" stroke-width="1.8"/><path d="M12 9.5V13L14.5 14.6" stroke="${C.white}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M9.5 2.5H14.5" stroke="${C.white}" stroke-width="1.8" stroke-linecap="round"/>`),
+  arrowLeft: (col=C.ink) => ic(24, `<path d="M19 12H5" stroke="${col}" stroke-width="2" stroke-linecap="round"/><path d="M11 6L5 12L11 18" stroke="${col}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>`),
+  arrowRight: (col=C.white) => ic(24, `<path d="M5 12H19" stroke="${col}" stroke-width="2" stroke-linecap="round"/><path d="M13 6L19 12L13 18" stroke="${col}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>`),
+  search: ic(24, `<circle cx="10.5" cy="10.5" r="6.5" stroke="${C.t3}" stroke-width="1.8"/><path d="M15.5 15.5L20 20" stroke="${C.t3}" stroke-width="1.8" stroke-linecap="round"/>`),
+  /* 筛选：三条居中的递减横线（与设计稿一致） */
+  filter: ic(24, `<path d="M5 8H19M8 12H16M10.5 16H13.5" stroke="${C.ink}" stroke-width="1.8" stroke-linecap="round"/>`),
+  gear: ic(24, `<circle cx="12" cy="12" r="3" stroke="${C.ink}" stroke-width="1.8"/><path d="M12 3.5V6.5M12 17.5V20.5M20.5 12H17.5M6.5 12H3.5M18 6L16 8M8 16L6 18M18 18L16 16M8 8L6 6" stroke="${C.ink}" stroke-width="1.8" stroke-linecap="round"/>`),
+  spark: ic(24, `<circle cx="12" cy="12" r="4" stroke="${C.sage}" stroke-width="1.8"/><path d="M12 2.5V5M12 19V21.5M3.2 3.2L5 5M19 19L20.8 20.8M20.8 3.2L19 5M5 19L3.2 20.8" stroke="${C.sage}" stroke-width="1.8" stroke-linecap="round"/>`),
+  user: (col=C.mut, size=24) => ic(size, `<circle cx="12" cy="8.5" r="3.8" stroke="${col}" stroke-width="1.6"/><path d="M4.8 20.5C4.8 17 8 14.6 12 14.6C16 14.6 19.2 17 19.2 20.5" stroke="${col}" stroke-width="1.6" stroke-linecap="round"/>`),
+  chevron: ic(24, `<path d="M9 6L15 12L9 18" stroke="${C.chev}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>`),
+
+  /* 底部导航：与画布中的 24 坐标系图标一致，渲染为 18px */
+  tabHome: (col) => ic(18, `<path d="M3 10.5L12 3.5L21 10.5V20C21 20.6 20.6 21 20 21H15V15.5H9V21H4C3.4 21 3 20.6 3 20V10.5Z" stroke="${col}" stroke-width="1.8" stroke-linejoin="round"/>`),
+  tabBook: (col) => ic(18, `<path d="M4 4.5C4 3.7 4.7 3 5.5 3H19V21H5.5C4.7 21 4 20.3 4 19.5V4.5Z" stroke="${col}" stroke-width="1.8" stroke-linejoin="round"/><path d="M8.5 3V21" stroke="${col}" stroke-width="1.8"/>`),
+  tabClock: (col) => ic(18, `<circle cx="12" cy="12" r="8.5" stroke="${col}" stroke-width="1.8"/><path d="M12 7.5V12L15 13.8" stroke="${col}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>`),
+  tabUser: (col) => ic(18, `<circle cx="12" cy="8" r="3.8" stroke="${col}" stroke-width="1.8"/><path d="M4.5 20.5C4.5 16.9 7.9 14.5 12 14.5C16.1 14.5 19.5 16.9 19.5 20.5" stroke="${col}" stroke-width="1.8" stroke-linecap="round"/>`)
+};
+
+/* ============================================================
+   2. 菜品数据（数据驱动，加菜只需在数组里追加一项 + 放一张图）
+      img 留空则自动使用暖色渐变占位，不会出现破图
+   ============================================================ */
+const BASE_SERVE = 2;
+const DISHES = [
+  {
+    id:'tomato-egg', name:'番茄炒蛋', img:'assets/images/tomato-egg.jpg',
+    mins:15, level:'简单', kcal:350, cats:['快手','清淡'], flavor:['清淡','甜'],
+    hint:'家常菜',
+    ings:[['鸡蛋','3 个'],['番茄','2 个（约 400 g）'],['小葱','1 根'],
+          ['白糖','1 茶匙'],['盐','适量'],['食用油','2 汤匙']],
+    steps:[
+      {t:'打蛋调味', d:'鸡蛋打入碗中，加一小撮盐和一勺清水，打散到蛋液表面起细密小泡。'},
+      {t:'番茄去皮', d:'番茄顶部划十字，开水烫 20 秒后剥皮，切成滚刀块；小葱切末。'},
+      {t:'炒蛋盛出', d:'锅烧热放 2 汤匙油，油温七成热倒入蛋液，等边缘凝固后从下往上推散，八成熟立刻盛出。'},
+      {t:'炒番茄回锅', d:'锅中留底油下番茄块，中火炒到出汁变软，加 1 茶匙糖和适量盐，倒回鸡蛋快速翻匀，撒葱花出锅。'}
+    ]
+  },
+  {
+    id:'garlic-broccoli', name:'蒜蓉西兰花', img:'assets/images/garlic-broccoli.jpg',
+    mins:12, level:'简单', kcal:160, cats:['快手','清淡'], flavor:['清淡'],
+    hint:'素食',
+    ings:[['西兰花','1 颗（约 400 g）'],['大蒜','4 瓣'],['生抽','1 汤匙'],
+          ['蚝油','1 茶匙'],['盐','少许'],['食用油','1 汤匙']],
+    steps:[
+      {t:'拆小朵', d:'西兰花切成小朵，用淡盐水泡 5 分钟后冲净。'},
+      {t:'焯水定色', d:'水中加少许盐和几滴油，水开后下西兰花焯 1 分钟，捞出立刻过一遍凉水。'},
+      {t:'爆香蒜末', d:'大蒜切末，锅中放少许油，小火把一半蒜末炒出香味。'},
+      {t:'快速翻匀', d:'下西兰花转大火，加生抽、蚝油和剩下的蒜末，翻炒 40 秒出锅。'}
+    ]
+  },
+  {
+    id:'shrimp-egg', name:'虾仁蒸蛋羹', img:'assets/images/shrimp-egg.jpg',
+    mins:20, level:'简单', kcal:220, cats:['快手','清淡'], flavor:['清淡'],
+    hint:'少油',
+    ings:[['鸡蛋','3 个'],['温水','270 ml'],['虾仁','6 只'],
+          ['生抽','1 茶匙'],['香油','几滴'],['小葱','1 根'],['盐','少许']],
+    steps:[
+      {t:'调蛋液', d:'鸡蛋打散，加 1.5 倍温水（约 270 ml）和少许盐，搅匀后过筛两遍去掉泡沫。'},
+      {t:'上锅蒸制', d:'碗上盖保鲜膜并扎几个孔，水开后中小火蒸 10 分钟。'},
+      {t:'放虾仁', d:'揭开保鲜膜，摆上焯过水的虾仁，再蒸 3 分钟。'},
+      {t:'调味出锅', d:'淋 1 茶匙生抽和几滴香油，撒上葱花即可。'}
+    ]
+  },
+  {
+    id:'mapo-tofu', name:'麻婆豆腐', img:'assets/images/mapo-tofu.jpg',
+    mins:20, level:'中等', kcal:380, cats:['快手','下饭'], flavor:['辣','重口'],
+    hint:'川味',
+    ings:[['嫩豆腐','1 盒（400 g）'],['牛肉末','80 g'],['郫县豆瓣酱','1 汤匙'],
+          ['豆豉','1 茶匙'],['花椒粉','1 茶匙'],['姜末 · 蒜末','各 1 茶匙'],
+          ['水淀粉','3 汤匙'],['小葱','1 根']],
+    steps:[
+      {t:'豆腐定型', d:'豆腐切 2 cm 见方，放入加盐的凉水中泡 5 分钟，捞出沥干。'},
+      {t:'炒香底料', d:'热锅下油，炒散牛肉末至微微发干，下豆瓣酱、豆豉、姜蒜末炒出红油。'},
+      {t:'烧入味', d:'加 200 ml 热水烧开，推入豆腐块，中火烧 3 分钟，别用铲子翻，晃动锅子即可。'},
+      {t:'勾芡出锅', d:'分两次淋入水淀粉收汁，出锅撒花椒粉和葱花。'}
+    ]
+  },
+  {
+    id:'cola-wings', name:'可乐鸡翅', img:'assets/images/cola-wings.jpg',
+    mins:25, level:'简单', kcal:480, cats:['下饭'], flavor:['甜'],
+    hint:'下饭',
+    ings:[['鸡中翅','10 只'],['可乐','330 ml'],['生抽','2 汤匙'],
+          ['姜片','4 片'],['料酒','1 汤匙'],['白芝麻','少许']],
+    steps:[
+      {t:'改刀焯水', d:'鸡翅两面各划两刀，冷水下锅加姜片和料酒，水开后煮 2 分钟捞出。'},
+      {t:'煎上色', d:'锅中放少许油，鸡翅皮朝下小火煎到两面金黄。'},
+      {t:'加可乐焖', d:'倒入可乐没过鸡翅，加生抽，大火烧开后转中小火焖 12 分钟。'},
+      {t:'收汁装盘', d:'开盖转大火收到汤汁浓稠能挂住鸡翅，撒白芝麻。'}
+    ]
+  },
+  {
+    id:'congee', name:'皮蛋瘦肉粥', img:'assets/images/congee.jpg',
+    mins:40, level:'简单', kcal:320, cats:['清淡'], flavor:['清淡'],
+    hint:'主食',
+    ings:[['大米','100 g'],['皮蛋','1 个'],['猪里脊','100 g'],['姜丝','少许'],
+          ['盐 · 白胡椒粉','适量'],['香油','几滴'],['香菜','可选']],
+    steps:[
+      {t:'泡米', d:'大米淘净后加一点油和盐拌匀，静置 15 分钟，煮出来更绵。'},
+      {t:'煮粥底', d:'锅中加 1200 ml 水烧开下米，转小火煮 25 分钟，其间搅两次防止粘底。'},
+      {t:'下肉和皮蛋', d:'里脊切丝用少许盐和生粉抓匀，连皮蛋丁、姜丝一起下锅，再煮 5 分钟。'},
+      {t:'调味', d:'加盐和白胡椒粉调味，淋香油、撒葱花（喜甜的可以省掉香菜）。'}
+    ]
+  },
+  {
+    id:'tomato-beef', name:'番茄炖牛腩', img:'assets/images/tomato-beef.jpg',
+    mins:90, level:'中等', kcal:520, cats:['下饭','清淡'], flavor:['清淡','甜'],
+    hint:'炖菜',
+    ings:[['牛腩','500 g'],['番茄','3 个'],['洋葱','半个'],['番茄膏','1 汤匙'],
+          ['姜片','4 片'],['八角','1 颗'],['生抽','2 汤匙'],['冰糖','10 g'],['香菜','可选']],
+    steps:[
+      {t:'牛腩焯水', d:'牛腩切 3 cm 块，冷水下锅加姜片，水开后煮 3 分钟捞出冲净。'},
+      {t:'炒番茄底', d:'锅中下油炒香洋葱和姜片，加番茄块炒到出沙，加番茄膏炒匀。'},
+      {t:'小火慢炖', d:'下牛腩、八角、生抽和冰糖，加热水没过食材，小火炖 70 分钟。'},
+      {t:'收汁调味', d:'加盐调味，大火收汁到汤色浓稠即可。'}
+    ]
+  },
+  {
+    id:'braised-pork', name:'红烧肉', img:'assets/images/braised-pork.jpg',
+    mins:60, level:'中等', kcal:620, cats:['下饭'], flavor:['重口','甜'],
+    hint:'硬菜',
+    ings:[['带皮五花肉','500 g'],['冰糖','20 g'],['生抽','2 汤匙'],
+          ['老抽','1 茶匙'],['姜片 · 八角 · 桂皮','适量']],
+    steps:[
+      {t:'焯水去腥', d:'五花肉切成 3 cm 见方的块，冷水下锅，加两片姜和一勺料酒。水开后煮 2 分钟捞出，用温水冲净浮沫。',
+       img:'assets/images/step-blanch.jpg'},
+      {t:'炒出糖色', d:'锅烧热放少许油，下冰糖小火慢炒。糖融化变成琥珀色并冒小泡时立刻下肉块，快速翻炒，让每块都均匀裹上糖色。'},
+      {t:'小火慢炖', d:'淋入生抽和老抽翻匀，加热水没过肉面，放入姜片、八角、桂皮。大火烧开后转小火，盖盖炖 40 分钟。',
+       img:'assets/images/step-simmer.jpg'},
+      {t:'大火收汁', d:'开盖转中大火收汁，边收边翻动，等汤汁变得浓稠能挂在肉上就关火，撒白芝麻装饰上桌。'}
+    ]
+  }
+];
+
+/* 口味偏好 → 命中的风味标签 */
+const PREFS = [
+  {id:'微辣',  flavor:'辣'},
+  {id:'少油少盐', flavor:'清淡'},
+  {id:'重口',  flavor:'重口'},
+  {id:'偏甜',  flavor:'甜'},
+  {id:'不吃香菜', avoid:'香菜'}
+];
+const AVOID_POOL = ['香菜','动物内脏','苦瓜'];
+const FILTERS = ['全部','20 分钟快手','下饭硬菜','清淡少油'];
+const STORE_KEY = 'chishenme.v1';
+
+/* ============================================================
+   3. 状态
+   ============================================================ */
+const defaultState = () => ({
+  prefs:['微辣','少油少盐'],
+  avoid:['香菜','动物内脏','苦瓜'],
+  history:[   /* 首次打开的示例数据，可在「我的」里一键清空 */
+    {id:'garlic-broccoli', at:Date.now() - 2 * 864e5},
+    {id:'tomato-beef',     at:Date.now() - 4 * 864e5},
+    {id:'shrimp-egg',      at:Date.now() - 6 * 864e5}
+  ],
+  favs:[],
+  filter:'全部',
+  query:'',
+  serve:2,
+  goal:4,
+  current:'braised-pork',
+  step:1,
+  tab:'home'
+});
+
+let state;
+try { state = Object.assign(defaultState(), JSON.parse(localStorage.getItem(STORE_KEY) || '{}')); }
+catch (e) { state = defaultState(); }
+const save = () => { try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch (e) {} };
+
+const byId = id => DISHES.find(d => d.id === id);
+const dish = () => byId(state.current) || DISHES[0];
+const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;')
+                        .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
+/* 容错：本地数据被改坏 / 版本变化时，也不至于整页崩掉 */
+(function sanitize(){
+  const base = defaultState();
+  const arr = (v, fb) => Array.isArray(v) ? v : fb;
+  state.prefs   = arr(state.prefs).filter(p => PREFS.some(x => x.id === p));
+  state.avoid   = arr(state.avoid).filter(x => typeof x === 'string');
+  state.favs    = arr(state.favs).filter(id => !!byId(id));
+  state.history = arr(state.history).filter(h => h && byId(h.id) && typeof h.at === 'number');
+  if (typeof state.filter !== 'string' || !FILTERS.includes(state.filter)) state.filter = base.filter;
+  if (typeof state.query !== 'string') state.query = '';
+  const num = (v, lo, hi, fb) => { const n = Number(v); return n >= lo && n <= hi ? n : fb; };
+  state.serve = num(state.serve, 1, 8, base.serve);
+  state.goal  = num(state.goal, 1, 14, base.goal);
+  state.step  = num(state.step, 0, 99, 0);
+  if (!byId(state.current)) state.current = base.current;
+})();
+
+/* ============================================================
+   4. 业务逻辑：加权随机 + 忌口过滤
+   ============================================================ */
+function avoidList(){
+  const a = state.avoid.slice();
+  if (state.prefs.includes('不吃香菜') && !a.includes('香菜')) a.push('香菜');
+  return a;
+}
+function currentPool(ignoreFilter){
+  const av = avoidList();
+  return DISHES.filter(d => {
+    if (av.some(x => d.ings.some(i => i[0].includes(x)))) return false;
+    if (!ignoreFilter && state.filter !== '全部'){
+      if (state.filter === '20 分钟快手' && d.mins > 20) return false;
+      if (state.filter === '下饭硬菜' && !d.cats.includes('下饭')) return false;
+      if (state.filter === '清淡少油' && !d.cats.includes('清淡')) return false;
+    }
+    return true;
+  });
+}
+function skippedCount(){
+  const av = avoidList();
+  return DISHES.filter(d => av.some(x => d.ings.some(i => i[0].includes(x)))).length;
+}
+function pickDish(){
+  const pool = currentPool();
+  if (!pool.length) return null;
+  const prefs = PREFS.filter(p => state.prefs.includes(p.id) && p.flavor).map(p => p.flavor);
+  const recent = state.history.slice(-3).map(h => h.id);
+  const weighted = [];
+  pool.forEach(d => {
+    let w = 1;
+    if (d.flavor.some(f => prefs.includes(f))) w += 2;   /* 口味加权 */
+    if (!recent.includes(d.id)) w += 1;                  /* 避开最近 3 次 */
+    for (let i = 0; i < w; i++) weighted.push(d);
+  });
+  return weighted[Math.floor(Math.random() * weighted.length)];
+}
+function daysSince(ts){ return Math.floor((Date.now() - ts) / 864e5); }
+function catLabel(d){ return d.cats.includes('下饭') ? '下饭硬菜' : d.cats.includes('清淡') ? '清淡小菜' : '快手菜'; }
+
+function reasonFor(d){
+  const out = [];
+  const prefs = PREFS.filter(p => state.prefs.includes(p.id) && p.flavor).map(p => p.flavor);
+  const hit = d.flavor.find(f => prefs.includes(f));
+  if (hit){
+    const label = (PREFS.find(p => p.flavor === hit) || {}).id;
+    out.push(`你选了「${label}」，这道正好对口`);
+  }
+  const last = state.history.filter(h => h.id === d.id).sort((a,b) => b.at - a.at)[0];
+  if (!last) out.push(`${d.name} 你还没做过，正好解锁一道新的`);
+  else {
+    const dd = daysSince(last.at);
+    if (dd >= 7) out.push(`上次做 ${d.name} 已经是 ${dd} 天前，该复刻一次了`);
+  }
+  const h = new Date().getHours();
+  if (h < 10) out.push(`现在才 ${h} 点多，${d.mins} 分钟的 ${d.name} 完全来得及`);
+  else if (h >= 17) out.push(`${h} 点多了，${d.mins} 分钟的 ${d.name} 正好赶得上晚饭`);
+  if (!out.length) out.push(`最近 ${Math.min(state.history.length,3)} 次都没重复，换到${catLabel(d)}类`);
+  const tail = skippedCount() ? `；已按忌口跳过 ${skippedCount()} 道` : '';
+  return out.slice(0, 2).join('；') + tail + '。';
+}
+function scaledAmount(raw){
+  const f = state.serve / BASE_SERVE;
+  const m = /^([\d.]+)(.*)$/.exec(raw.trim());
+  if (!m || f === 1) return raw;
+  const n = parseFloat(m[1]) * f;
+  const nice = n >= 10 ? Math.round(n) : Math.round(n * 10) / 10;
+  return `${nice}${m[2]}`;
+}
+function commitDish(d){
+  const last = state.history[state.history.length - 1];
+  if (!last || last.id !== d.id) state.history.push({ id:d.id, at:Date.now() });
+  save();
+}
+function weekCount(){
+  const from = Date.now() - 6 * 864e5;
+  return state.history.filter(h => h.at >= from).length;
+}
+function recentDishes(limit){
+  const seen = [];
+  for (let i = state.history.length - 1; i >= 0 && seen.length < (limit || 6); i--){
+    if (!seen.some(s => s.id === state.history[i].id)) seen.push(state.history[i]);
+  }
+  return seen;
+}
+function heroDish(){
+  const r = recentDishes(1);
+  const d = r.length ? byId(r[0].id) : null;
+  return d || DISHES[0];
+}
+
+/* ============================================================
+   5. 公共片段
+   ============================================================ */
+function statusBar(){
+  const now = new Date();
+  const t = `${now.getHours()}:${String(now.getMinutes()).padStart(2, '0')}`;
+  return `<header class="status-bar">
+    <div class="status-bar__time">${t}</div>
+    <div class="status-bar__icons">${ICON.signal}${ICON.wifi}${ICON.battery}</div>
+  </header>`;
+}
+const TABS = [
+  {id:'home',    label:'首页', icon:'tabHome'},
+  {id:'library', label:'菜谱', icon:'tabBook'},
+  {id:'records', label:'记录', icon:'tabClock'},
+  {id:'profile', label:'我的', icon:'tabUser'}
+];
+function tabBar(active){
+  return `<nav class="tabbar"><div class="tabbar__pill">
+    ${TABS.map(t => `<button class="tab ${t.id === active ? 'is-active' : ''}" data-tab="${t.id}">
+      ${ICON[t.icon](t.id === active ? '#FFFFFF' : C.mut)}<span>${t.label}</span></button>`).join('')}
+  </div></nav>`;
+}
+function tagHtml([text, kind]){ return `<span class="tag tag--${kind}">${text}</span>`; }
+function thumb(d, cls){
+  return d.img
+    ? `<div class="${cls}"><img class="cover" src="${d.img}" alt="${d.name}" loading="lazy"></div>`
+    : `<div class="${cls} thumb-ph"></div>`;
+}
+function metaOf(d){ return `${d.mins} 分钟 · ${d.level} · 约 ${d.kcal} 千卡 · ${state.serve} 人份`; }
+
+/* ============================================================
+   6. 各页面渲染
+   ============================================================ */
+function screenHome(){
+  const h = heroDish();
+  const rec = recentDishes(6);
+  return `<section class="screen" data-screen="home">
+    ${statusBar()}
+    <div class="content content--home">
+      <div class="hello">
+        <div class="hello__col">
+          <div class="hello__date">${dateLine()}</div>
+          <div class="hello__title">今天吃什么</div>
+        </div>
+        <div class="avatar">${ICON.user(C.chev, 22)}</div>
+      </div>
+
+      <article class="hero" data-open="${h.id}">
+        ${thumb(h, 'hero__img')}
+        <div class="hero__body">
+          <div class="hero__row">
+            <div class="hero__name">${h.name}</div>
+            <div class="hero__time">${h.mins} 分钟</div>
+          </div>
+          <div class="tags">
+            ${tagHtml([h.hint, 'brand'])}
+            ${tagHtml([`${h.mins} 分钟快手`, 'sage'])}
+            ${tagHtml([`约 ${h.kcal} 千卡`, 'warm'])}
+          </div>
+          <div class="hero__hint">共 ${DISHES.length} 道家常菜，等你翻牌</div>
+        </div>
+      </article>
+
+      <button class="btn btn--primary btn--lg" data-roll="1">
+        ${ICON.dice('#FFFFFF')}<span>随机抽一道菜</span>
+      </button>
+
+      <div class="chips">
+        ${FILTERS.map(f => `<button class="chip ${state.filter === f ? 'is-on' : ''}" data-filter="${f}">${f}</button>`).join('')}
+      </div>
+
+      <div class="recent">
+        <div class="sec-head">
+          <div class="sec-title">最近吃过</div>
+          <button class="row" data-tab="records" style="width:auto"><span class="sec-note">全部记录</span></button>
+        </div>
+        ${rec.length
+          ? `<div class="strip">${rec.map(r => {
+              const d = byId(r.id);
+              return `<div class="strip__item" data-open="${d.id}">
+                ${thumb(d, 'strip__thumb')}
+                <div class="strip__name">${d.name}</div>
+              </div>`;
+            }).join('')}</div>`
+          : `<div class="recent__empty">还没有下厨记录，点上面那颗骰子抽一道试试。</div>`}
+      </div>
+    </div>
+    ${tabBar('home')}
+  </section>`;
+}
+
+function screenResult(){
+  const d = dish();
+  return `<section class="screen" data-screen="result">
+    ${statusBar()}
+    <div class="content content--plain">
+      <div class="nav">
+        <button class="icon-btn" data-back="1">${ICON.back()}</button>
+        <div class="page-title">今日盲盒</div>
+        <button class="icon-btn" data-fav="${d.id}">
+          ${ICON.heart(C.ink, state.favs.includes(d.id) ? C.brand : 'none')}
+        </button>
+      </div>
+
+      ${thumb(d, 'result__img')}
+
+      <div class="name-block">
+        <div class="dish-name">${d.name}</div>
+        <div class="dish-sub">这次抽到它了 —— 慢炖 ${d.mins} 分钟，值得等。</div>
+      </div>
+
+      <div class="meta-card">
+        ${[['mins', `${d.mins} 分钟`, '耗时', 0],
+           ['level', d.level, '难度', 0],
+           ['kcal', `${d.kcal} 千卡`, '热量', 0],
+           ['serve', `${state.serve} 人份`, '份量', 0]]
+          .map(([, v, l]) => `<div class="meta-card__col">
+            <div class="meta-card__v">${v}</div><div class="meta-card__l">${l}</div></div>`).join('')}
+      </div>
+
+      <div class="reason">${ICON.spark}<div class="reason__text">为什么抽到它：${reasonFor(d)}</div></div>
+    </div>
+    <div class="bottom">
+      <div class="bottom__row">
+        <button class="btn btn--ghost btn--w128" data-roll="1">${ICON.refresh}<span>换一道</span></button>
+        <button class="btn btn--primary" style="flex:1 1 auto" data-open="${d.id}">
+          ${ICON.list}<span>就它了 · 看做法</span>
+        </button>
+      </div>
+    </div>
+  </section>`;
+}
+
+function screenDetail(){
+  const d = dish();
+  const fav = state.favs.includes(d.id);
+  return `<section class="screen" data-screen="detail">
+    ${statusBar()}
+    <div class="content content--plain">
+      <div class="nav">
+        <button class="icon-btn" data-back="1">${ICON.back()}</button>
+        <div class="page-title">${d.name} · 做法</div>
+        <button class="icon-btn" data-share="1">${ICON.share}</button>
+      </div>
+
+      ${thumb(d, 'detail__img')}
+
+      <div class="name-block">
+        <div class="dish-name dish-name--sm">${d.name}</div>
+        <div class="meta-line">${metaOf(d)}</div>
+      </div>
+
+      <div class="sec-head">
+        <div class="sec-title">食材配料</div>
+        <div class="sec-note">${state.serve} 人份 · 按现有库存调整</div>
+      </div>
+      <div class="ing-card">
+        ${d.ings.map(([n, v]) => `<div class="ing-row">
+          <div class="ing-row__n">${n}</div>
+          <div class="ing-row__v">${scaledAmount(v)}</div>
+        </div>`).join('')}
+      </div>
+    </div>
+    <div class="bottom">
+      <div class="bottom__row">
+        <button class="btn btn--ghost" style="flex:0 0 56px;padding:0" data-fav="${d.id}">
+          ${ICON.star(C.ink, fav ? C.brand : 'none')}
+        </button>
+        <button class="btn btn--primary" style="flex:1 1 auto" data-cook="1">
+          ${ICON.timer}<span>开始做菜 · ${d.mins} 分钟计时</span>
+        </button>
+      </div>
+    </div>
+  </section>`;
+}
+
+function screenSteps(){
+  const d = dish();
+  const i = Math.min(state.step, d.steps.length - 1);
+  const pct = Math.round((i + 1) / d.steps.length * 100);
+  const last = i === d.steps.length - 1;
+  return `<section class="screen" data-screen="steps">
+    ${statusBar()}
+    <div class="content content--plain">
+      <div class="nav">
+        <button class="icon-btn" data-back="1">${ICON.back()}</button>
+        <div class="page-title">${d.name} · 做法</div>
+        <button class="icon-btn" data-share="1">${ICON.share}</button>
+      </div>
+
+      <div class="progress">
+        <div class="progress__label">第 ${i + 1} 步 / 共 ${d.steps.length} 步</div>
+        <div class="progress__track"><div class="progress__fill" style="width:${pct}%"></div></div>
+      </div>
+
+      <div class="sec-head">
+        <div class="sec-title">烹饪步骤</div>
+        <div class="sec-note">共 ${d.steps.length} 步 · 约 ${d.mins} 分钟</div>
+      </div>
+
+      <div class="steps">
+        ${d.steps.map((s, n) => `<div class="step ${n === i ? 'is-cur' : ''}">
+          <div class="step__no">${n + 1}</div>
+          <div class="step__col">
+            <div class="step__t">${s.t}</div>
+            <div class="step__d">${s.d}</div>
+            ${s.img ? `<div class="step__img"><img class="cover" src="${s.img}" alt="" loading="lazy"></div>` : ''}
+          </div>
+        </div>`).join('')}
+      </div>
+    </div>
+    <div class="bottom">
+      <div class="bottom__row">
+        <button class="btn btn--ghost btn--w128 ${i === 0 ? 'is-disabled' : ''}" data-step="-1">
+          ${ICON.arrowLeft()}<span>上一步</span>
+        </button>
+        <button class="btn btn--primary" style="flex:1 1 auto" data-step="1">
+          ${ICON.arrowRight()}<span>${last ? '做完收工' : '下一步：' + d.steps[i + 1].t}</span>
+        </button>
+      </div>
+    </div>
+  </section>`;
+}
+
+function filteredForLibrary(){
+  const q = state.query.trim();
+  return currentPool().filter(d => {
+    if (!q) return true;
+    return d.name.includes(q) || d.ings.some(i => i[0].includes(q));
+  });
+}
+function screenLibrary(){
+  const list = filteredForLibrary();
+  return `<section class="screen" data-screen="library">
+    ${statusBar()}
+    <div class="content content--lib">
+      <div class="nav">
+        <div class="page-title">菜谱库</div>
+        <button class="icon-btn" data-reset-filter="1">${ICON.filter}</button>
+      </div>
+
+      <label class="search">
+        ${ICON.search}
+        <input type="search" id="q" placeholder="搜索菜名或食材，比如「土豆」" value="${esc(state.query)}">
+      </label>
+
+      <div class="chips chips--wrap">
+        ${FILTERS.map(f => `<button class="chip ${state.filter === f ? 'is-on' : ''}" data-filter="${f}">${f}</button>`).join('')}
+      </div>
+
+      ${list.length
+        ? `<div class="grid">${list.map(d => `<article class="recipe" data-open="${d.id}">
+            ${thumb(d, 'recipe__img')}
+            <div class="recipe__body">
+              <div class="recipe__name">${d.name}</div>
+              <div class="recipe__meta">${d.mins} 分钟 · ${d.level}</div>
+            </div>
+          </article>`).join('')}</div>`
+        : `<div class="empty">没有符合条件的菜谱。<br>换个关键词，或把筛选和忌口放宽一点。</div>`}
+    </div>
+    ${tabBar('library')}
+  </section>`;
+}
+
+function screenRecords(){
+  const favs = state.favs.map(byId).filter(Boolean);
+  const list = state.history.slice().reverse();
+  return `<section class="screen" data-screen="records">
+    ${statusBar()}
+    <div class="content content--lib">
+      <div class="page-title">记录</div>
+
+      <div class="sec-head">
+        <div class="sec-title">我的收藏</div>
+        <div class="sec-note">${favs.length} 道</div>
+      </div>
+      ${favs.length
+        ? `<div class="strip">${favs.map(d => `<div class="strip__item" data-open="${d.id}">
+            ${thumb(d, 'strip__thumb')}<div class="strip__name">${d.name}</div>
+          </div>`).join('')}</div>`
+        : `<div class="recent__empty">还没有收藏。在结果页或详情页点收藏，就会出现在这里。</div>`}
+
+      <div class="sec-head">
+        <div class="sec-title">下厨历史</div>
+        <div class="sec-note">共 ${list.length} 次</div>
+      </div>
+      ${list.length
+        ? `<div class="list">${list.map(h => {
+            const d = byId(h.id);
+            const dd = daysSince(h.at);
+            return `<button class="hrow" data-open="${d.id}">
+              ${thumb(d, 'hrow__thumb')}
+              <div class="hrow__col">
+                <div class="hrow__n">${d.name}</div>
+                <div class="hrow__m">${dd === 0 ? '今天' : dd + ' 天前'} · ${d.mins} 分钟</div>
+              </div>
+              ${ICON.chevron}
+            </button>`;
+          }).join('')}</div>`
+        : `<div class="recent__empty">还没有下厨记录。</div>`}
+    </div>
+    ${tabBar('records')}
+  </section>`;
+}
+
+function screenProfile(){
+  const total = DISHES.length;
+  const week = weekCount();
+  const av = avoidList();
+  return `<section class="screen" data-screen="profile">
+    ${statusBar()}
+    <div class="content content--me">
+      <div class="nav">
+        <div class="page-title">我的口味</div>
+        <button class="icon-btn" data-settings="1">${ICON.gear}</button>
+      </div>
+
+      <div class="profile">
+        <div class="profile__av">${ICON.user(C.brand, 26)}</div>
+        <div class="profile__col">
+          <div class="profile__name">小厨日记</div>
+          <div class="profile__sub">已解锁 ${total} 道菜 · 数据只保存在这台设备上</div>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stats__col">
+          <div class="stats__v">${state.history.length}</div>
+          <div class="stats__l">累计做过</div>
+        </div>
+        <div class="stats__col">
+          <div class="stats__v is-brand">${week}</div>
+          <div class="stats__l">本周下厨</div>
+        </div>
+        <div class="stats__col">
+          <div class="stats__v">${total}</div>
+          <div class="stats__l">已解锁菜谱</div>
+        </div>
+      </div>
+
+      <div class="sec-head">
+        <div class="sec-title">口味偏好</div>
+        <div class="sec-note">用于随机结果加权</div>
+      </div>
+      <div class="chips chips--wrap">
+        ${PREFS.map(p => `<button class="chip chip--pref ${state.prefs.includes(p.id) ? 'is-on' : ''}"
+          data-pref="${p.id}">${p.id}</button>`).join('')}
+      </div>
+
+      <div class="sec-head">
+        <div class="sec-title">忌口食材</div>
+        <div class="sec-note">抽菜时自动跳过</div>
+      </div>
+      <div class="card card--pad" style="display:flex;flex-direction:column;gap:6px;width:100%">
+        <div class="avoid-text">${state.avoid.join(' · ') || '暂未设置'}</div>
+        <div class="avoid-note">含以上食材的菜谱不会出现在随机结果里，当前影响 ${skippedCount()} 道菜。</div>
+      </div>
+
+      <div class="sec-head">
+        <div class="sec-title">下厨设置</div>
+        <div class="sec-note">只保存在本机</div>
+      </div>
+      <div class="rows-card">
+        <button class="row" data-serve="1">
+          <span class="row__n">默认份量</span>
+          <span class="row__v">${state.serve} 人份</span>
+        </button>
+        <button class="row" data-goal="1">
+          <span class="row__n">本周目标</span>
+          <span class="row__v">${state.goal} 次</span>
+        </button>
+      </div>
+    </div>
+    ${tabBar('profile')}
+  </section>`;
+}
+
+function dateLine(){
+  const D = ['周日','周一','周二','周三','周四','周五','周六'];
+  const n = new Date();
+  return `${D[n.getDay()]} · ${n.getMonth() + 1} 月 ${n.getDate()} 日`;
+}
+
+/* ============================================================
+   7. 路由
+   ============================================================ */
+const RENDER = {
+  home: screenHome, result: screenResult, detail: screenDetail,
+  steps: screenSteps, library: screenLibrary, records: screenRecords,
+  profile: screenProfile
+};
+const TAB_SCREENS = ['home','library','records','profile'];
+let stack = ['home'];
+
+function render(anim){
+  const name = stack[stack.length - 1];
+  const phone = document.getElementById('phone');
+  phone.innerHTML = RENDER[name]() + `<div class="toast" id="toast"></div>`;
+  const el = phone.querySelector('.screen');
+  el.classList.add('is-active');          /* 关键：不激活则整屏空白 */
+  if (anim) el.classList.add(anim === 'pop' ? 'anim-pop' : 'anim-push');
+  if (name === 'library'){
+    const q = document.getElementById('q');
+    if (q) q.addEventListener('input', e => { state.query = e.target.value; save(); softLibrary(); });
+  }
+}
+/* 只刷新菜谱网格，避免输入框失焦 */
+function softLibrary(){
+  const grid = document.querySelector('.screen[data-screen="library"] .grid');
+  const empty = document.querySelector('.screen[data-screen="library"] .empty');
+  const wrap = document.querySelector('.screen[data-screen="library"] .content');
+  const list = filteredForLibrary();
+  const old = grid || empty;
+  const html = list.length
+    ? `<div class="grid">${list.map(d => `<article class="recipe" data-open="${d.id}">
+        ${thumb(d, 'recipe__img')}
+        <div class="recipe__body">
+          <div class="recipe__name">${d.name}</div>
+          <div class="recipe__meta">${d.mins} 分钟 · ${d.level}</div>
+        </div></article>`).join('')}</div>`
+    : `<div class="empty">没有符合条件的菜谱。<br>换个关键词，或把筛选和忌口放宽一点。</div>`;
+  if (old) old.outerHTML = html;
+  else if (wrap) wrap.insertAdjacentHTML('beforeend', html);
+}
+
+function go(name, mode){
+  if (TAB_SCREENS.includes(name)){
+    state.tab = name;
+    stack = [name];
+  } else {
+    stack.push(name);
+  }
+  save();
+  render(mode);
+}
+function back(){
+  if (stack.length > 1){ stack.pop(); render('pop'); }
+}
+function goTab(name){
+  state.query = '';
+  go(name);
+}
+
+/* ============================================================
+   8. 交互
+   ============================================================ */
+let toastTimer = null;
+function toast(msg){
+  const el = document.getElementById('toast');
+  if (!el) return;
+  el.textContent = msg;
+  el.classList.add('is-on');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.classList.remove('is-on'), 1900);
+}
+
+document.addEventListener('click', e => {
+  const t = e.target.closest('[data-roll],[data-open],[data-back],[data-tab],[data-filter],' +
+    '[data-pref],[data-fav],[data-cook],[data-step],[data-serve],[data-goal],' +
+    '[data-share],[data-settings],[data-reset-filter]');
+  if (!t) return;
+  const d = t.dataset;
+
+  if (d.tab !== undefined){ goTab(d.tab); return; }
+  if (d.back !== undefined){ back(); return; }
+
+  if (d.filter !== undefined){
+    state.filter = d.filter; save();
+    const cur = stack[stack.length - 1];
+    if (cur === 'home'){
+      render();
+      toast(currentPool().length ? `筛选：${d.filter}` : '这个筛选下暂时没有可抽的菜');
+    } else render();
+    return;
+  }
+
+  if (d.pref !== undefined){
+    const i = state.prefs.indexOf(d.pref);
+    if (i === -1) state.prefs.push(d.pref); else state.prefs.splice(i, 1);
+    save(); render();
+    return;
+  }
+
+  if (d.roll !== undefined){
+    const p = pickDish();
+    if (!p){ toast('当前筛选与忌口下没有可抽的菜，先放宽一点'); return; }
+    state.current = p.id; state.step = 1;
+    save();
+    if (stack[stack.length - 1] === 'result') render('pop');
+    else go('result', 'push');
+    return;
+  }
+
+  if (d.open !== undefined){
+    state.current = d.open; state.step = 0; save();
+    /* 已经在详情页时原地刷新，避免把详情页压进栈里 */
+    if (stack[stack.length - 1] === 'detail') render('push');
+    else go('detail', 'push');
+    return;
+  }
+
+  if (d.fav !== undefined){
+    const i = state.favs.indexOf(d.fav);
+    if (i === -1){ state.favs.push(d.fav); toast('已收藏，去「记录」里能找到'); }
+    else { state.favs.splice(i, 1); toast('已取消收藏'); }
+    save(); render();
+    return;
+  }
+
+  if (d.cook !== undefined){
+    state.step = 0; save(); go('steps', 'push'); return;
+  }
+
+  if (d.step !== undefined){
+    const dir = Number(d.step);
+    const total = dish().steps.length;
+    const next = state.step + dir;
+    if (next < 0) return;
+    if (next >= total){
+      commitDish(dish());
+      toast(`「${dish().name}」已记入下厨记录`);
+      stack = ['home']; state.step = 0; save(); render('pop');
+      return;
+    }
+    state.step = next; save(); render();
+    return;
+  }
+
+  if (d.serve !== undefined){
+    state.serve = state.serve >= 6 ? 1 : state.serve + 1; save(); render();
+    toast(`食材用量已按 ${state.serve} 人份换算`);
+    return;
+  }
+  if (d.goal !== undefined){
+    const opts = [3,4,5,7];
+    state.goal = opts[(opts.indexOf(state.goal) + 1) % opts.length]; save(); render();
+    return;
+  }
+  if (d.share !== undefined){ toast('分享功能需要后端支持，本地版先留个位置'); return; }
+  if (d.settings !== undefined){ toast('设置项已经放在下面这些卡片里了'); return; }
+  if (d.resetFilter !== undefined){
+    state.filter = '全部'; state.query = ''; save(); render(); toast('已重置筛选与搜索');
+    return;
+  }
+});
+
+document.addEventListener('keydown', e => {
+  if (e.target.tagName === 'INPUT') return;
+  if (e.key === 'Escape') back();
+  if (e.key === 'ArrowRight'){ const b = document.querySelector('[data-step="1"]'); if (b) b.click(); }
+  if (e.key === 'ArrowLeft'){ const b = document.querySelector('[data-step="-1"]:not(.is-disabled)'); if (b) b.click(); }
+});
+
+/* ============================================================
+   9. 画布等比缩放：固定 390×844 原画布，居中缩放
+   ============================================================ */
+function fit(){
+  const vw = window.innerWidth;
+  const vh = window.innerHeight;
+  const narrow = vw <= 480;
+  document.body.classList.toggle('is-narrow', narrow);
+  const scale = Math.min(vw / 390, vh / 844);
+  const phone = document.getElementById('phone');
+  phone.style.transform = `scale(${scale})`;
+}
+window.addEventListener('resize', fit);
+window.addEventListener('orientationchange', fit);
+
+fit();
+render();
+</script>
+</body>
+</html>
